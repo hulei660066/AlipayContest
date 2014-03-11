@@ -22,7 +22,7 @@ public class DataAnalyze {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-//			getUsers();
+			// getUsers();
 			getItems();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -69,39 +69,13 @@ public class DataAnalyze {
 				User.Product product = user.new Product();
 				product.setBrandID(resultSet.getInt(3));
 				int type = resultSet.getInt(4);
+				userActive = calculateWeight(userActive, type);
 				product.setType(resultSet.getInt(4));
 				product.setVisitDaytime(resultSet.getDate(5));
 
-				/*大赛给出的182,880条交易数据中，
-				 * 总的点击行为次数为：174,539,占百分比为0.954390857；1
-				 * 总的购买行为次数为：6,984,占百分比为0.038188976；26
-				 * 总的收藏行为次数为：1,204,占百分比为0.006583552；152
-				 * 总的购物车行为车次数为：153，占百分比为0.000836614;1195
-				 * */
-				switch (type) {
-				case 0: {// 点击
-					userActive = userActive + 1;
-				}
-					break;
-
-				case 1: {// 购买，转化率0.038188976
-					userActive = userActive + 26;
-				}
-					break;
-
-				case 2: {// 收藏，转化率0.006583552
-					userActive = userActive + 10;
-				}
-					break;
-
-				case 3: {// 购物车可与购买归为一类
-					userActive = userActive + 26;
-				}
-					break;
-				}
 				user.addProducts(product);
 				dealCount++;
-				
+
 			}
 
 			user.setUserID(userId);
@@ -120,7 +94,40 @@ public class DataAnalyze {
 
 		return users;
 	}
-	
+
+	/*
+	 * 大赛给出的182,880条交易数据中， 总的点击行为次数为：174,539,占百分比为0.954390857；1
+	 * 总的购买行为次数为：6,984,占百分比为0.038188976；26 总的收藏行为次数为：1,204,占百分比为0.006583552；152
+	 * 总的购物车行为车次数为：153，占百分比为0.000836614;1195
+	 */
+	public static int calculateWeight(int iuserActive, int iType) {
+
+		int userActive = iuserActive;
+		switch (iType) {
+		case 0: {// 点击
+			userActive = userActive + 1;
+		}
+			break;
+
+		case 1: {// 购买，转化率0.038188976
+			userActive = userActive + 26;
+		}
+			break;
+
+		case 2: {// 收藏，转化率0.006583552
+			userActive = userActive + 10;
+		}
+			break;
+
+		case 3: {// 购物车可与购买归为一类
+			userActive = userActive + 26;
+		}
+			break;
+		}
+
+		return userActive;
+	}
+
 	//
 	public static LinkedList<Object> getItems() throws SQLException {
 		if (items != null) {
@@ -145,8 +152,8 @@ public class DataAnalyze {
 		}
 
 		for (int itemId : itemIds) {
-			sqlStat = "select * from tmail_firstseason where brand_id=" + itemId
-					+ ";";
+			sqlStat = "select * from tmail_firstseason where brand_id="
+					+ itemId + ";";
 			// preparedStatement = connection.prepareStatement(sqlStat);
 			statement = connection.createStatement();
 			statement.executeQuery(sqlStat);
@@ -163,36 +170,10 @@ public class DataAnalyze {
 				user.setType(resultSet.getInt(4));
 				user.setVisitDaytime(resultSet.getDate(5));
 
-				/*大赛给出的182,880条交易数据中，
-				 * 总的点击行为次数为：174,539,占百分比为0.954390857；1
-				 * 总的购买行为次数为：6,984,占百分比为0.038188976；26
-				 * 总的收藏行为次数为：1,204,占百分比为0.006583552；152
-				 * 总的购物车行为车次数为：153，占百分比为0.000836614;1195
-				 * */
-				switch (type) {
-				case 0: {// 点击
-					itemPopular = itemPopular + 1;
-				}
-					break;
-
-				case 1: {// 购买，转化率0.038188976
-					itemPopular = itemPopular + 26;
-				}
-					break;
-
-				case 2: {// 收藏，转化率0.006583552
-					itemPopular = itemPopular + 10;
-				}
-					break;
-
-				case 3: {// 购物车可与购买归为一类
-					itemPopular = itemPopular + 26;
-				}
-					break;
-				}
+				itemPopular = calculateWeight(itemPopular, type);
 				item.addUsers(user);
 				dealCount++;
-				
+
 			}
 
 			item.setProductID(itemId);
@@ -211,6 +192,7 @@ public class DataAnalyze {
 
 		return items;
 	}
+
 	// write the tmp list to file
 	private static void write2File(List<Object> items) {
 		write2File(items, 1);
