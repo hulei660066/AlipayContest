@@ -1,5 +1,6 @@
 package iot.lane.alipaycontest.firstseason;
 
+
 import java.io.File;
 import java.io.FileWriter;
 import java.math.BigDecimal;
@@ -7,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,14 +17,35 @@ import org.apache.logging.log4j.Logger;
 
 public class DataETL {
 
-	private static LinkedList<Object> users = null;
+	// private static LinkedList<Object> users = null;
 	private static LinkedList<Object> items = null;
 	static Logger logger = LogManager.getLogger(DataETL.class.getName());
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			getUsers();
+			LinkedList<Object> users07 = getUsers(07);
+			HashMap<Integer, Integer> ItemsTop = getHotItems();
+			LinkedList<Object> usersResult = new LinkedList<Object>();
+			
+			for(Object user : users07){
+				
+				if(user instanceof User){
+					User usert = (User)user;
+					User tmp = new User();
+					tmp.setUserID(usert.getUserID());
+					int count = usert.getWeight()/26;
+					
+					for(Object product : usert.getProducts()){
+						User.Product productt = (User.Product)product;
+						if(ItemsTop.containsKey(productt.getBrandID())){
+							
+						}
+					}
+				}
+				
+			}
+			int c = 1;
 			// getItems();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -31,19 +54,39 @@ public class DataETL {
 
 	}
 
-	public static LinkedList<Object> getUsers() throws SQLException {
-		if (users != null) {
-			return users;
+	public static HashMap<Integer, Integer> getHotItems() throws SQLException {
+		java.sql.Statement statement = null;
+		ResultSet resultSet = null;
+		HashMap<Integer, Integer> itemsMap = new HashMap<Integer, Integer>();
+
+		String sqlStat = "select * from item_sort where weight >=100";
+		Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
+				MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
+
+		statement = connection.createStatement();
+		statement.executeQuery(sqlStat);
+		resultSet = statement.getResultSet();
+		while (resultSet.next()) {
+			itemsMap.put(resultSet.getInt(2), resultSet.getInt(3));
 		}
+
+		return itemsMap;
+	}
+
+	public static LinkedList<Object> getUsers(int month) throws SQLException {
+		// if (users != null) {
+		// return users;
+		// }
 		// if the companies is null then make it happen
-		users = new LinkedList<Object>();
+		LinkedList<Object> users = new LinkedList<Object>();
 		LinkedList<Integer> userIds = new LinkedList<Integer>();
 		// PreparedStatement preparedStatement;
 		java.sql.Statement statement = null;
 		ResultSet resultSet = null;
 		// String sqlStat =
 		// "select user_id from tmail_firstseason group by user_id;";
-		String sqlStat = "select * from tmail_firstseason where MONTH(visit_datetime) = 07 group by user_id;";
+		String sqlStat = "select * from tmail_firstseason where MONTH(visit_datetime) ="
+				+ month + " group by user_id;";
 
 		Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
 				MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
@@ -57,7 +100,7 @@ public class DataETL {
 
 		for (int userId : userIds) {
 			sqlStat = "select * from tmail_firstseason where user_id=" + userId
-					+ " and (MONTH(visit_datetime) = 07);";
+					+ " and MONTH(visit_datetime) = " + month;
 			// preparedStatement = connection.prepareStatement(sqlStat);
 			statement = connection.createStatement();
 			statement.executeQuery(sqlStat);
@@ -67,7 +110,7 @@ public class DataETL {
 			int FavoriteCount = 0;
 			int ShopcartCount = 0;
 			int userActive = 0;
-			
+
 			User user = new User();
 
 			while (resultSet.next()) {
@@ -111,18 +154,19 @@ public class DataETL {
 			user.setFavoriteCount(FavoriteCount);
 			user.setShopcartCount(ShopcartCount);
 			user.setWeight(userActive);
-			
-			if(clickCount !=0){
-				double temp = (double)(purchaseCount+ShopcartCount)/clickCount;
+
+			if (clickCount != 0) {
+				double temp = (double) (purchaseCount + ShopcartCount)
+						/ clickCount;
 				BigDecimal b = new BigDecimal(temp);
-				//小数取四位
+				// 小数取四位
 				temp = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
 				user.setClick2purchase(temp);
-			}else{
-				//点击转化率设为平均值
+			} else {
+				// 点击转化率设为平均值
 				user.setClick2purchase(0.0390);
 			}
-			
+
 			users.add(user);
 		}
 
@@ -200,7 +244,10 @@ public class DataETL {
 			statement = connection.createStatement();
 			statement.executeQuery(sqlStat);
 			resultSet = statement.getResultSet();
-			int dealCount = 0;
+			int clickCount = 0;
+			int purchaseCount = 0;
+			int FavoriteCount = 0;
+			int ShopcartCount = 0;
 			int itemPopular = 0;
 			Item item = new Item();
 
@@ -213,13 +260,51 @@ public class DataETL {
 				user.setVisitDaytime(resultSet.getDate(5));
 
 				itemPopular = calculateWeight(itemPopular, type);
+
+				switch (type) {
+				case 0: {
+					clickCount++;
+				}
+					break;
+
+				case 1: {
+					purchaseCount++;
+				}
+					break;
+
+				case 2: {
+					FavoriteCount++;
+				}
+					break;
+
+				case 3: {
+					purchaseCount++;
+					// ShopcartCount++;
+				}
+					break;
+				}
 				item.addUsers(user);
-				dealCount++;
 
 			}
 
 			item.setProductID(itemId);
-			item.setDealCount(dealCount);
+			item.setClickCount(clickCount);
+			item.setPurchaseCount(purchaseCount);
+			item.setFavoriteCount(FavoriteCount);
+			item.setShopcartCount(ShopcartCount);
+
+			if (clickCount != 0) {
+				double temp = (double) (purchaseCount + ShopcartCount)
+						/ clickCount;
+				BigDecimal b = new BigDecimal(temp);
+				// 小数取四位
+				temp = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+				item.setClick2purchase(temp);
+			} else {
+				// 点击转化率设为平均值
+				item.setClick2purchase(0.0390);
+			}
+
 			item.setWeight(itemPopular);
 			items.add(item);
 		}

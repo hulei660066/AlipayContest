@@ -9,6 +9,9 @@ public class User {
 	private int purchaseCount = 0;
 	private int FavoriteCount = 0;
 	private int ShopcartCount = 0;
+	private int weight = 0;
+
+	private LinkedList<Object> products = new LinkedList<Object>();
 	/**
 	 * @return the click2purchase
 	 */
@@ -78,11 +81,6 @@ public class User {
 	public void setShopcartCount(int shopcartCount) {
 		ShopcartCount = shopcartCount;
 	}
-
-	private int weight = 0;
-
-	private LinkedList<Object> products = new LinkedList<Object>();
-
 
 	/**
 	 * @return the userID
