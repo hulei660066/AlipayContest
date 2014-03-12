@@ -4,7 +4,81 @@ import java.util.LinkedList;
 
 public class User {
 	private int userID = 0;
-	private int dealCount = 0;
+	private double click2purchase = 0;
+	private int clickCount = 0;
+	private int purchaseCount = 0;
+	private int FavoriteCount = 0;
+	private int ShopcartCount = 0;
+	/**
+	 * @return the click2purchase
+	 */
+	public double getClick2purchase() {
+		return click2purchase;
+	}
+
+	/**
+	 * @param click2purchase the click2purchase to set
+	 */
+	public void setClick2purchase(double click2purchase) {
+		this.click2purchase = click2purchase;
+	}
+
+	/**
+	 * @return the clickCount
+	 */
+	public int getClickCount() {
+		return clickCount;
+	}
+
+	/**
+	 * @return the purchaseCount
+	 */
+	public int getPurchaseCount() {
+		return purchaseCount;
+	}
+
+	/**
+	 * @return the favoriteCount
+	 */
+	public int getFavoriteCount() {
+		return FavoriteCount;
+	}
+
+	/**
+	 * @return the shopcartCount
+	 */
+	public int getShopcartCount() {
+		return ShopcartCount;
+	}
+
+	/**
+	 * @param clickCount the clickCount to set
+	 */
+	public void setClickCount(int clickCount) {
+		this.clickCount = clickCount;
+	}
+
+	/**
+	 * @param purchaseCount the purchaseCount to set
+	 */
+	public void setPurchaseCount(int purchaseCount) {
+		this.purchaseCount = purchaseCount;
+	}
+
+	/**
+	 * @param favoriteCount the favoriteCount to set
+	 */
+	public void setFavoriteCount(int favoriteCount) {
+		FavoriteCount = favoriteCount;
+	}
+
+	/**
+	 * @param shopcartCount the shopcartCount to set
+	 */
+	public void setShopcartCount(int shopcartCount) {
+		ShopcartCount = shopcartCount;
+	}
+
 	private int weight = 0;
 
 	private LinkedList<Object> products = new LinkedList<Object>();
@@ -15,13 +89,6 @@ public class User {
 	 */
 	public int getUserID() {
 		return userID;
-	}
-
-	/**
-	 * @return the dealCount
-	 */
-	public int getDealCount() {
-		return dealCount;
 	}
 
 	/**
@@ -46,13 +113,6 @@ public class User {
 	}
 
 	/**
-	 * @param dealCount the dealCount to set
-	 */
-	public void setDealCount(int dealCount) {
-		this.dealCount = dealCount;
-	}
-
-	/**
 	 * @param weight the weight to set
 	 */
 	public void setWeight(int weight) {
@@ -66,6 +126,8 @@ public class User {
 		this.products.add(products);
 	}
 
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -73,9 +135,15 @@ public class User {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + dealCount;
+		result = prime * result + FavoriteCount;
+		result = prime * result + ShopcartCount;
+		long temp;
+		temp = Double.doubleToLongBits(click2purchase);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + clickCount;
 		result = prime * result
 				+ ((products == null) ? 0 : products.hashCode());
+		result = prime * result + purchaseCount;
 		result = prime * result + userID;
 		result = prime * result + weight;
 		return result;
@@ -93,12 +161,21 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (dealCount != other.dealCount)
+		if (FavoriteCount != other.FavoriteCount)
+			return false;
+		if (ShopcartCount != other.ShopcartCount)
+			return false;
+		if (Double.doubleToLongBits(click2purchase) != Double
+				.doubleToLongBits(other.click2purchase))
+			return false;
+		if (clickCount != other.clickCount)
 			return false;
 		if (products == null) {
 			if (other.products != null)
 				return false;
 		} else if (!products.equals(other.products))
+			return false;
+		if (purchaseCount != other.purchaseCount)
 			return false;
 		if (userID != other.userID)
 			return false;
@@ -106,6 +183,8 @@ public class User {
 			return false;
 		return true;
 	}
+
+
 
 	// inner class.
 	class Product {
@@ -213,13 +292,19 @@ public class User {
 
 	}// end of inner class Product
 
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "User [userID=" + userID + ", dealCount=" + dealCount
-				+ ", weight=" + weight + ", products=" + products + "]";
+		return "User [userID=" + userID + ", click2purchase=" + click2purchase
+				+ ", clickCount=" + clickCount + ", purchaseCount="
+				+ purchaseCount + ", FavoriteCount=" + FavoriteCount
+				+ ", ShopcartCount=" + ShopcartCount + ", weight=" + weight
+				+ ", products=" + products + "]";
 	}
 
+	
 }
