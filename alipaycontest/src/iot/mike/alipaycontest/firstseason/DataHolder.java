@@ -59,18 +59,19 @@ public class DataHolder {
                 }
                 logger.info("Data Loaded Success!" + "SUM: " + num);
             }
-            
+
             connection.close();
         } catch (SQLException | ParseException e) {
             // SQL connection failed
             logger.warn(e.getMessage());
         }
     }
-    
+
     /**
      * get the data each event, which has been classfied by the userid
      * 
-     * @param userid userid
+     * @param userid
+     *            userid
      * @return list\<DataItem\>
      */
     public static LinkedList<DataItem> getDataByUserID(int userid) {
@@ -82,12 +83,12 @@ public class DataHolder {
         }
         return items;
     }
-    
 
     /**
      * get the data each event, which has been classfied by the userid
      * 
-     * @param brandid brandid
+     * @param brandid
+     *            brandid
      * @return list\<DataItem\>
      */
     public static LinkedList<DataItem> getDataByBrandID(int brandid) {
@@ -99,9 +100,10 @@ public class DataHolder {
         }
         return items;
     }
-    
+
     /**
      * Get all user id
+     * 
      * @return int[]
      */
     public static Integer[] getUserID() {
@@ -112,18 +114,19 @@ public class DataHolder {
         }
         return usersMap.toArray(users);
     }
-    
+
     /**
      * Get all brand id
+     * 
      * @return int[]
      */
     public static Integer[] getBrandID() {
         Integer[] brands = new Integer[10];
         HashSet<Integer> brandsMap = new HashSet<>();
         for (DataItem item : dataItems) {
-            brandsMap.add(item.getUserid());
+            brandsMap.add(item.getBrandid());
         }
         return brandsMap.toArray(brands);
     }
-    
+
 }

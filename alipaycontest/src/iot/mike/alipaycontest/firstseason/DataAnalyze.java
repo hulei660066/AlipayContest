@@ -15,6 +15,7 @@ public class DataAnalyze {
 
     public static void main(String[] args) {
         analyzeUserAction();
+        analyzeBrandTimes();
     }
 
     /**
@@ -25,17 +26,19 @@ public class DataAnalyze {
      */
     public static void analyzeUserAction() {
         Integer[] users = DataHolder.getUserID();
+        StringBuilder builder = new StringBuilder();
+
         for (Integer user : users) {
             LinkedList<DataItem> userItems = DataHolder.getDataByUserID(user);
-            HashMap<Integer, UserItem> userDetails = new HashMap<>();
+            HashMap<Integer, DetailsItem> userDetails = new HashMap<>();
 
             for (DataItem item : userItems) {
-                UserItem userItem;
+                DetailsItem userItem;
                 int brandid = item.getBrandid();
                 if (userDetails.containsKey(brandid)) {
                     userItem = userDetails.get(brandid);
                 } else {
-                    userItem = new UserItem();
+                    userItem = new DetailsItem();
                 }
                 userItem.setBrandid(brandid);
 
@@ -64,11 +67,14 @@ public class DataAnalyze {
                     userDetails.put(brandid, userItem);
                 }
             }
+
             // 输出用户购买的商品的详细条目。
             // System.out.println(userDetails);
-            if (userDetails.size() >= 0) {
+            if (userDetails.size() != 0) {
                 // System.out.println(user + ":" + userDetails.size());
-                System.out.println(userDetails);
+                // System.out.println(userDetails);
+                builder.append(userDetails + "\n");
+                write2File(new File(ETLCONFIG.USERS_FILE), builder.toString());
             }
 
             /*
@@ -79,17 +85,65 @@ public class DataAnalyze {
              */
         }
     }
-    
+
     /**
      * 用來分析特定品牌的數據，寻找对于大部分用户的刚性需求
      */
     public static void analyzeBrandTimes() {
         Integer[] brands = DataHolder.getBrandID();
-        for (Integer brand : brands) {
-            
+
+        StringBuilder builder = new StringBuilder();
+
+        for (Integer brandid : brands) {
+            LinkedList<DataItem> brandItems = DataHolder.getDataByBrandID(brandid);
+            HashMap<Integer, DetailsItem> brandDetails = new HashMap<>();
+
+            for (DataItem item : brandItems) {
+                DetailsItem detailsItem;
+                if (brandDetails.containsKey(brandid)) {
+                    detailsItem = brandDetails.get(brandid);
+                } else {
+                    detailsItem = new DetailsItem();
+                }
+
+                detailsItem.setBrandid(brandid);
+
+                switch (item.getType()) {
+                    case 0: {// click
+                        detailsItem.setClicknum(detailsItem.getClicknum() + 1);
+                        break;
+                    }
+
+                    case 1: {// purchese
+                        detailsItem.setBuynum(detailsItem.getBuynum() + 1);
+                        break;
+                    }
+
+                    case 2: {// mark
+                        detailsItem.setMarknum(detailsItem.getMarknum());
+                        break;
+                    }
+                    case 3: {// shopping car
+                        detailsItem.setBuynum(detailsItem.getBuynum() + 1);
+                        break;
+                    }
+                }
+
+                if (detailsItem.getBuynum() != 0) {
+                    brandDetails.put(brandid, detailsItem);
+                }
+            }
+            // 输出商品商标的详细条目。
+            // System.out.println(userDetails);
+            if (brandDetails.size() != 0) {
+                // System.out.println(user + ":" + userDetails.size());
+                // System.out.println(brandDetails);
+                builder.append(brandDetails + "\n");
+                write2File(new File(ETLCONFIG.BRANDS_FILE), builder.toString());
+            }
         }
     }
-    
+
     /**
      * Write the data to file
      * 
@@ -97,6 +151,11 @@ public class DataAnalyze {
      */
     public static void write2File(File file, String message) {
         try {
+            File path = new File(file.getParent());
+            path.mkdirs();
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             FileWriter writer = new FileWriter(file);
             writer.write(message);
             writer.flush();
@@ -108,11 +167,27 @@ public class DataAnalyze {
 
 }
 
-class UserItem {
+class DetailsItem {
+    private int userid;
     private int brandid;
     private int clicknum;
     private int marknum;
     private int buynum;
+
+    /**
+     * @return the userid
+     */
+    public int getUserid() {
+        return userid;
+    }
+
+    /**
+     * @param userid
+     *            the userid to set
+     */
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
 
     /**
      * @return the brandid
@@ -195,8 +270,8 @@ class UserItem {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null) return false;
-        if (!(obj instanceof UserItem)) return false;
-        UserItem other = (UserItem) obj;
+        if (!(obj instanceof DetailsItem)) return false;
+        DetailsItem other = (DetailsItem) obj;
         if (brandid != other.brandid) return false;
         if (buynum != other.buynum) return false;
         if (clicknum != other.clicknum) return false;
@@ -209,7 +284,8 @@ class UserItem {
      */
     @Override
     public String toString() {
-        return "UserItem [brandid=" + brandid
+        return "DetailsItem [userid=" + userid
+                + ", brandid=" + brandid
                 + ", clicknum=" + clicknum
                 + ", marknum=" + marknum
                 + ", buynum=" + buynum + "]";

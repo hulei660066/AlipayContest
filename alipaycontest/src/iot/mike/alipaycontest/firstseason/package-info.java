@@ -16,6 +16,9 @@ class MYSQLCONFIG {
 
     public static final java.lang.String DBNAME    = "tmailcontest";
     public static final java.lang.String TABLENAME = "tmail_firstseason";
-
 }
 
+class ETLCONFIG {
+    public static final java.lang.String BRANDS_FILE = "result" + java.io.File.separator + "brands";
+    public static final java.lang.String USERS_FILE  = "result" + java.io.File.separator + "users";
+}
