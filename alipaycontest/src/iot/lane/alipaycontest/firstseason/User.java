@@ -1,17 +1,23 @@
 package iot.lane.alipaycontest.firstseason;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class User {
 	private int userID = 0;
 	private double click2purchase = 0;
-	private int clickCount = 0;
-	private int purchaseCount = 0;
-	private int FavoriteCount = 0;
-	private int ShopcartCount = 0;
+	private int userActionCount[] = { 0, 0, 0, 0 };
 	private int weight = 0;
 
 	private LinkedList<Object> products = new LinkedList<Object>();
+
+	/**
+	 * @return the userID
+	 */
+	public int getUserID() {
+		return userID;
+	}
+
 	/**
 	 * @return the click2purchase
 	 */
@@ -20,73 +26,10 @@ public class User {
 	}
 
 	/**
-	 * @param click2purchase the click2purchase to set
+	 * @return the userActionCount
 	 */
-	public void setClick2purchase(double click2purchase) {
-		this.click2purchase = click2purchase;
-	}
-
-	/**
-	 * @return the clickCount
-	 */
-	public int getClickCount() {
-		return clickCount;
-	}
-
-	/**
-	 * @return the purchaseCount
-	 */
-	public int getPurchaseCount() {
-		return purchaseCount;
-	}
-
-	/**
-	 * @return the favoriteCount
-	 */
-	public int getFavoriteCount() {
-		return FavoriteCount;
-	}
-
-	/**
-	 * @return the shopcartCount
-	 */
-	public int getShopcartCount() {
-		return ShopcartCount;
-	}
-
-	/**
-	 * @param clickCount the clickCount to set
-	 */
-	public void setClickCount(int clickCount) {
-		this.clickCount = clickCount;
-	}
-
-	/**
-	 * @param purchaseCount the purchaseCount to set
-	 */
-	public void setPurchaseCount(int purchaseCount) {
-		this.purchaseCount = purchaseCount;
-	}
-
-	/**
-	 * @param favoriteCount the favoriteCount to set
-	 */
-	public void setFavoriteCount(int favoriteCount) {
-		FavoriteCount = favoriteCount;
-	}
-
-	/**
-	 * @param shopcartCount the shopcartCount to set
-	 */
-	public void setShopcartCount(int shopcartCount) {
-		ShopcartCount = shopcartCount;
-	}
-
-	/**
-	 * @return the userID
-	 */
-	public int getUserID() {
-		return userID;
+	public int[] getUserActionCount() {
+		return userActionCount;
 	}
 
 	/**
@@ -104,50 +47,68 @@ public class User {
 	}
 
 	/**
-	 * @param userID the userID to set
+	 * @param userID
+	 *            the userID to set
 	 */
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
 
 	/**
-	 * @param weight the weight to set
+	 * @param click2purchase
+	 *            the click2purchase to set
+	 */
+	public void setClick2purchase(double click2purchase) {
+		this.click2purchase = click2purchase;
+	}
+
+	/**
+	 * @param userActionCount
+	 *            the userActionCount to set
+	 */
+	public void setUserActionCount(int[] userActionCount) {
+		this.userActionCount = userActionCount;
+	}
+
+	/**
+	 * @param weight
+	 *            the weight to set
 	 */
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
 
 	/**
-	 * @param products the products to set
+	 * @param products
+	 *            the products to set
 	 */
-	public void addProducts(Object products) {
+	public void setProducts(Product products) {
 		this.products.add(products);
 	}
 
-
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + FavoriteCount;
-		result = prime * result + ShopcartCount;
 		long temp;
 		temp = Double.doubleToLongBits(click2purchase);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + clickCount;
 		result = prime * result
 				+ ((products == null) ? 0 : products.hashCode());
-		result = prime * result + purchaseCount;
+		result = prime * result + Arrays.hashCode(userActionCount);
 		result = prime * result + userID;
 		result = prime * result + weight;
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -159,21 +120,15 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (FavoriteCount != other.FavoriteCount)
-			return false;
-		if (ShopcartCount != other.ShopcartCount)
-			return false;
 		if (Double.doubleToLongBits(click2purchase) != Double
 				.doubleToLongBits(other.click2purchase))
-			return false;
-		if (clickCount != other.clickCount)
 			return false;
 		if (products == null) {
 			if (other.products != null)
 				return false;
 		} else if (!products.equals(other.products))
 			return false;
-		if (purchaseCount != other.purchaseCount)
+		if (!Arrays.equals(userActionCount, other.userActionCount))
 			return false;
 		if (userID != other.userID)
 			return false;
@@ -182,14 +137,11 @@ public class User {
 		return true;
 	}
 
-
-
 	// inner class.
 	class Product {
 		private int brandID = 0;
 		private int type = 0;
 		private java.sql.Date visitDaytime;
-
 
 		/**
 		 * @return the brandID
@@ -213,27 +165,32 @@ public class User {
 		}
 
 		/**
-		 * @param brandID the brandID to set
+		 * @param brandID
+		 *            the brandID to set
 		 */
 		public void setBrandID(int brandID) {
 			this.brandID = brandID;
 		}
 
 		/**
-		 * @param type the type to set
+		 * @param type
+		 *            the type to set
 		 */
 		public void setType(int type) {
 			this.type = type;
 		}
 
 		/**
-		 * @param visitDaytime the visitDaytime to set
+		 * @param visitDaytime
+		 *            the visitDaytime to set
 		 */
 		public void setVisitDaytime(java.sql.Date visitDaytime) {
 			this.visitDaytime = visitDaytime;
 		}
 
-		/* (non-Javadoc)
+		/*
+		 * (non-Javadoc)
+		 * 
 		 * @see java.lang.Object#hashCode()
 		 */
 		@Override
@@ -248,7 +205,9 @@ public class User {
 			return result;
 		}
 
-		/* (non-Javadoc)
+		/*
+		 * (non-Javadoc)
+		 * 
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
@@ -274,8 +233,9 @@ public class User {
 			return true;
 		}
 
-
-		/* (non-Javadoc)
+		/*
+		 * (non-Javadoc)
+		 * 
 		 * @see java.lang.Object#toString()
 		 */
 		@Override
@@ -290,19 +250,16 @@ public class User {
 
 	}// end of inner class Product
 
-
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "User [userID=" + userID + ", click2purchase=" + click2purchase
-				+ ", clickCount=" + clickCount + ", purchaseCount="
-				+ purchaseCount + ", FavoriteCount=" + FavoriteCount
-				+ ", ShopcartCount=" + ShopcartCount + ", weight=" + weight
-				+ ", products=" + products + "]";
+				+ ", userActionCount=" + Arrays.toString(userActionCount)
+				+ ", weight=" + weight + ", products=" + products + "]";
 	}
 
-	
+
+
 }
