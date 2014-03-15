@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,7 +37,7 @@ public class DataHolder {
                                                      MYSQLCONFIG.PASSWORD);
             if (connection != null) {
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("select * from tmail_firstseason;");
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM tmailcontest.tmail_firstseason where visit_datetime not like '2013-08%%%';");
 
                 int num = 0;
                 while (resultSet.next()) {
@@ -46,13 +46,23 @@ public class DataHolder {
                     int brandid = resultSet.getInt("brand_id");
                     int type = resultSet.getInt("type");
 
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-                    Date date = dateFormat.parse(resultSet.getString("visit_datetime"));
+                    Matcher matcher = Pattern.compile("(.*)-(.*)-(.*)").matcher(resultSet.getString("visit_datetime"));
+                    Calendar calendar = Calendar.getInstance();
+
+                    if (matcher.find()) {
+                        calendar.set(Integer.valueOf(matcher.group(1)),
+                                     Integer.valueOf(matcher.group(2)),
+                                     Integer.valueOf(matcher.group(3)));
+                    }
+
+                    System.out.println(resultSet.getString("visit_datetime"));
+
+                    System.out.println(calendar.getTime());
 
                     DataItem dataItem = new DataItem();
                     dataItem.setBrandid(brandid);
                     dataItem.setUserid(userid);
-                    dataItem.setDate(date);
+                    dataItem.setDate(calendar.getTime());
                     dataItem.setType(type);
 
                     dataItems.add(dataItem);
@@ -61,7 +71,7 @@ public class DataHolder {
             }
 
             connection.close();
-        } catch (SQLException | ParseException e) {
+        } catch (SQLException e) {
             // SQL connection failed
             logger.warn(e.getMessage());
         }
