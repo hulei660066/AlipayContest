@@ -31,10 +31,26 @@ import org.apache.poi.ss.usermodel.Row;
 public class DataETL {
 
 	// private static LinkedList<Object> users = null;
-	private static LinkedList<Object> items = null;
+	// private static LinkedList<Object> items = null;
 	static Logger logger = LogManager.getLogger(DataETL.class.getName());
+	static Hashtable<Integer, LinkedList<Integer>> myCompositeResultTable = new Hashtable<Integer, LinkedList<Integer>>();
 
 	public static void main(String[] args) {
+//		try {
+//
+//			getLeast7DayBuying();
+//			getCycleBuying();
+//			LinkedList<Object> myItems = getItemsSimpl("2013-04-15",
+//					MYSQLCONFIG.isOnlypurchaseAction);
+//			LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
+//					MYSQLCONFIG.isAllAction);
+//			if (ETLCONFIG.ISDEBUGMODEL) {
+//				write2File(myItems);
+//				write2File(myUsers);
+//			}
+//		} catch (SQLException e2) {
+//			// do nothing
+//		}
 		// LinkedList<Object> myStatistics = new LinkedList<Object>();
 		LinkedList<PredictBuyStatist> myStatistics = new LinkedList<PredictBuyStatist>();
 		Calendar cal = Calendar.getInstance();
@@ -44,7 +60,7 @@ public class DataETL {
 			// do nothing
 		}
 
-		for (int i = 1; i <= 11; i++) {
+		for (int i = 1; i <= 90; i++) {
 			try {
 				cal.add(Calendar.DAY_OF_YEAR, -1);
 				PredictBuyStatist myStatistic = statisticsResult(MYSQLCONFIG.dateFormat
@@ -61,48 +77,97 @@ public class DataETL {
 		}
 	}
 
-	public static void write2ExcelFile(LinkedList<PredictBuyStatist> datas) {
-		HSSFWorkbook workbook = new HSSFWorkbook();
-		HSSFSheet sheet = workbook.createSheet("Sample sheet");
+	public static void getLeast7DayBuying() throws SQLException {
+		Calendar cal = Calendar.getInstance();
+		try {
+			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
+		} catch (ParseException e1) {
+			// do nothing
+		}
+		//TODO
+		cal.add(Calendar.DAY_OF_YEAR, -7);
 
-		int rownum = 0;
-		Row row = null;
-		Cell cell = null;
+		Hashtable<Integer, LinkedList<Integer>> userItemsTable = getPredictItems(
+				MYSQLCONFIG.dateFormat.format(cal.getTime()),
+				MYSQLCONFIG.isOnlypurchaseAction);
 
-		row = sheet.createRow(rownum++);
-		cell = row.createCell(0);
-		cell.setCellValue("precision");
-		cell = row.createCell(1);
-		cell.setCellValue("recall");
-		cell = row.createCell(2);
-		cell.setCellValue("f1score");
-		cell = row.createCell(3);
-		cell.setCellValue("datetime");
-		for (PredictBuyStatist data : datas) {
-			int cellnum = 0;
-			row = sheet.createRow(rownum++);
-			cell = row.createCell(cellnum++);
-			cell.setCellValue(data.getPrecision());
-			cell = row.createCell(cellnum++);
-			cell.setCellValue(data.getRecall());
-			cell = row.createCell(cellnum++);
-			cell.setCellValue(data.getF1Score());
-			cell = row.createCell(cellnum++);
-			cell.setCellValue((String) data.getDayTime());
+		Enumeration<Integer> key = userItemsTable.keys();
+		while (key.hasMoreElements()) {
+			int UserId = key.nextElement();
+			LinkedList<Integer> items = userItemsTable.get(UserId);
+			for (Integer item : items) {
+				add2myCompositeResultTable(UserId, item);
+			}
+		}
+	}
+
+	public static void getCycleBuying() throws SQLException {
+		LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
+				MYSQLCONFIG.isOnlypurchaseAction);
+		for (Object myUser : myUsers) {
+			User myUsert = (User) myUser;
+			LinkedList<Object> myItems = myUsert.getProducts();
+			// Hashtable<Integer, Integer> periodUsersTable = new
+			// Hashtable<Integer, Integer>();
+
+			for (int i = 0; i < myItems.size(); i++) {
+				User.Product itemI = (User.Product) myItems.get(i);
+				for (int j = i + 1; j < myItems.size(); j++) {
+					User.Product itemJ = (User.Product) myItems.get(j);
+					if (itemI.getBrandID() == itemJ.getBrandID()) {
+
+						long timeI = itemI.getVisitDaytime().getTime();
+						long timeJ = itemJ.getVisitDaytime().getTime();
+						// TODO
+						if (Math.abs((timeI - timeJ) / (1000 * 60 * 60 * 24)) >= 7) {
+							add2myCompositeResultTable(myUsert.getUserID(),
+									itemI.getBrandID());
+							break;
+						}
+					}
+				}
+			}
+			// for (Object myItem : myItems) {
+			// User.Product myItemt = (User.Product) myItem;
+			//
+			// boolean isAlreadyHas = periodUsersTable.containsKey(myItemt
+			// .getBrandID());
+			// if (isAlreadyHas) {
+			// int N = periodUsersTable.get(myItemt.getBrandID());
+			// periodUsersTable.put((Integer) myItemt.getBrandID(), ++N);
+			// } else {
+			// periodUsersTable.put((Integer) myItemt.getBrandID(), 1);
+			// }
+			// }
+			//
+			// // form the resultItems list and sort by weight descend.
+			// Enumeration<Integer> key = periodUsersTable.keys();
+			// while (key.hasMoreElements()) {
+			// int myItemId = key.nextElement();
+			// int myItemNumber = periodUsersTable.get(myItemId);
+			// if (myItemNumber > 1) {
+			// add2myCompositeResultTable(myUsert.getUserID(), myItemId);
+			// }
+			// // users.add(userItemsTable.get(myk));
+			// }
+
 		}
 
-		try {
-			FileOutputStream out = new FileOutputStream(new File(
-					ETLCONFIG.TMPPATH + datas.get(0).getClass().getName()
-							+ ".xls"));
-			workbook.write(out);
-			out.close();
-			System.out.println("Excel written successfully..");
+	}
 
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+	public static void add2myCompositeResultTable(int userId, int brandId)
+			throws SQLException {
+		if (myCompositeResultTable.containsKey(userId)) {
+			LinkedList<Integer> items = myCompositeResultTable.get(userId);
+			boolean isContain = items.contains(brandId);
+			if (false == isContain) {
+				items.add(brandId);
+				myCompositeResultTable.put(userId, items);
+			}
+		} else {
+			LinkedList<Integer> items = new LinkedList<Integer>();
+			items.add(brandId);
+			myCompositeResultTable.put(userId, items);
 		}
 	}
 
@@ -111,11 +176,21 @@ public class DataETL {
 		PredictBuyStatist predictBuy = new PredictBuyStatist();
 
 		try {
-
-			HashMap<Integer, LinkedList<Integer>> predictBuyNumItems = getForecast(
+			// TODO Auto-generated catch block
+			Hashtable<Integer, LinkedList<Integer>> predictBuyItemsNTable = getPredictItems(
 					dayTime, MYSQLCONFIG.isAllAction);
 
-			LinkedList<Object> actualBuyNumItems = getUsersSimpl("2013-08-15",
+			Calendar cal = Calendar.getInstance();
+			try {
+				cal.setTime(MYSQLCONFIG.dateFormat
+						.parse(MYSQLCONFIG.DateThreshold));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			cal.add(Calendar.MONTH, 1);
+			LinkedList<Object> actualBuyNumItems = getUsersSimpl(
+					MYSQLCONFIG.dateFormat.format(cal.getTime()),
 					MYSQLCONFIG.isOnlypurchaseAction);
 
 			// LinkedList<Object> StaticsUsers = new LinkedList<Object>();
@@ -134,13 +209,14 @@ public class DataETL {
 				// hitBrandsi对用户i预测的品牌列表与用户i真实购买的品牌交集的个数
 				double hitBrands = 0;
 
-				boolean isContainsKey = predictBuyNumItems.containsKey(userId);
+				boolean isContainsKey = predictBuyItemsNTable
+						.containsKey(userId);
 				if (isContainsKey) {
-					pBrands = predictBuyNumItems.get(userId).size();
+					pBrands = predictBuyItemsNTable.get(userId).size();
 					allpBrands += pBrands;
 					for (Object product : usert.getProducts()) {
 						User.Product productt = (User.Product) product;
-						LinkedList<Integer> products = predictBuyNumItems
+						LinkedList<Integer> products = predictBuyItemsNTable
 								.get(userId);
 						boolean isContainThisProduct = products
 								.contains(productt.getBrandID());
@@ -150,18 +226,19 @@ public class DataETL {
 						}
 					}
 				}
-				PredictBuyStatist staticsUser = new PredictBuyStatist();
-				double precision = hitBrands / pBrands;
-				double recall = hitBrands / bBrands;
-				double F1 = 2 * precision * recall / (recall + precision);
-				System.out.println("use_id:" + userId + "\tF1: " + F1 + "\tprecision: " + precision
-						+ "\tallprecision: " + precision);
+//				PredictBuyStatist staticsUser = new PredictBuyStatist();
+//				double precision = hitBrands / pBrands;
+//				double recall = hitBrands / bBrands;
+//				double F1 = 2 * precision * recall / (recall + precision);
+				// System.out.println("use_id:" + userId + "\tF1: " + F1
+				// + "\tprecision: " + precision + "\tallprecision: "
+				// + precision);
 
 			}
 			double allPrecision = allHitBrands / allpBrands;
 			double allRecall = allHitBrands / allbBrands;
-			double allF1 = 2 * allPrecision * allRecall / allRecall
-					+ allPrecision;
+			double allF1 = 2 * allPrecision * allRecall
+					/ (allRecall + allPrecision);
 
 			predictBuy.setPrecision(allPrecision);
 			predictBuy.setRecall(allRecall);
@@ -179,10 +256,10 @@ public class DataETL {
 		return predictBuy;
 	}
 
-	public static HashMap<Integer, LinkedList<Integer>> getForecast(
+	public static Hashtable<Integer, LinkedList<Integer>> getPredictItems(
 			String dayTime, String userActionType) throws SQLException {
 		LinkedList<Object> users = getUsersSimpl(dayTime, userActionType);
-		HashMap<Integer, LinkedList<Integer>> resultUserItems = new HashMap<Integer, LinkedList<Integer>>();
+		Hashtable<Integer, LinkedList<Integer>> resultUserItems = new Hashtable<Integer, LinkedList<Integer>>();
 
 		for (Object user : users) {
 			LinkedList<ItemWithWeight> tmpItems = new LinkedList<ItemWithWeight>();
@@ -229,7 +306,7 @@ public class DataETL {
 			int forecastItemN = tmp[1] + tmp[3];
 			for (ItemWithWeight tmpItem : tmpItems) {
 
-				// if (forecastItemN-- <= 0) break;
+				// if (forecastItemN-- <= 0)break;
 				resultItems.add(tmpItem.getProductID());
 			}
 
@@ -253,18 +330,17 @@ public class DataETL {
 
 				sqlStat = "select * from tmail_firstseason where visit_datetime <= "
 						+ addDoubleQuote(MYSQLCONFIG.DateThreshold)
-						+ " and visit_datetime > " + addDoubleQuote(dayTime);
+						+ " and visit_datetime >= " + addDoubleQuote(dayTime);
 			} else {
 
 				sqlStat = "select * from tmail_firstseason where visit_datetime <= "
 						+ addDoubleQuote(dayTime)
-						+ " and visit_datetime > "
+						+ " and visit_datetime >= "
 						+ addDoubleQuote(MYSQLCONFIG.DateThreshold);
 			}
 
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// do nothing
 		}
 
 		LinkedList<Object> users = new LinkedList<Object>();
@@ -342,9 +418,120 @@ public class DataETL {
 		connection.close();
 		long endtime = System.currentTimeMillis();
 		long costTime = (endtime - begintime) / 1000;
-//		System.out.println("getUsersSimple function use seconds:" + costTime);
+		// System.out.println("getUsersSimple function use seconds:" +
+		// costTime);
 		logger.debug("getUsersSimple function use seconds:", costTime);
 		return users;
+	}
+
+	public static LinkedList<Object> getItemsSimpl(String dayTime,
+			String userActionType) throws SQLException {
+		long begintime = System.currentTimeMillis();
+		String sqlStat = null;
+
+		try {
+			Date date1 = MYSQLCONFIG.dateFormat
+					.parse(MYSQLCONFIG.DateThreshold);
+			Date date2 = MYSQLCONFIG.dateFormat.parse(dayTime);
+			int com = date1.compareTo(date2);
+			if (com > 0) {
+
+				sqlStat = "select * from tmail_firstseason where visit_datetime <= "
+						+ addDoubleQuote(MYSQLCONFIG.DateThreshold)
+						+ " and visit_datetime >= " + addDoubleQuote(dayTime);
+			} else {
+
+				sqlStat = "select * from tmail_firstseason where visit_datetime <= "
+						+ addDoubleQuote(dayTime)
+						+ " and visit_datetime >= "
+						+ addDoubleQuote(MYSQLCONFIG.DateThreshold);
+			}
+
+		} catch (ParseException e) {
+			// do nothing
+		}
+
+		LinkedList<Object> items = new LinkedList<Object>();
+		Hashtable<Integer, Object> ItemsTable = new Hashtable<Integer, Object>();
+
+		java.sql.Statement statement = null;
+		ResultSet resultSet = null;
+		Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
+				MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
+
+		sqlStat = sqlStat + userActionType;
+		// preparedStatement = connection.prepareStatement(sqlStat);
+		statement = connection.createStatement();
+		statement.executeQuery(sqlStat);
+		resultSet = statement.getResultSet();
+
+		while (resultSet.next()) {
+			int brand_id = resultSet.getInt(3);
+			boolean isContainsKey = ItemsTable.containsKey(brand_id);
+			if (isContainsKey) {
+				Object tmp = ItemsTable.get(brand_id);
+				Item item = (Item) tmp;
+
+				Item.User user = item.new User();
+				user.setUserID(resultSet.getInt(2));
+				int type = resultSet.getInt(4);
+				user.setType(type);
+				user.setVisitDaytime(resultSet.getDate(5));
+				item.setUsers(user);
+
+				int itemActionCount[] = item.getItemActionCount();
+				itemActionCount[type]++;
+				item.setItemActionCount(itemActionCount);
+
+				int itemPopular = item.getWeight();
+				itemPopular = getItemWeight(itemPopular, type);
+				item.setWeight(itemPopular);
+
+				ItemsTable.put(item.getProductID(), item);
+
+			} else {
+
+				int itemActionCount[] = { 0, 0, 0, 0 };
+				Item item = new Item();
+				Item.User user = item.new User();
+				int type = resultSet.getInt(4);
+
+				int userActive = getItemWeight(0, type);
+				itemActionCount[type]++;
+				user.setUserID(resultSet.getInt(2));
+				user.setType(type);
+				user.setVisitDaytime(resultSet.getDate(5));
+
+				item.setWeight(userActive);
+				item.setItemActionCount(itemActionCount);
+				item.setProductID(brand_id);
+				item.setUsers(user);
+
+				ItemsTable.put(item.getProductID(), item);
+			}
+
+		}
+
+		// form the resultItems list and sort by weight descend.
+		Enumeration<Integer> key = ItemsTable.keys();
+		while (key.hasMoreElements()) {
+			int myk = key.nextElement();
+			items.add(ItemsTable.get(myk));
+		}
+
+		logger.debug("load items compeletely");
+
+		if (ETLCONFIG.ISDEBUGMODEL) {
+			write2File(items);
+		}
+
+		connection.close();
+		long endtime = System.currentTimeMillis();
+		long costTime = (endtime - begintime) / 1000;
+		// System.out.println("getUsersSimple function use seconds:" +
+		// costTime);
+		logger.debug("getUsersSimple function use seconds:", costTime);
+		return items;
 	}
 
 	public static LinkedList<Object> getUsers(int month, String userActionType)
@@ -462,112 +649,6 @@ public class DataETL {
 		return userActive;
 	}
 
-	//
-	public static LinkedList<Object> getItems() throws SQLException {
-		if (items != null) {
-			return items;
-		}
-		// if the companies is null then make it happen
-		items = new LinkedList<Object>();
-		LinkedList<Integer> itemIds = new LinkedList<Integer>();
-		// PreparedStatement preparedStatement;
-		java.sql.Statement statement = null;
-		ResultSet resultSet = null;
-		String sqlStat = "select brand_id from tmail_firstseason group by brand_id;";
-
-		Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
-				MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
-
-		statement = connection.createStatement();
-		statement.executeQuery(sqlStat);
-		resultSet = statement.getResultSet();
-		while (resultSet.next()) {
-			itemIds.add(resultSet.getInt(1));
-		}
-
-		for (int itemId : itemIds) {
-			sqlStat = "select * from tmail_firstseason where brand_id="
-					+ itemId + ";";
-			// preparedStatement = connection.prepareStatement(sqlStat);
-			statement = connection.createStatement();
-			statement.executeQuery(sqlStat);
-			resultSet = statement.getResultSet();
-			int clickCount = 0;
-			int purchaseCount = 0;
-			int FavoriteCount = 0;
-			int ShopcartCount = 0;
-			int itemPopular = 0;
-			Item item = new Item();
-
-			while (resultSet.next()) {
-
-				Item.User user = item.new User();
-				user.setBrandID(resultSet.getInt(3));
-				int type = resultSet.getInt(4);
-				user.setType(resultSet.getInt(4));
-				user.setVisitDaytime(resultSet.getDate(5));
-
-				itemPopular = getItemWeight(itemPopular, type);
-
-				switch (type) {
-				case 0: {
-					clickCount++;
-				}
-					break;
-
-				case 1: {
-					purchaseCount++;
-				}
-					break;
-
-				case 2: {
-					FavoriteCount++;
-				}
-					break;
-
-				case 3: {
-					purchaseCount++;
-					// ShopcartCount++;
-				}
-					break;
-				}
-				item.addUsers(user);
-
-			}
-
-			item.setProductID(itemId);
-			item.setClickCount(clickCount);
-			item.setPurchaseCount(purchaseCount);
-			item.setFavoriteCount(FavoriteCount);
-			item.setShopcartCount(ShopcartCount);
-
-			if (clickCount != 0) {
-				double temp = (double) (purchaseCount + ShopcartCount)
-						/ clickCount;
-				BigDecimal b = new BigDecimal(temp);
-				// 小数取四位
-				temp = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
-				item.setClick2purchase(temp);
-			} else {
-				// 点击转化率设为平均值
-				item.setClick2purchase(0.0390);
-			}
-
-			item.setWeight(itemPopular);
-			items.add(item);
-		}
-
-		logger.debug("load users compeletely");
-
-		if (ETLCONFIG.ISDEBUGMODEL) {
-			write2File(items);
-		}
-
-		connection.close();
-
-		return items;
-	}
-
 	// write the tmp list to file
 	private static void write2File(List<Object> items) {
 		// write2File(items, 1);
@@ -608,6 +689,51 @@ public class DataETL {
 		}
 	}
 
+	public static void write2ExcelFile(LinkedList<PredictBuyStatist> datas) {
+		HSSFWorkbook workbook = new HSSFWorkbook();
+		HSSFSheet sheet = workbook.createSheet("Sample sheet");
+
+		int rownum = 0;
+		Row row = null;
+		Cell cell = null;
+
+		row = sheet.createRow(rownum++);
+		cell = row.createCell(0);
+		cell.setCellValue("precision");
+		cell = row.createCell(1);
+		cell.setCellValue("recall");
+		cell = row.createCell(2);
+		cell.setCellValue("f1score");
+		cell = row.createCell(3);
+		cell.setCellValue("datetime");
+		for (PredictBuyStatist data : datas) {
+			int cellnum = 0;
+			row = sheet.createRow(rownum++);
+			cell = row.createCell(cellnum++);
+			cell.setCellValue(data.getPrecision());
+			cell = row.createCell(cellnum++);
+			cell.setCellValue(data.getRecall());
+			cell = row.createCell(cellnum++);
+			cell.setCellValue(data.getF1Score());
+			cell = row.createCell(cellnum++);
+			cell.setCellValue((String) data.getDayTime());
+		}
+
+		try {
+			FileOutputStream out = new FileOutputStream(new File(
+					ETLCONFIG.TMPPATH + datas.get(0).getClass().getName()
+							+ ".xls"));
+			workbook.write(out);
+			out.close();
+			System.out.println("Excel written successfully..");
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static HashMap<Integer, Integer> getHotItems() throws SQLException {
 		java.sql.Statement statement = null;
 		ResultSet resultSet = null;
@@ -636,5 +762,112 @@ public class DataETL {
 		ConnSQLStrBld.insert(0, '"');
 		return ConnSQLStrBld.toString();
 	}
+
+	// //
+	// public static LinkedList<Object> getItems() throws SQLException {
+	// if (items != null) {
+	// return items;
+	// }
+	// // if the companies is null then make it happen
+	// items = new LinkedList<Object>();
+	// LinkedList<Integer> itemIds = new LinkedList<Integer>();
+	// // PreparedStatement preparedStatement;
+	// java.sql.Statement statement = null;
+	// ResultSet resultSet = null;
+	// String sqlStat =
+	// "select brand_id from tmail_firstseason group by brand_id;";
+	//
+	// Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
+	// MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
+	//
+	// statement = connection.createStatement();
+	// statement.executeQuery(sqlStat);
+	// resultSet = statement.getResultSet();
+	// while (resultSet.next()) {
+	// itemIds.add(resultSet.getInt(1));
+	// }
+	//
+	// for (int itemId : itemIds) {
+	// sqlStat = "select * from tmail_firstseason where brand_id="
+	// + itemId + ";";
+	// // preparedStatement = connection.prepareStatement(sqlStat);
+	// statement = connection.createStatement();
+	// statement.executeQuery(sqlStat);
+	// resultSet = statement.getResultSet();
+	// int clickCount = 0;
+	// int purchaseCount = 0;
+	// int FavoriteCount = 0;
+	// int ShopcartCount = 0;
+	// int itemPopular = 0;
+	// Item item = new Item();
+	//
+	// while (resultSet.next()) {
+	//
+	// Item.User user = item.new User();
+	// user.setBrandID(resultSet.getInt(3));
+	// int type = resultSet.getInt(4);
+	// user.setType(resultSet.getInt(4));
+	// user.setVisitDaytime(resultSet.getDate(5));
+	//
+	// itemPopular = getItemWeight(itemPopular, type);
+	//
+	// switch (type) {
+	// case 0: {
+	// clickCount++;
+	// }
+	// break;
+	//
+	// case 1: {
+	// purchaseCount++;
+	// }
+	// break;
+	//
+	// case 2: {
+	// FavoriteCount++;
+	// }
+	// break;
+	//
+	// case 3: {
+	// purchaseCount++;
+	// // ShopcartCount++;
+	// }
+	// break;
+	// }
+	// item.addUsers(user);
+	//
+	// }
+	//
+	// item.setProductID(itemId);
+	// item.setClickCount(clickCount);
+	// item.setPurchaseCount(purchaseCount);
+	// item.setFavoriteCount(FavoriteCount);
+	// item.setShopcartCount(ShopcartCount);
+	//
+	// if (clickCount != 0) {
+	// double temp = (double) (purchaseCount + ShopcartCount)
+	// / clickCount;
+	// BigDecimal b = new BigDecimal(temp);
+	// // 小数取四位
+	// temp = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+	// item.setClick2purchase(temp);
+	// } else {
+	// // 点击转化率设为平均值
+	// item.setClick2purchase(0.0390);
+	// }
+	//
+	// item.setWeight(itemPopular);
+	// items.add(item);
+	// }
+	//
+	// logger.debug("load users compeletely");
+	//
+	// if (ETLCONFIG.ISDEBUGMODEL) {
+	// write2File(items);
+	// }
+	//
+	// connection.close();
+	//
+	// return items;
+	// }
 
 }

@@ -27,6 +27,17 @@ public class DataAnalyze {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		try {
+			 java.util.Date mDate = MYSQLCONFIG.dateFormat.parse("2013-07-15");
+			java.util.Date aDate=MYSQLCONFIG.dateFormat.parse("2013-07-25");
+			long k=(mDate.getTime()-aDate.getTime())/(1000*60*60*24);
+			Math.abs(k);
+			int i = 0;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 test();
 		ExcelWriter writer = null;
 		try {
 			writer = new ExcelWriter("D:\\test\\test.xlsx");
@@ -41,9 +52,10 @@ public class DataAnalyze {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		tempEarlierCal.add(Calendar.DAY_OF_YEAR, 31);
+		tempEarlierCal.add(Calendar.MONTH, 1);
 		Date tempSqlDate = new java.sql.Date(tempEarlierCal.getTime().getTime());
-		String date = tempSqlDate.toString();
+		tempEarlierCal.add(Calendar.MONTH, 1);
+		tempEarlierCal.add(Calendar.DAY_OF_YEAR, 0);
 		String Cal = tempEarlierCal.toString();
 		java.util.Date tempSqlDate2 = tempEarlierCal.getTime();
 
@@ -57,7 +69,8 @@ public class DataAnalyze {
 		System.out.println("results: ");
 	}
 
-	void test() {
+	public static void test() {
+
 		Hashtable<Integer, Integer> map = new Hashtable<Integer, Integer>();
 		ValueComparator bvc = new ValueComparator(map);
 		TreeMap<Integer, Integer> sorted_map = new TreeMap<Integer, Integer>(

@@ -141,7 +141,7 @@ public class User {
 	class Product {
 		private int brandID = 0;
 		private int type = 0;
-		private java.sql.Date visitDaytime;
+		private java.util.Date visitDaytime;
 
 		/**
 		 * @return the brandID
@@ -160,7 +160,7 @@ public class User {
 		/**
 		 * @return the visitDaytime
 		 */
-		public java.sql.Date getVisitDaytime() {
+		public java.util.Date getVisitDaytime() {
 			return visitDaytime;
 		}
 
@@ -184,7 +184,7 @@ public class User {
 		 * @param visitDaytime
 		 *            the visitDaytime to set
 		 */
-		public void setVisitDaytime(java.sql.Date visitDaytime) {
+		public void setVisitDaytime(java.util.Date visitDaytime) {
 			this.visitDaytime = visitDaytime;
 		}
 
