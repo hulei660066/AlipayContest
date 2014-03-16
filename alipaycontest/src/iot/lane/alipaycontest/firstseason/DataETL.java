@@ -84,7 +84,7 @@ public class DataETL {
 		} catch (ParseException e1) {
 			// do nothing
 		}
-		//TODO
+		//TODO least N days purchaseed items will add to predictTable
 		cal.add(Calendar.DAY_OF_YEAR, -7);
 
 		Hashtable<Integer, LinkedList<Integer>> userItemsTable = getPredictItems(
@@ -118,7 +118,7 @@ public class DataETL {
 
 						long timeI = itemI.getVisitDaytime().getTime();
 						long timeJ = itemJ.getVisitDaytime().getTime();
-						// TODO
+						// TODO 7 days interval is enough?
 						if (Math.abs((timeI - timeJ) / (1000 * 60 * 60 * 24)) >= 7) {
 							add2myCompositeResultTable(myUsert.getUserID(),
 									itemI.getBrandID());
@@ -176,7 +176,6 @@ public class DataETL {
 		PredictBuyStatist predictBuy = new PredictBuyStatist();
 
 		try {
-			// TODO Auto-generated catch block
 			Hashtable<Integer, LinkedList<Integer>> predictBuyItemsNTable = getPredictItems(
 					dayTime, MYSQLCONFIG.isAllAction);
 
@@ -185,8 +184,7 @@ public class DataETL {
 				cal.setTime(MYSQLCONFIG.dateFormat
 						.parse(MYSQLCONFIG.DateThreshold));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// do nothing
 			}
 			cal.add(Calendar.MONTH, 1);
 			LinkedList<Object> actualBuyNumItems = getUsersSimpl(
