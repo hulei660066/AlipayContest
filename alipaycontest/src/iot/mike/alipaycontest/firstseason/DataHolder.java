@@ -55,10 +55,6 @@ public class DataHolder {
                                      Integer.valueOf(matcher.group(3)));
                     }
 
-                    System.out.println(resultSet.getString("visit_datetime"));
-
-                    System.out.println(calendar.getTime());
-
                     DataItem dataItem = new DataItem();
                     dataItem.setBrandid(brandid);
                     dataItem.setUserid(userid);

@@ -184,16 +184,19 @@ public class DataAnalyze {
      */
     public static void analyzeTBrand() {
         Integer[] users = DataHolder.getUserID();
+        HashMap<String, LinkedList<DataItem>> userdata = new HashMap<>();
         for (Integer user : users) {
             LinkedList<DataItem> useritems = DataHolder.getDataByUserID(user);
             LinkedList<DataItem> buyitems = new LinkedList<>();
             for (DataItem useritem : useritems) {
                 if (useritem.getType() == 1
                     || useritem.getType() == 3) {
-
                     buyitems.add(useritem);
                 }
             }
+            
+            
+            
             if (buyitems.size() > 20) {
                 System.out.println(buyitems);
             }
