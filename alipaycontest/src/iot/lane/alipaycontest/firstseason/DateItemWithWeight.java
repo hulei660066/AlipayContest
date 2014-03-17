@@ -1,6 +1,6 @@
 package iot.lane.alipaycontest.firstseason;
 
-public class ItemWithWeight {
+public class DateItemWithWeight {
 	private int productID = 0;
 	private int weight = 0;
 
@@ -61,7 +61,7 @@ public class ItemWithWeight {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ItemWithWeight other = (ItemWithWeight) obj;
+		DateItemWithWeight other = (DateItemWithWeight) obj;
 		if (productID != other.productID)
 			return false;
 		if (weight != other.weight)

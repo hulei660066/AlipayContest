@@ -36,23 +36,23 @@ public class DataAnalyze {
 	static Hashtable<Integer, LinkedList<Integer>> myCompositeResultTable = new Hashtable<Integer, LinkedList<Integer>>();
 
 	public static void main(String[] args) {
-//		try {
-//
-//			getLeast7DayBuying();
-//			getCycleBuying();
-//			LinkedList<Object> myItems = getItemsSimpl("2013-04-15",
-//					MYSQLCONFIG.isOnlypurchaseAction);
-//			LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
-//					MYSQLCONFIG.isAllAction);
-//			if (ETLCONFIG.ISDEBUGMODEL) {
-//				write2File(myItems);
-//				write2File(myUsers);
-//			}
-//		} catch (SQLException e2) {
-//			// do nothing
-//		}
+		// try {
+		//
+		// getLeast7DayBuying();
+		// getCycleBuying();
+		// LinkedList<Object> myItems = getItemsSimpl("2013-04-15",
+		// MYSQLCONFIG.isOnlypurchaseAction);
+		// LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
+		// MYSQLCONFIG.isAllAction);
+		// if (ETLCONFIG.ISDEBUGMODEL) {
+		// write2File(myItems);
+		// write2File(myUsers);
+		// }
+		// } catch (SQLException e2) {
+		// // do nothing
+		// }
 		// LinkedList<Object> myStatistics = new LinkedList<Object>();
-		LinkedList<PredictBuyStatist> myStatistics = new LinkedList<PredictBuyStatist>();
+		LinkedList<PredictDateHolder> myStatistics = new LinkedList<PredictDateHolder>();
 		Calendar cal = Calendar.getInstance();
 		try {
 			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
@@ -63,7 +63,7 @@ public class DataAnalyze {
 		for (int i = 1; i <= 90; i++) {
 			try {
 				cal.add(Calendar.DAY_OF_YEAR, -1);
-				PredictBuyStatist myStatistic = statisticsResult(MYSQLCONFIG.dateFormat
+				PredictDateHolder myStatistic = statisticsResult(MYSQLCONFIG.dateFormat
 						.format(cal.getTime()));
 				myStatistics.add(myStatistic);
 
@@ -77,6 +77,9 @@ public class DataAnalyze {
 		}
 	}
 
+	/**
+	 * This method get least 7daybuying items
+	 */
 	public static void getLeast7DayBuying() throws SQLException {
 		Calendar cal = Calendar.getInstance();
 		try {
@@ -84,7 +87,7 @@ public class DataAnalyze {
 		} catch (ParseException e1) {
 			// do nothing
 		}
-		//TODO least N days purchaseed items will add to predictTable
+		// TODO least N days purchaseed items will add to predictTable
 		cal.add(Calendar.DAY_OF_YEAR, -7);
 
 		Hashtable<Integer, LinkedList<Integer>> userItemsTable = getPredictItems(
@@ -101,19 +104,22 @@ public class DataAnalyze {
 		}
 	}
 
+	/**
+	 * This method get periodbuying items
+	 */
 	public static void getCycleBuying() throws SQLException {
 		LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
 				MYSQLCONFIG.isOnlypurchaseAction);
 		for (Object myUser : myUsers) {
-			User myUsert = (User) myUser;
+			DateUser myUsert = (DateUser) myUser;
 			LinkedList<Object> myItems = myUsert.getProducts();
 			// Hashtable<Integer, Integer> periodUsersTable = new
 			// Hashtable<Integer, Integer>();
 
 			for (int i = 0; i < myItems.size(); i++) {
-				User.Product itemI = (User.Product) myItems.get(i);
+				DateUser.Product itemI = (DateUser.Product) myItems.get(i);
 				for (int j = i + 1; j < myItems.size(); j++) {
-					User.Product itemJ = (User.Product) myItems.get(j);
+					DateUser.Product itemJ = (DateUser.Product) myItems.get(j);
 					if (itemI.getBrandID() == itemJ.getBrandID()) {
 
 						long timeI = itemI.getVisitDaytime().getTime();
@@ -155,6 +161,14 @@ public class DataAnalyze {
 
 	}
 
+	/**
+	 * This method put every <key value> result to one big final hashtable，
+	 * 
+	 * @param userId
+	 *            ，represent key
+	 * @param brandId
+	 *            ，represent values
+	 */
 	public static void add2myCompositeResultTable(int userId, int brandId)
 			throws SQLException {
 		if (myCompositeResultTable.containsKey(userId)) {
@@ -171,9 +185,19 @@ public class DataAnalyze {
 		}
 	}
 
-	public static PredictBuyStatist statisticsResult(String dayTime)
+	/**
+	 * This method calculates the result's precision/recall/f1score.
+	 * 
+	 * @param dayTime
+	 *            ,predictBuyItems daytime interval, between
+	 *            MYSQLCONFIG.DateThreshold and dayTime,like from "2013-07-15"
+	 *            to "2013-06-15"
+	 * @return parameters PredictDateHolder, includes precision/recall/f1score
+	 *         scores.
+	 */
+	public static PredictDateHolder statisticsResult(String dayTime)
 			throws SQLException {
-		PredictBuyStatist predictBuy = new PredictBuyStatist();
+		PredictDateHolder predictBuy = new PredictDateHolder();
 
 		try {
 			Hashtable<Integer, LinkedList<Integer>> predictBuyItemsNTable = getPredictItems(
@@ -197,7 +221,7 @@ public class DataAnalyze {
 			double allbBrands = 0;
 
 			for (Object actualBuyNumItem : actualBuyNumItems) {
-				User usert = (User) actualBuyNumItem;
+				DateUser usert = (DateUser) actualBuyNumItem;
 				int userId = usert.getUserID();
 				// pBrandsi为对用户i 预测他(她)会购买的品牌列表个数
 				double pBrands = 0;
@@ -213,7 +237,7 @@ public class DataAnalyze {
 					pBrands = predictBuyItemsNTable.get(userId).size();
 					allpBrands += pBrands;
 					for (Object product : usert.getProducts()) {
-						User.Product productt = (User.Product) product;
+						DateUser.Product productt = (DateUser.Product) product;
 						LinkedList<Integer> products = predictBuyItemsNTable
 								.get(userId);
 						boolean isContainThisProduct = products
@@ -224,10 +248,10 @@ public class DataAnalyze {
 						}
 					}
 				}
-//				PredictBuyStatist staticsUser = new PredictBuyStatist();
-//				double precision = hitBrands / pBrands;
-//				double recall = hitBrands / bBrands;
-//				double F1 = 2 * precision * recall / (recall + precision);
+				// PredictBuyStatist staticsUser = new PredictBuyStatist();
+				// double precision = hitBrands / pBrands;
+				// double recall = hitBrands / bBrands;
+				// double F1 = 2 * precision * recall / (recall + precision);
 				// System.out.println("use_id:" + userId + "\tF1: " + F1
 				// + "\tprecision: " + precision + "\tallprecision: "
 				// + precision);
@@ -254,19 +278,31 @@ public class DataAnalyze {
 		return predictBuy;
 	}
 
+	/**
+	 * This method get predict items from MYSQLCONFIG.DateThreshold to dayTime
+	 * 
+	 * @param dayTime
+	 *            ,predict after this daytime.
+	 * @param userActionType
+	 *            ,predict to specific user action,like
+	 *            onlyclick,onlypurchase,allaction.
+	 * @return Hashtable<Integer, LinkedList<Integer>>, structure
+	 *         like<userid1,(brandid1
+	 *         ,brandid2...);userid2,(brandid1,brandid2...)...>
+	 */
 	public static Hashtable<Integer, LinkedList<Integer>> getPredictItems(
 			String dayTime, String userActionType) throws SQLException {
 		LinkedList<Object> users = getUsersSimpl(dayTime, userActionType);
 		Hashtable<Integer, LinkedList<Integer>> resultUserItems = new Hashtable<Integer, LinkedList<Integer>>();
 
 		for (Object user : users) {
-			LinkedList<ItemWithWeight> tmpItems = new LinkedList<ItemWithWeight>();
+			LinkedList<DateItemWithWeight> tmpItems = new LinkedList<DateItemWithWeight>();
 			LinkedList<Integer> resultItems = new LinkedList<Integer>();
-			User usert = (User) user;
+			DateUser usert = (DateUser) user;
 			Hashtable<Integer, Integer> userItemsTable = new Hashtable<Integer, Integer>();
 
 			for (Object product : usert.getProducts()) {
-				User.Product productt = (User.Product) product;
+				DateUser.Product productt = (DateUser.Product) product;
 				int brandId = productt.getBrandID();
 
 				boolean isContainsKey = userItemsTable.containsKey(brandId);
@@ -285,14 +321,14 @@ public class DataAnalyze {
 			Enumeration<Integer> key = userItemsTable.keys();
 			while (key.hasMoreElements()) {
 				int myk = key.nextElement();
-				ItemWithWeight userWithItems = new ItemWithWeight();
+				DateItemWithWeight userWithItems = new DateItemWithWeight();
 				userWithItems.setProductID(myk);
 				userWithItems.setWeight(userItemsTable.get(myk));
 				tmpItems.add(userWithItems);
 			}
-			Collections.sort(tmpItems, new Comparator<ItemWithWeight>() {
+			Collections.sort(tmpItems, new Comparator<DateItemWithWeight>() {
 				@Override
-				public int compare(ItemWithWeight o1, ItemWithWeight o2) {
+				public int compare(DateItemWithWeight o1, DateItemWithWeight o2) {
 					return Integer.valueOf(o2.getWeight()).compareTo(
 							o1.getWeight());
 				}
@@ -302,7 +338,7 @@ public class DataAnalyze {
 			// int forecastItemN = usert.getWeight() / 26;
 			int tmp[] = usert.getUserActionCount();
 			int forecastItemN = tmp[1] + tmp[3];
-			for (ItemWithWeight tmpItem : tmpItems) {
+			for (DateItemWithWeight tmpItem : tmpItems) {
 
 				// if (forecastItemN-- <= 0)break;
 				resultItems.add(tmpItem.getProductID());
@@ -314,6 +350,17 @@ public class DataAnalyze {
 		return resultUserItems;
 	}
 
+	/**
+	 * This method get the date LinkedList<Object> structure indexed by userid.
+	 * 
+	 * @param dayTime,predict after this daytime.
+	 * @param userActionType
+	 *            ,predict to specific user action,like
+	 *            onlyclick,onlypurchase,allaction.
+	 * @return parameters LinkedList<Object>, structure
+	 *         like<userid1,(brandid1
+	 *         ,brandid2...);userid2,(brandid1,brandid2...)...>
+	 */
 	public static LinkedList<Object> getUsersSimpl(String dayTime,
 			String userActionType) throws SQLException {
 		long begintime = System.currentTimeMillis();
@@ -360,9 +407,9 @@ public class DataAnalyze {
 			boolean isContainsKey = userItemsTable.containsKey(user_id);
 			if (isContainsKey) {
 				Object tmp = userItemsTable.get(user_id);
-				User user = (User) tmp;
+				DateUser user = (DateUser) tmp;
 
-				User.Product product = user.new Product();
+				DateUser.Product product = user.new Product();
 				product.setBrandID(resultSet.getInt(3));
 				int type = resultSet.getInt(4);
 				product.setType(type);
@@ -382,9 +429,9 @@ public class DataAnalyze {
 			} else {
 
 				int userActionCount[] = { 0, 0, 0, 0 };
-				User user = new User();
+				DateUser user = new DateUser();
 				user.setUserID(user_id);
-				User.Product product = user.new Product();
+				DateUser.Product product = user.new Product();
 				product.setBrandID(resultSet.getInt(3));
 				int type = resultSet.getInt(4);
 				int userActive = getItemWeight(0, type);
@@ -422,6 +469,17 @@ public class DataAnalyze {
 		return users;
 	}
 
+	/**
+	 * This method get the date LinkedList<Object> structure indexed by brandid.
+	 * 
+	 * @param dayTime,predict after this daytime.
+	 * @param userActionType
+	 *            ,predict to specific user action,like
+	 *            onlyclick,onlypurchase,allaction.
+	 * @return parameters LinkedList<Object>, structure
+	 *         like<brandid1,(userid1
+	 *         ,userid1...);brandid2,(userid1,userid1...)...>
+	 */
 	public static LinkedList<Object> getItemsSimpl(String dayTime,
 			String userActionType) throws SQLException {
 		long begintime = System.currentTimeMillis();
@@ -468,9 +526,9 @@ public class DataAnalyze {
 			boolean isContainsKey = ItemsTable.containsKey(brand_id);
 			if (isContainsKey) {
 				Object tmp = ItemsTable.get(brand_id);
-				Item item = (Item) tmp;
+				DateItem item = (DateItem) tmp;
 
-				Item.User user = item.new User();
+				DateItem.User user = item.new User();
 				user.setUserID(resultSet.getInt(2));
 				int type = resultSet.getInt(4);
 				user.setType(type);
@@ -490,8 +548,8 @@ public class DataAnalyze {
 			} else {
 
 				int itemActionCount[] = { 0, 0, 0, 0 };
-				Item item = new Item();
-				Item.User user = item.new User();
+				DateItem item = new DateItem();
+				DateItem.User user = item.new User();
 				int type = resultSet.getInt(4);
 
 				int userActive = getItemWeight(0, type);
@@ -532,87 +590,6 @@ public class DataAnalyze {
 		return items;
 	}
 
-	public static LinkedList<Object> getUsers(int month, String userActionType)
-			throws SQLException {
-		long begintime = System.currentTimeMillis();
-		// if (users != null) {
-		// return users;
-		// }
-		// if the companies is null then make it happen
-		LinkedList<Object> users = new LinkedList<Object>();
-		LinkedList<Integer> userIds = new LinkedList<Integer>();
-		// PreparedStatement preparedStatement;
-
-		// String sqlStat =
-		// "select user_id from tmail_firstseason group by user_id;";
-		String sqlStat = "select * from tmail_firstseason where MONTH(visit_datetime) ="
-				+ month + userActionType + "group by user_id;";
-
-		java.sql.Statement statement = null;
-		ResultSet resultSet = null;
-		Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
-				MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
-
-		statement = connection.createStatement();
-		statement.executeQuery(sqlStat);
-		resultSet = statement.getResultSet();
-		while (resultSet.next()) {
-			userIds.add(resultSet.getInt(2));
-		}
-
-		for (int userId : userIds) {
-			sqlStat = "select * from tmail_firstseason where user_id=" + userId
-					+ " and MONTH(visit_datetime) = " + month + userActionType;
-
-			// preparedStatement = connection.prepareStatement(sqlStat);
-			statement = connection.createStatement();
-			statement.executeQuery(sqlStat);
-			resultSet = statement.getResultSet();
-			int userActionCount[] = { 0, 0, 0, 0 };
-			int userActive = 0;
-
-			User user = new User();
-
-			while (resultSet.next()) {
-
-				User.Product product = user.new Product();
-				product.setBrandID(resultSet.getInt(3));
-				int type = resultSet.getInt(4);
-				userActive = getItemWeight(userActive, type);
-				product.setType(resultSet.getInt(4));
-				product.setVisitDaytime(resultSet.getDate(5));
-				userActionCount[type]++;
-				user.setProducts(product);
-
-			}
-
-			user.setUserID(userId);
-			user.setUserActionCount(userActionCount);
-			user.setWeight(userActive);
-
-			double temp = (double) (userActionCount[1] + userActionCount[3])
-					/ userActionCount[0];
-			BigDecimal b = new BigDecimal(temp);
-			// 小数取四位
-			temp = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
-			user.setClick2purchase(temp);
-
-			users.add(user);
-		}
-
-		logger.debug("load users compeletely");
-
-		if (ETLCONFIG.ISDEBUGMODEL) {
-			write2File(users);
-		}
-
-		connection.close();
-		long endtime = System.currentTimeMillis();
-		long costTime = (endtime - begintime) / 1000;
-		System.out.println("getUsers function use seconds:" + costTime);
-		logger.debug("getUsers function use seconds:", costTime);
-		return users;
-	}
 
 	/*
 	 * 大赛给出的182,880条交易数据中， 总的点击行为次数为：174,539,占百分比为0.954390857；
@@ -663,7 +640,7 @@ public class DataAnalyze {
 		}
 	}
 
-	// write the list to file
+	// write to file with and without append model
 	private static void write2File(List<Object> items, boolean isAppendMode) {
 		File file = new File(ETLCONFIG.TMPPATH
 				+ items.get(0).getClass().getName());
@@ -687,7 +664,8 @@ public class DataAnalyze {
 		}
 	}
 
-	public static void write2ExcelFile(LinkedList<PredictBuyStatist> datas) {
+	// write to excelFile
+	public static void write2ExcelFile(LinkedList<PredictDateHolder> datas) {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("Sample sheet");
 
@@ -704,7 +682,7 @@ public class DataAnalyze {
 		cell.setCellValue("f1score");
 		cell = row.createCell(3);
 		cell.setCellValue("datetime");
-		for (PredictBuyStatist data : datas) {
+		for (PredictDateHolder data : datas) {
 			int cellnum = 0;
 			row = sheet.createRow(rownum++);
 			cell = row.createCell(cellnum++);
@@ -732,11 +710,13 @@ public class DataAnalyze {
 		}
 	}
 
+	//get top100 items
 	public static HashMap<Integer, Integer> getHotItems() throws SQLException {
 		java.sql.Statement statement = null;
 		ResultSet resultSet = null;
 		HashMap<Integer, Integer> itemsMap = new HashMap<Integer, Integer>();
 
+		//TODO
 		String sqlStat = "select * from item_sort where weight >=100 group by brand_id";
 		Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
 				MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
@@ -868,4 +848,87 @@ public class DataAnalyze {
 	// return items;
 	// }
 
+//	public static LinkedList<Object> getUsers(int month, String userActionType)
+//			throws SQLException {
+//		long begintime = System.currentTimeMillis();
+//		// if (users != null) {
+//		// return users;
+//		// }
+//		// if the companies is null then make it happen
+//		LinkedList<Object> users = new LinkedList<Object>();
+//		LinkedList<Integer> userIds = new LinkedList<Integer>();
+//		// PreparedStatement preparedStatement;
+//
+//		// String sqlStat =
+//		// "select user_id from tmail_firstseason group by user_id;";
+//		String sqlStat = "select * from tmail_firstseason where MONTH(visit_datetime) ="
+//				+ month + userActionType + "group by user_id;";
+//
+//		java.sql.Statement statement = null;
+//		ResultSet resultSet = null;
+//		Connection connection = DriverManager.getConnection(MYSQLCONFIG.DBURL,
+//				MYSQLCONFIG.USRNAME, MYSQLCONFIG.PASSWORD);
+//
+//		statement = connection.createStatement();
+//		statement.executeQuery(sqlStat);
+//		resultSet = statement.getResultSet();
+//		while (resultSet.next()) {
+//			userIds.add(resultSet.getInt(2));
+//		}
+//
+//		for (int userId : userIds) {
+//			sqlStat = "select * from tmail_firstseason where user_id=" + userId
+//					+ " and MONTH(visit_datetime) = " + month + userActionType;
+//
+//			// preparedStatement = connection.prepareStatement(sqlStat);
+//			statement = connection.createStatement();
+//			statement.executeQuery(sqlStat);
+//			resultSet = statement.getResultSet();
+//			int userActionCount[] = { 0, 0, 0, 0 };
+//			int userActive = 0;
+//
+//			DateUser user = new DateUser();
+//
+//			while (resultSet.next()) {
+//
+//				DateUser.Product product = user.new Product();
+//				product.setBrandID(resultSet.getInt(3));
+//				int type = resultSet.getInt(4);
+//				userActive = getItemWeight(userActive, type);
+//				product.setType(resultSet.getInt(4));
+//				product.setVisitDaytime(resultSet.getDate(5));
+//				userActionCount[type]++;
+//				user.setProducts(product);
+//
+//			}
+//
+//			user.setUserID(userId);
+//			user.setUserActionCount(userActionCount);
+//			user.setWeight(userActive);
+//
+//			double temp = (double) (userActionCount[1] + userActionCount[3])
+//					/ userActionCount[0];
+//			BigDecimal b = new BigDecimal(temp);
+//			// 小数取四位
+//			temp = b.setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+//			user.setClick2purchase(temp);
+//
+//			users.add(user);
+//		}
+//
+//		logger.debug("load users compeletely");
+//
+//		if (ETLCONFIG.ISDEBUGMODEL) {
+//			write2File(users);
+//		}
+//
+//		connection.close();
+//		long endtime = System.currentTimeMillis();
+//		long costTime = (endtime - begintime) / 1000;
+//		System.out.println("getUsers function use seconds:" + costTime);
+//		logger.debug("getUsers function use seconds:", costTime);
+//		return users;
+//	}
+
+	
 }

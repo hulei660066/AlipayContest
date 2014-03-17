@@ -1,4 +1,6 @@
-package iot.lane.alipaycontest.firstseason;
+package iot.lane.alipaycontest.test;
+
+import iot.lane.alipaycontest.test.ETLCONFIG;
 
 import java.io.File;
 import java.io.FileNotFoundException;

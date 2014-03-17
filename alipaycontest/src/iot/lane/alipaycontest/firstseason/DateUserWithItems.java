@@ -2,7 +2,7 @@ package iot.lane.alipaycontest.firstseason;
 
 import java.util.LinkedList;
 
-public class UserWithItems {
+public class DateUserWithItems {
 
 	private int userID = 0;
 	private LinkedList<Object> ItemWithWeights = new LinkedList<Object>();

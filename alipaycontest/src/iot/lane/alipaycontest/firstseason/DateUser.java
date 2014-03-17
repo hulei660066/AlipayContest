@@ -3,7 +3,7 @@ package iot.lane.alipaycontest.firstseason;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class User {
+public class DateUser {
 	private int userID = 0;
 	private double click2purchase = 0;
 	private int userActionCount[] = { 0, 0, 0, 0 };
@@ -119,7 +119,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		DateUser other = (DateUser) obj;
 		if (Double.doubleToLongBits(click2purchase) != Double
 				.doubleToLongBits(other.click2purchase))
 			return false;
@@ -244,8 +244,8 @@ public class User {
 					+ ", visitDaytime=" + visitDaytime + "]";
 		}
 
-		private User getOuterType() {
-			return User.this;
+		private DateUser getOuterType() {
+			return DateUser.this;
 		}
 
 	}// end of inner class Product
