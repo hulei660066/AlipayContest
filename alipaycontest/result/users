@@ -1,722 +1,847 @@
-{9842500=DetailsItem [userid=9842500, brandid=0, clicknum=249, marknum=0, buynum=12]}
-{11535250=DetailsItem [userid=11535250, brandid=0, clicknum=202, marknum=0, buynum=5]}
-{4880250=DetailsItem [userid=4880250, brandid=0, clicknum=43, marknum=0, buynum=3]}
-{11894500=DetailsItem [userid=11894500, brandid=0, clicknum=3, marknum=0, buynum=1]}
-{5846250=DetailsItem [userid=5846250, brandid=0, clicknum=73, marknum=0, buynum=5]}
-{9179500=DetailsItem [userid=9179500, brandid=0, clicknum=364, marknum=0, buynum=16]}
-{3363000=DetailsItem [userid=3363000, brandid=0, clicknum=67, marknum=0, buynum=3]}
-{2331750=DetailsItem [userid=2331750, brandid=0, clicknum=249, marknum=0, buynum=17]}
-{7361250=DetailsItem [userid=7361250, brandid=0, clicknum=95, marknum=0, buynum=2]}
-{9344000=DetailsItem [userid=9344000, brandid=0, clicknum=30, marknum=0, buynum=2]}
-{5654000=DetailsItem [userid=5654000, brandid=0, clicknum=104, marknum=0, buynum=9]}
-{11947000=DetailsItem [userid=11947000, brandid=0, clicknum=302, marknum=0, buynum=21]}
-{2808500=DetailsItem [userid=2808500, brandid=0, clicknum=32, marknum=0, buynum=1]}
-{12154500=DetailsItem [userid=12154500, brandid=0, clicknum=808, marknum=0, buynum=38]}
-{5292000=DetailsItem [userid=5292000, brandid=0, clicknum=91, marknum=0, buynum=10]}
-{7703750=DetailsItem [userid=7703750, brandid=0, clicknum=236, marknum=0, buynum=12]}
-{5034000=DetailsItem [userid=5034000, brandid=0, clicknum=58, marknum=0, buynum=2]}
-{1247000=DetailsItem [userid=1247000, brandid=0, clicknum=55, marknum=0, buynum=6]}
-{691500=DetailsItem [userid=691500, brandid=0, clicknum=660, marknum=0, buynum=22]}
-{418500=DetailsItem [userid=418500, brandid=0, clicknum=24, marknum=0, buynum=3]}
-{8573000=DetailsItem [userid=8573000, brandid=0, clicknum=211, marknum=0, buynum=5]}
-{1528500=DetailsItem [userid=1528500, brandid=0, clicknum=263, marknum=0, buynum=21]}
-{2852250=DetailsItem [userid=2852250, brandid=0, clicknum=103, marknum=0, buynum=2]}
-{9352750=DetailsItem [userid=9352750, brandid=0, clicknum=36, marknum=0, buynum=11]}
-{7367000=DetailsItem [userid=7367000, brandid=0, clicknum=86, marknum=0, buynum=16]}
-{847750=DetailsItem [userid=847750, brandid=0, clicknum=43, marknum=0, buynum=1]}
-{6458250=DetailsItem [userid=6458250, brandid=0, clicknum=3, marknum=0, buynum=1]}
-{10047250=DetailsItem [userid=10047250, brandid=0, clicknum=30, marknum=0, buynum=3]}
-{7320250=DetailsItem [userid=7320250, brandid=0, clicknum=31, marknum=0, buynum=5]}
-{650750=DetailsItem [userid=650750, brandid=0, clicknum=18, marknum=0, buynum=2]}
-{8757750=DetailsItem [userid=8757750, brandid=0, clicknum=18, marknum=0, buynum=2]}
-{19500=DetailsItem [userid=19500, brandid=0, clicknum=264, marknum=0, buynum=10]}
-{266500=DetailsItem [userid=266500, brandid=0, clicknum=34, marknum=0, buynum=9]}
-{832250=DetailsItem [userid=832250, brandid=0, clicknum=216, marknum=0, buynum=11]}
-{4844000=DetailsItem [userid=4844000, brandid=0, clicknum=252, marknum=0, buynum=11]}
-{9513250=DetailsItem [userid=9513250, brandid=0, clicknum=356, marknum=0, buynum=10]}
-{252500=DetailsItem [userid=252500, brandid=0, clicknum=49, marknum=0, buynum=5]}
-{10976250=DetailsItem [userid=10976250, brandid=0, clicknum=106, marknum=0, buynum=6]}
-{6433000=DetailsItem [userid=6433000, brandid=0, clicknum=41, marknum=0, buynum=1]}
-{4256500=DetailsItem [userid=4256500, brandid=0, clicknum=78, marknum=0, buynum=2]}
-{5320000=DetailsItem [userid=5320000, brandid=0, clicknum=110, marknum=0, buynum=2]}
-{1114000=DetailsItem [userid=1114000, brandid=0, clicknum=18, marknum=0, buynum=1]}
-{9055750=DetailsItem [userid=9055750, brandid=0, clicknum=6, marknum=0, buynum=1]}
-{3781500=DetailsItem [userid=3781500, brandid=0, clicknum=6, marknum=0, buynum=1]}
-{8633500=DetailsItem [userid=8633500, brandid=0, clicknum=57, marknum=0, buynum=4]}
-{9628250=DetailsItem [userid=9628250, brandid=0, clicknum=15, marknum=0, buynum=3]}
-{776750=DetailsItem [userid=776750, brandid=0, clicknum=489, marknum=0, buynum=23]}
-{5440500=DetailsItem [userid=5440500, brandid=0, clicknum=16, marknum=0, buynum=4]}
-{4304250=DetailsItem [userid=4304250, brandid=0, clicknum=15, marknum=0, buynum=8]}
-{3031750=DetailsItem [userid=3031750, brandid=0, clicknum=1098, marknum=0, buynum=21]}
-{4195500=DetailsItem [userid=4195500, brandid=0, clicknum=175, marknum=0, buynum=12]}
-{9437500=DetailsItem [userid=9437500, brandid=0, clicknum=79, marknum=0, buynum=6]}
-{2752000=DetailsItem [userid=2752000, brandid=0, clicknum=224, marknum=0, buynum=17]}
-{6380000=DetailsItem [userid=6380000, brandid=0, clicknum=63, marknum=0, buynum=3]}
-{11579750=DetailsItem [userid=11579750, brandid=0, clicknum=168, marknum=0, buynum=4]}
-{11552750=DetailsItem [userid=11552750, brandid=0, clicknum=31, marknum=0, buynum=1]}
-{1517000=DetailsItem [userid=1517000, brandid=0, clicknum=51, marknum=0, buynum=3]}
-{887750=DetailsItem [userid=887750, brandid=0, clicknum=182, marknum=0, buynum=11]}
-{4895250=DetailsItem [userid=4895250, brandid=0, clicknum=246, marknum=0, buynum=16]}
-{1381000=DetailsItem [userid=1381000, brandid=0, clicknum=103, marknum=0, buynum=8]}
-{11300000=DetailsItem [userid=11300000, brandid=0, clicknum=127, marknum=0, buynum=3]}
-{7322250=DetailsItem [userid=7322250, brandid=0, clicknum=24, marknum=0, buynum=2]}
-{2033500=DetailsItem [userid=2033500, brandid=0, clicknum=627, marknum=0, buynum=21]}
-{5187750=DetailsItem [userid=5187750, brandid=0, clicknum=8, marknum=0, buynum=2]}
-{4902250=DetailsItem [userid=4902250, brandid=0, clicknum=192, marknum=0, buynum=8]}
-{405000=DetailsItem [userid=405000, brandid=0, clicknum=9, marknum=0, buynum=1]}
-{11564250=DetailsItem [userid=11564250, brandid=0, clicknum=96, marknum=0, buynum=16]}
-{5754500=DetailsItem [userid=5754500, brandid=0, clicknum=105, marknum=0, buynum=13]}
-{1579250=DetailsItem [userid=1579250, brandid=0, clicknum=214, marknum=0, buynum=12]}
-{7976750=DetailsItem [userid=7976750, brandid=0, clicknum=119, marknum=0, buynum=4]}
-{6497000=DetailsItem [userid=6497000, brandid=0, clicknum=40, marknum=0, buynum=4]}
-{11632250=DetailsItem [userid=11632250, brandid=0, clicknum=68, marknum=0, buynum=1]}
-{5155750=DetailsItem [userid=5155750, brandid=0, clicknum=209, marknum=0, buynum=12]}
-{5898500=DetailsItem [userid=5898500, brandid=0, clicknum=143, marknum=0, buynum=4]}
-{12027000=DetailsItem [userid=12027000, brandid=0, clicknum=0, marknum=0, buynum=3]}
-{5199750=DetailsItem [userid=5199750, brandid=0, clicknum=39, marknum=0, buynum=2]}
-{7898750=DetailsItem [userid=7898750, brandid=0, clicknum=56, marknum=0, buynum=3]}
-{2251750=DetailsItem [userid=2251750, brandid=0, clicknum=126, marknum=0, buynum=5]}
-{11782250=DetailsItem [userid=11782250, brandid=0, clicknum=13, marknum=0, buynum=2]}
-{2078000=DetailsItem [userid=2078000, brandid=0, clicknum=154, marknum=0, buynum=14]}
-{7269750=DetailsItem [userid=7269750, brandid=0, clicknum=5, marknum=0, buynum=1]}
-{4063000=DetailsItem [userid=4063000, brandid=0, clicknum=55, marknum=0, buynum=3]}
-{8327250=DetailsItem [userid=8327250, brandid=0, clicknum=0, marknum=0, buynum=1]}
-{200250=DetailsItem [userid=200250, brandid=0, clicknum=136, marknum=0, buynum=11]}
-{3096750=DetailsItem [userid=3096750, brandid=0, clicknum=34, marknum=0, buynum=3]}
-{8100250=DetailsItem [userid=8100250, brandid=0, clicknum=38, marknum=0, buynum=2]}
-{5220750=DetailsItem [userid=5220750, brandid=0, clicknum=62, marknum=0, buynum=7]}
-{3581250=DetailsItem [userid=3581250, brandid=0, clicknum=220, marknum=0, buynum=12]}
-{5467250=DetailsItem [userid=5467250, brandid=0, clicknum=42, marknum=0, buynum=3]}
-{2704750=DetailsItem [userid=2704750, brandid=0, clicknum=53, marknum=0, buynum=14]}
-{4631250=DetailsItem [userid=4631250, brandid=0, clicknum=128, marknum=0, buynum=4]}
-{6904000=DetailsItem [userid=6904000, brandid=0, clicknum=90, marknum=0, buynum=2]}
-{2076000=DetailsItem [userid=2076000, brandid=0, clicknum=125, marknum=0, buynum=8]}
-{563500=DetailsItem [userid=563500, brandid=0, clicknum=56, marknum=0, buynum=3]}
-{1025250=DetailsItem [userid=1025250, brandid=0, clicknum=68, marknum=0, buynum=8]}
-{11220500=DetailsItem [userid=11220500, brandid=0, clicknum=5, marknum=0, buynum=1]}
-{2253250=DetailsItem [userid=2253250, brandid=0, clicknum=373, marknum=0, buynum=5]}
-{11121500=DetailsItem [userid=11121500, brandid=0, clicknum=32, marknum=0, buynum=5]}
-{4809000=DetailsItem [userid=4809000, brandid=0, clicknum=17, marknum=0, buynum=4]}
-{10653250=DetailsItem [userid=10653250, brandid=0, clicknum=362, marknum=0, buynum=6]}
-{3317500=DetailsItem [userid=3317500, brandid=0, clicknum=233, marknum=0, buynum=9]}
-{7116750=DetailsItem [userid=7116750, brandid=0, clicknum=101, marknum=0, buynum=12]}
-{11340250=DetailsItem [userid=11340250, brandid=0, clicknum=104, marknum=0, buynum=3]}
-{10756500=DetailsItem [userid=10756500, brandid=0, clicknum=25, marknum=0, buynum=4]}
-{3742000=DetailsItem [userid=3742000, brandid=0, clicknum=290, marknum=0, buynum=18]}
-{3288250=DetailsItem [userid=3288250, brandid=0, clicknum=154, marknum=0, buynum=5]}
-{5957500=DetailsItem [userid=5957500, brandid=0, clicknum=47, marknum=0, buynum=2]}
-{1815750=DetailsItem [userid=1815750, brandid=0, clicknum=28, marknum=0, buynum=2]}
-{1561250=DetailsItem [userid=1561250, brandid=0, clicknum=320, marknum=0, buynum=9]}
-{4184250=DetailsItem [userid=4184250, brandid=0, clicknum=1135, marknum=0, buynum=21]}
-{4852000=DetailsItem [userid=4852000, brandid=0, clicknum=112, marknum=0, buynum=2]}
-{2975500=DetailsItem [userid=2975500, brandid=0, clicknum=498, marknum=0, buynum=19]}
-{5108000=DetailsItem [userid=5108000, brandid=0, clicknum=513, marknum=0, buynum=21]}
-{1620500=DetailsItem [userid=1620500, brandid=0, clicknum=26, marknum=0, buynum=4]}
-{5812000=DetailsItem [userid=5812000, brandid=0, clicknum=396, marknum=0, buynum=26]}
-{3148500=DetailsItem [userid=3148500, brandid=0, clicknum=172, marknum=0, buynum=14]}
-{5238000=DetailsItem [userid=5238000, brandid=0, clicknum=205, marknum=0, buynum=14]}
-{3954500=DetailsItem [userid=3954500, brandid=0, clicknum=101, marknum=0, buynum=3]}
-{4533750=DetailsItem [userid=4533750, brandid=0, clicknum=35, marknum=0, buynum=5]}
-{6571000=DetailsItem [userid=6571000, brandid=0, clicknum=258, marknum=0, buynum=13]}
-{6458000=DetailsItem [userid=6458000, brandid=0, clicknum=0, marknum=0, buynum=1]}
-{3226500=DetailsItem [userid=3226500, brandid=0, clicknum=33, marknum=0, buynum=3]}
-{2626250=DetailsItem [userid=2626250, brandid=0, clicknum=24, marknum=0, buynum=2]}
-{10064500=DetailsItem [userid=10064500, brandid=0, clicknum=101, marknum=0, buynum=5]}
-{745750=DetailsItem [userid=745750, brandid=0, clicknum=185, marknum=0, buynum=6]}
-{3293750=DetailsItem [userid=3293750, brandid=0, clicknum=57, marknum=0, buynum=12]}
-{8060000=DetailsItem [userid=8060000, brandid=0, clicknum=9, marknum=0, buynum=2]}
-{10057000=DetailsItem [userid=10057000, brandid=0, clicknum=29, marknum=0, buynum=2]}
-{1074750=DetailsItem [userid=1074750, brandid=0, clicknum=683, marknum=0, buynum=22]}
-{8243500=DetailsItem [userid=8243500, brandid=0, clicknum=284, marknum=0, buynum=22]}
-{10628500=DetailsItem [userid=10628500, brandid=0, clicknum=478, marknum=0, buynum=67]}
-{3114000=DetailsItem [userid=3114000, brandid=0, clicknum=27, marknum=0, buynum=2]}
-{8523250=DetailsItem [userid=8523250, brandid=0, clicknum=50, marknum=0, buynum=3]}
-{8111500=DetailsItem [userid=8111500, brandid=0, clicknum=209, marknum=0, buynum=6]}
-{11225500=DetailsItem [userid=11225500, brandid=0, clicknum=357, marknum=0, buynum=9]}
-{6412750=DetailsItem [userid=6412750, brandid=0, clicknum=146, marknum=0, buynum=5]}
-{4850000=DetailsItem [userid=4850000, brandid=0, clicknum=302, marknum=0, buynum=3]}
-{887500=DetailsItem [userid=887500, brandid=0, clicknum=11, marknum=0, buynum=2]}
-{2823250=DetailsItem [userid=2823250, brandid=0, clicknum=73, marknum=0, buynum=2]}
-{10309250=DetailsItem [userid=10309250, brandid=0, clicknum=124, marknum=0, buynum=7]}
-{7034000=DetailsItem [userid=7034000, brandid=0, clicknum=447, marknum=0, buynum=8]}
-{3913250=DetailsItem [userid=3913250, brandid=0, clicknum=397, marknum=0, buynum=31]}
-{1971500=DetailsItem [userid=1971500, brandid=0, clicknum=790, marknum=0, buynum=32]}
-{1629250=DetailsItem [userid=1629250, brandid=0, clicknum=72, marknum=0, buynum=4]}
-{9035750=DetailsItem [userid=9035750, brandid=0, clicknum=0, marknum=0, buynum=15]}
-{11747250=DetailsItem [userid=11747250, brandid=0, clicknum=215, marknum=0, buynum=7]}
-{9979000=DetailsItem [userid=9979000, brandid=0, clicknum=199, marknum=0, buynum=6]}
-{10401500=DetailsItem [userid=10401500, brandid=0, clicknum=239, marknum=0, buynum=10]}
-{6957500=DetailsItem [userid=6957500, brandid=0, clicknum=274, marknum=0, buynum=13]}
-{12386500=DetailsItem [userid=12386500, brandid=0, clicknum=11, marknum=0, buynum=2]}
-{1365000=DetailsItem [userid=1365000, brandid=0, clicknum=29, marknum=0, buynum=3]}
-{5052000=DetailsItem [userid=5052000, brandid=0, clicknum=85, marknum=0, buynum=4]}
-{6150750=DetailsItem [userid=6150750, brandid=0, clicknum=62, marknum=0, buynum=3]}
-{7016500=DetailsItem [userid=7016500, brandid=0, clicknum=124, marknum=0, buynum=2]}
-{6780500=DetailsItem [userid=6780500, brandid=0, clicknum=50, marknum=0, buynum=5]}
-{6358500=DetailsItem [userid=6358500, brandid=0, clicknum=1, marknum=0, buynum=1]}
-{65500=DetailsItem [userid=65500, brandid=0, clicknum=349, marknum=0, buynum=10]}
-{3675000=DetailsItem [userid=3675000, brandid=0, clicknum=76, marknum=0, buynum=13]}
-{8529750=DetailsItem [userid=8529750, brandid=0, clicknum=324, marknum=0, buynum=10]}
-{4317250=DetailsItem [userid=4317250, brandid=0, clicknum=149, marknum=0, buynum=8]}
-{3625250=DetailsItem [userid=3625250, brandid=0, clicknum=69, marknum=0, buynum=10]}
-{3684750=DetailsItem [userid=3684750, brandid=0, clicknum=84, marknum=0, buynum=3]}
-{4503500=DetailsItem [userid=4503500, brandid=0, clicknum=44, marknum=0, buynum=7]}
-{3573750=DetailsItem [userid=3573750, brandid=0, clicknum=85, marknum=0, buynum=4]}
-{4620000=DetailsItem [userid=4620000, brandid=0, clicknum=11, marknum=0, buynum=2]}
-{11939000=DetailsItem [userid=11939000, brandid=0, clicknum=65, marknum=0, buynum=2]}
-{9288000=DetailsItem [userid=9288000, brandid=0, clicknum=25, marknum=0, buynum=2]}
-{3168000=DetailsItem [userid=3168000, brandid=0, clicknum=9, marknum=0, buynum=1]}
-{9972250=DetailsItem [userid=9972250, brandid=0, clicknum=79, marknum=0, buynum=1]}
-{3592750=DetailsItem [userid=3592750, brandid=0, clicknum=94, marknum=0, buynum=6]}
-{8822250=DetailsItem [userid=8822250, brandid=0, clicknum=18, marknum=0, buynum=2]}
-{9394500=DetailsItem [userid=9394500, brandid=0, clicknum=77, marknum=0, buynum=12]}
-{6301250=DetailsItem [userid=6301250, brandid=0, clicknum=302, marknum=0, buynum=20]}
-{12384250=DetailsItem [userid=12384250, brandid=0, clicknum=47, marknum=0, buynum=2]}
-{10312750=DetailsItem [userid=10312750, brandid=0, clicknum=286, marknum=0, buynum=16]}
-{9212500=DetailsItem [userid=9212500, brandid=0, clicknum=42, marknum=0, buynum=2]}
-{1118250=DetailsItem [userid=1118250, brandid=0, clicknum=250, marknum=0, buynum=21]}
-{2182750=DetailsItem [userid=2182750, brandid=0, clicknum=64, marknum=0, buynum=6]}
-{4215750=DetailsItem [userid=4215750, brandid=0, clicknum=641, marknum=0, buynum=18]}
-{10592750=DetailsItem [userid=10592750, brandid=0, clicknum=80, marknum=0, buynum=4]}
-{11307500=DetailsItem [userid=11307500, brandid=0, clicknum=130, marknum=0, buynum=8]}
-{4782250=DetailsItem [userid=4782250, brandid=0, clicknum=51, marknum=0, buynum=3]}
-{791500=DetailsItem [userid=791500, brandid=0, clicknum=283, marknum=0, buynum=8]}
-{1338750=DetailsItem [userid=1338750, brandid=0, clicknum=155, marknum=0, buynum=8]}
-{3010000=DetailsItem [userid=3010000, brandid=0, clicknum=4, marknum=0, buynum=2]}
-{10642000=DetailsItem [userid=10642000, brandid=0, clicknum=182, marknum=0, buynum=17]}
-{6921750=DetailsItem [userid=6921750, brandid=0, clicknum=163, marknum=0, buynum=2]}
-{10818500=DetailsItem [userid=10818500, brandid=0, clicknum=264, marknum=0, buynum=10]}
-{6897000=DetailsItem [userid=6897000, brandid=0, clicknum=98, marknum=0, buynum=2]}
-{10598500=DetailsItem [userid=10598500, brandid=0, clicknum=19, marknum=0, buynum=1]}
-{10566000=DetailsItem [userid=10566000, brandid=0, clicknum=73, marknum=0, buynum=3]}
-{3350250=DetailsItem [userid=3350250, brandid=0, clicknum=117, marknum=0, buynum=7]}
-{4423500=DetailsItem [userid=4423500, brandid=0, clicknum=153, marknum=0, buynum=8]}
-{3952000=DetailsItem [userid=3952000, brandid=0, clicknum=384, marknum=0, buynum=6]}
-{10492250=DetailsItem [userid=10492250, brandid=0, clicknum=750, marknum=0, buynum=13]}
-{746000=DetailsItem [userid=746000, brandid=0, clicknum=38, marknum=0, buynum=4]}
-{9706000=DetailsItem [userid=9706000, brandid=0, clicknum=473, marknum=0, buynum=19]}
-{8017000=DetailsItem [userid=8017000, brandid=0, clicknum=70, marknum=0, buynum=18]}
-{2870250=DetailsItem [userid=2870250, brandid=0, clicknum=501, marknum=0, buynum=18]}
-{7103000=DetailsItem [userid=7103000, brandid=0, clicknum=143, marknum=0, buynum=4]}
-{7149500=DetailsItem [userid=7149500, brandid=0, clicknum=25, marknum=0, buynum=1]}
-{8215250=DetailsItem [userid=8215250, brandid=0, clicknum=69, marknum=0, buynum=1]}
-{12065000=DetailsItem [userid=12065000, brandid=0, clicknum=4, marknum=0, buynum=3]}
-{8314250=DetailsItem [userid=8314250, brandid=0, clicknum=218, marknum=0, buynum=5]}
-{7345250=DetailsItem [userid=7345250, brandid=0, clicknum=10, marknum=0, buynum=3]}
-{5170500=DetailsItem [userid=5170500, brandid=0, clicknum=277, marknum=0, buynum=7]}
-{9163000=DetailsItem [userid=9163000, brandid=0, clicknum=298, marknum=0, buynum=11]}
-{8430000=DetailsItem [userid=8430000, brandid=0, clicknum=43, marknum=0, buynum=2]}
-{9173750=DetailsItem [userid=9173750, brandid=0, clicknum=409, marknum=0, buynum=11]}
-{4378500=DetailsItem [userid=4378500, brandid=0, clicknum=67, marknum=0, buynum=4]}
-{6807250=DetailsItem [userid=6807250, brandid=0, clicknum=335, marknum=0, buynum=11]}
-{4399750=DetailsItem [userid=4399750, brandid=0, clicknum=39, marknum=0, buynum=6]}
-{10521000=DetailsItem [userid=10521000, brandid=0, clicknum=255, marknum=0, buynum=8]}
-{981000=DetailsItem [userid=981000, brandid=0, clicknum=634, marknum=0, buynum=10]}
-{9199500=DetailsItem [userid=9199500, brandid=0, clicknum=31, marknum=0, buynum=2]}
-{1792000=DetailsItem [userid=1792000, brandid=0, clicknum=482, marknum=0, buynum=5]}
-{12371000=DetailsItem [userid=12371000, brandid=0, clicknum=157, marknum=0, buynum=15]}
-{299750=DetailsItem [userid=299750, brandid=0, clicknum=125, marknum=0, buynum=3]}
-{10915250=DetailsItem [userid=10915250, brandid=0, clicknum=50, marknum=0, buynum=2]}
-{799000=DetailsItem [userid=799000, brandid=0, clicknum=193, marknum=0, buynum=10]}
-{11558000=DetailsItem [userid=11558000, brandid=0, clicknum=100, marknum=0, buynum=4]}
-{8230750=DetailsItem [userid=8230750, brandid=0, clicknum=39, marknum=0, buynum=8]}
-{10264750=DetailsItem [userid=10264750, brandid=0, clicknum=6, marknum=0, buynum=1]}
-{854250=DetailsItem [userid=854250, brandid=0, clicknum=138, marknum=0, buynum=4]}
-{154500=DetailsItem [userid=154500, brandid=0, clicknum=378, marknum=0, buynum=13]}
-{9685000=DetailsItem [userid=9685000, brandid=0, clicknum=36, marknum=0, buynum=2]}
-{11701500=DetailsItem [userid=11701500, brandid=0, clicknum=359, marknum=0, buynum=5]}
-{1812000=DetailsItem [userid=1812000, brandid=0, clicknum=127, marknum=0, buynum=6]}
-{9039750=DetailsItem [userid=9039750, brandid=0, clicknum=128, marknum=0, buynum=7]}
-{267250=DetailsItem [userid=267250, brandid=0, clicknum=127, marknum=0, buynum=18]}
-{4712250=DetailsItem [userid=4712250, brandid=0, clicknum=30, marknum=0, buynum=3]}
-{7545250=DetailsItem [userid=7545250, brandid=0, clicknum=87, marknum=0, buynum=3]}
-{5254500=DetailsItem [userid=5254500, brandid=0, clicknum=258, marknum=0, buynum=12]}
-{10443000=DetailsItem [userid=10443000, brandid=0, clicknum=411, marknum=0, buynum=7]}
-{2132250=DetailsItem [userid=2132250, brandid=0, clicknum=6, marknum=0, buynum=1]}
-{11761750=DetailsItem [userid=11761750, brandid=0, clicknum=127, marknum=0, buynum=4]}
-{1063000=DetailsItem [userid=1063000, brandid=0, clicknum=86, marknum=0, buynum=7]}
-{3310750=DetailsItem [userid=3310750, brandid=0, clicknum=251, marknum=0, buynum=7]}
-{1838000=DetailsItem [userid=1838000, brandid=0, clicknum=4, marknum=0, buynum=1]}
-{4073250=DetailsItem [userid=4073250, brandid=0, clicknum=41, marknum=0, buynum=2]}
-{2788750=DetailsItem [userid=2788750, brandid=0, clicknum=455, marknum=0, buynum=11]}
-{3211250=DetailsItem [userid=3211250, brandid=0, clicknum=213, marknum=0, buynum=22]}
-{1074500=DetailsItem [userid=1074500, brandid=0, clicknum=28, marknum=0, buynum=4]}
-{8649250=DetailsItem [userid=8649250, brandid=0, clicknum=72, marknum=0, buynum=4]}
-{620500=DetailsItem [userid=620500, brandid=0, clicknum=106, marknum=0, buynum=9]}
-{2322750=DetailsItem [userid=2322750, brandid=0, clicknum=1, marknum=0, buynum=1]}
-{4004500=DetailsItem [userid=4004500, brandid=0, clicknum=57, marknum=0, buynum=5]}
-{5522250=DetailsItem [userid=5522250, brandid=0, clicknum=267, marknum=0, buynum=3]}
-{7211250=DetailsItem [userid=7211250, brandid=0, clicknum=15, marknum=0, buynum=4]}
-{1688750=DetailsItem [userid=1688750, brandid=0, clicknum=182, marknum=0, buynum=5]}
-{12061000=DetailsItem [userid=12061000, brandid=0, clicknum=3, marknum=0, buynum=2]}
-{10696000=DetailsItem [userid=10696000, brandid=0, clicknum=161, marknum=0, buynum=13]}
-{140500=DetailsItem [userid=140500, brandid=0, clicknum=23, marknum=0, buynum=5]}
-{5248750=DetailsItem [userid=5248750, brandid=0, clicknum=71, marknum=0, buynum=7]}
-{9802000=DetailsItem [userid=9802000, brandid=0, clicknum=144, marknum=0, buynum=13]}
-{2940000=DetailsItem [userid=2940000, brandid=0, clicknum=2041, marknum=0, buynum=30]}
-{6299000=DetailsItem [userid=6299000, brandid=0, clicknum=1, marknum=0, buynum=1]}
-{8102000=DetailsItem [userid=8102000, brandid=0, clicknum=20, marknum=0, buynum=1]}
-{10533750=DetailsItem [userid=10533750, brandid=0, clicknum=105, marknum=0, buynum=10]}
-{12239250=DetailsItem [userid=12239250, brandid=0, clicknum=195, marknum=0, buynum=14]}
-{10322250=DetailsItem [userid=10322250, brandid=0, clicknum=38, marknum=0, buynum=6]}
-{3861500=DetailsItem [userid=3861500, brandid=0, clicknum=59, marknum=0, buynum=9]}
-{3404000=DetailsItem [userid=3404000, brandid=0, clicknum=380, marknum=0, buynum=79]}
-{8160750=DetailsItem [userid=8160750, brandid=0, clicknum=15, marknum=0, buynum=1]}
-{5110750=DetailsItem [userid=5110750, brandid=0, clicknum=58, marknum=0, buynum=9]}
-{10234000=DetailsItem [userid=10234000, brandid=0, clicknum=584, marknum=0, buynum=25]}
-{7568750=DetailsItem [userid=7568750, brandid=0, clicknum=61, marknum=0, buynum=1]}
-{11957000=DetailsItem [userid=11957000, brandid=0, clicknum=232, marknum=0, buynum=6]}
-{6155250=DetailsItem [userid=6155250, brandid=0, clicknum=108, marknum=0, buynum=8]}
-{3035250=DetailsItem [userid=3035250, brandid=0, clicknum=1, marknum=0, buynum=3]}
-{984500=DetailsItem [userid=984500, brandid=0, clicknum=163, marknum=0, buynum=9]}
-{1181250=DetailsItem [userid=1181250, brandid=0, clicknum=275, marknum=0, buynum=10]}
-{3396250=DetailsItem [userid=3396250, brandid=0, clicknum=25, marknum=0, buynum=3]}
-{9394250=DetailsItem [userid=9394250, brandid=0, clicknum=355, marknum=0, buynum=8]}
-{9069000=DetailsItem [userid=9069000, brandid=0, clicknum=379, marknum=0, buynum=26]}
-{3282250=DetailsItem [userid=3282250, brandid=0, clicknum=49, marknum=0, buynum=6]}
-{5693000=DetailsItem [userid=5693000, brandid=0, clicknum=23, marknum=0, buynum=1]}
-{4370750=DetailsItem [userid=4370750, brandid=0, clicknum=468, marknum=0, buynum=5]}
-{12215000=DetailsItem [userid=12215000, brandid=0, clicknum=901, marknum=0, buynum=12]}
-{4770500=DetailsItem [userid=4770500, brandid=0, clicknum=560, marknum=0, buynum=23]}
-{4376250=DetailsItem [userid=4376250, brandid=0, clicknum=191, marknum=0, buynum=21]}
-{1173500=DetailsItem [userid=1173500, brandid=0, clicknum=339, marknum=0, buynum=24]}
-{1319000=DetailsItem [userid=1319000, brandid=0, clicknum=82, marknum=0, buynum=2]}
-{9436000=DetailsItem [userid=9436000, brandid=0, clicknum=11, marknum=0, buynum=1]}
-{4475750=DetailsItem [userid=4475750, brandid=0, clicknum=823, marknum=0, buynum=17]}
-{5037000=DetailsItem [userid=5037000, brandid=0, clicknum=415, marknum=0, buynum=14]}
-{3588500=DetailsItem [userid=3588500, brandid=0, clicknum=488, marknum=0, buynum=11]}
-{5256500=DetailsItem [userid=5256500, brandid=0, clicknum=60, marknum=0, buynum=7]}
-{12234750=DetailsItem [userid=12234750, brandid=0, clicknum=239, marknum=0, buynum=13]}
-{10713250=DetailsItem [userid=10713250, brandid=0, clicknum=75, marknum=0, buynum=5]}
-{4852500=DetailsItem [userid=4852500, brandid=0, clicknum=169, marknum=0, buynum=22]}
-{9121750=DetailsItem [userid=9121750, brandid=0, clicknum=199, marknum=0, buynum=12]}
-{309750=DetailsItem [userid=309750, brandid=0, clicknum=4, marknum=0, buynum=1]}
-{190500=DetailsItem [userid=190500, brandid=0, clicknum=17, marknum=0, buynum=2]}
-{4035250=DetailsItem [userid=4035250, brandid=0, clicknum=65, marknum=0, buynum=6]}
-{1953250=DetailsItem [userid=1953250, brandid=0, clicknum=267, marknum=0, buynum=21]}
-{380000=DetailsItem [userid=380000, brandid=0, clicknum=44, marknum=0, buynum=9]}
-{9839750=DetailsItem [userid=9839750, brandid=0, clicknum=18, marknum=0, buynum=1]}
-{7450000=DetailsItem [userid=7450000, brandid=0, clicknum=160, marknum=0, buynum=10]}
-{6849750=DetailsItem [userid=6849750, brandid=0, clicknum=279, marknum=0, buynum=17]}
-{11158000=DetailsItem [userid=11158000, brandid=0, clicknum=186, marknum=0, buynum=16]}
-{6334000=DetailsItem [userid=6334000, brandid=0, clicknum=7, marknum=0, buynum=1]}
-{6634500=DetailsItem [userid=6634500, brandid=0, clicknum=1, marknum=0, buynum=1]}
-{8051750=DetailsItem [userid=8051750, brandid=0, clicknum=275, marknum=0, buynum=2]}
-{1441500=DetailsItem [userid=1441500, brandid=0, clicknum=74, marknum=0, buynum=1]}
-{9123500=DetailsItem [userid=9123500, brandid=0, clicknum=133, marknum=0, buynum=22]}
-{8909750=DetailsItem [userid=8909750, brandid=0, clicknum=103, marknum=0, buynum=4]}
-{8096750=DetailsItem [userid=8096750, brandid=0, clicknum=502, marknum=0, buynum=10]}
-{6713250=DetailsItem [userid=6713250, brandid=0, clicknum=145, marknum=0, buynum=22]}
-{239250=DetailsItem [userid=239250, brandid=0, clicknum=116, marknum=0, buynum=8]}
-{1767500=DetailsItem [userid=1767500, brandid=0, clicknum=83, marknum=0, buynum=6]}
-{8149250=DetailsItem [userid=8149250, brandid=0, clicknum=654, marknum=0, buynum=10]}
-{4186500=DetailsItem [userid=4186500, brandid=0, clicknum=33, marknum=0, buynum=1]}
-{371250=DetailsItem [userid=371250, brandid=0, clicknum=313, marknum=0, buynum=3]}
-{9671750=DetailsItem [userid=9671750, brandid=0, clicknum=90, marknum=0, buynum=1]}
-{11612500=DetailsItem [userid=11612500, brandid=0, clicknum=263, marknum=0, buynum=4]}
-{3977750=DetailsItem [userid=3977750, brandid=0, clicknum=65, marknum=0, buynum=6]}
-{7306250=DetailsItem [userid=7306250, brandid=0, clicknum=105, marknum=0, buynum=3]}
-{3326250=DetailsItem [userid=3326250, brandid=0, clicknum=62, marknum=0, buynum=12]}
-{282500=DetailsItem [userid=282500, brandid=0, clicknum=47, marknum=0, buynum=8]}
-{7218000=DetailsItem [userid=7218000, brandid=0, clicknum=330, marknum=0, buynum=16]}
-{5968250=DetailsItem [userid=5968250, brandid=0, clicknum=52, marknum=0, buynum=5]}
-{1909250=DetailsItem [userid=1909250, brandid=0, clicknum=209, marknum=0, buynum=25]}
-{5959000=DetailsItem [userid=5959000, brandid=0, clicknum=248, marknum=0, buynum=10]}
-{4256000=DetailsItem [userid=4256000, brandid=0, clicknum=153, marknum=0, buynum=10]}
-{3895750=DetailsItem [userid=3895750, brandid=0, clicknum=0, marknum=0, buynum=1]}
-{3511000=DetailsItem [userid=3511000, brandid=0, clicknum=31, marknum=0, buynum=4]}
-{2771250=DetailsItem [userid=2771250, brandid=0, clicknum=284, marknum=0, buynum=9]}
-{1189000=DetailsItem [userid=1189000, brandid=0, clicknum=264, marknum=0, buynum=17]}
-{12377250=DetailsItem [userid=12377250, brandid=0, clicknum=340, marknum=0, buynum=21]}
-{11503250=DetailsItem [userid=11503250, brandid=0, clicknum=93, marknum=0, buynum=1]}
-{452750=DetailsItem [userid=452750, brandid=0, clicknum=153, marknum=0, buynum=18]}
-{6900500=DetailsItem [userid=6900500, brandid=0, clicknum=16, marknum=0, buynum=1]}
-{7003500=DetailsItem [userid=7003500, brandid=0, clicknum=24, marknum=0, buynum=2]}
-{8353250=DetailsItem [userid=8353250, brandid=0, clicknum=141, marknum=0, buynum=9]}
-{5011500=DetailsItem [userid=5011500, brandid=0, clicknum=417, marknum=0, buynum=12]}
-{11078500=DetailsItem [userid=11078500, brandid=0, clicknum=12, marknum=0, buynum=2]}
-{11362000=DetailsItem [userid=11362000, brandid=0, clicknum=151, marknum=0, buynum=7]}
-{6258500=DetailsItem [userid=6258500, brandid=0, clicknum=51, marknum=0, buynum=2]}
-{711500=DetailsItem [userid=711500, brandid=0, clicknum=484, marknum=0, buynum=37]}
-{6572500=DetailsItem [userid=6572500, brandid=0, clicknum=18, marknum=0, buynum=2]}
-{11434750=DetailsItem [userid=11434750, brandid=0, clicknum=126, marknum=0, buynum=9]}
-{6067750=DetailsItem [userid=6067750, brandid=0, clicknum=6, marknum=0, buynum=1]}
-{1911500=DetailsItem [userid=1911500, brandid=0, clicknum=264, marknum=0, buynum=3]}
-{9782500=DetailsItem [userid=9782500, brandid=0, clicknum=82, marknum=0, buynum=2]}
-{2920750=DetailsItem [userid=2920750, brandid=0, clicknum=516, marknum=0, buynum=17]}
-{83250=DetailsItem [userid=83250, brandid=0, clicknum=44, marknum=0, buynum=7]}
-{5999000=DetailsItem [userid=5999000, brandid=0, clicknum=0, marknum=0, buynum=4]}
-{4994000=DetailsItem [userid=4994000, brandid=0, clicknum=28, marknum=0, buynum=1]}
-{12173500=DetailsItem [userid=12173500, brandid=0, clicknum=306, marknum=0, buynum=54]}
-{1194750=DetailsItem [userid=1194750, brandid=0, clicknum=164, marknum=0, buynum=38]}
-{8745250=DetailsItem [userid=8745250, brandid=0, clicknum=76, marknum=0, buynum=2]}
-{9103250=DetailsItem [userid=9103250, brandid=0, clicknum=51, marknum=0, buynum=2]}
-{10944750=DetailsItem [userid=10944750, brandid=0, clicknum=165, marknum=0, buynum=6]}
-{10297000=DetailsItem [userid=10297000, brandid=0, clicknum=139, marknum=0, buynum=12]}
-{7687500=DetailsItem [userid=7687500, brandid=0, clicknum=361, marknum=0, buynum=11]}
-{6126750=DetailsItem [userid=6126750, brandid=0, clicknum=3, marknum=0, buynum=1]}
-{8271000=DetailsItem [userid=8271000, brandid=0, clicknum=17, marknum=0, buynum=2]}
-{6571750=DetailsItem [userid=6571750, brandid=0, clicknum=55, marknum=0, buynum=4]}
-{10095000=DetailsItem [userid=10095000, brandid=0, clicknum=124, marknum=0, buynum=9]}
-{11137750=DetailsItem [userid=11137750, brandid=0, clicknum=21, marknum=0, buynum=6]}
-{5407750=DetailsItem [userid=5407750, brandid=0, clicknum=289, marknum=0, buynum=7]}
-{3216500=DetailsItem [userid=3216500, brandid=0, clicknum=69, marknum=0, buynum=5]}
-{11794250=DetailsItem [userid=11794250, brandid=0, clicknum=68, marknum=0, buynum=6]}
-{5751500=DetailsItem [userid=5751500, brandid=0, clicknum=144, marknum=0, buynum=15]}
-{8324500=DetailsItem [userid=8324500, brandid=0, clicknum=80, marknum=0, buynum=5]}
-{393250=DetailsItem [userid=393250, brandid=0, clicknum=142, marknum=0, buynum=3]}
-{5899750=DetailsItem [userid=5899750, brandid=0, clicknum=187, marknum=0, buynum=3]}
-{12008000=DetailsItem [userid=12008000, brandid=0, clicknum=40, marknum=0, buynum=3]}
-{6205000=DetailsItem [userid=6205000, brandid=0, clicknum=35, marknum=0, buynum=1]}
-{4809750=DetailsItem [userid=4809750, brandid=0, clicknum=41, marknum=0, buynum=2]}
-{5962750=DetailsItem [userid=5962750, brandid=0, clicknum=71, marknum=0, buynum=17]}
-{573000=DetailsItem [userid=573000, brandid=0, clicknum=295, marknum=0, buynum=7]}
-{5059000=DetailsItem [userid=5059000, brandid=0, clicknum=41, marknum=0, buynum=6]}
-{6264750=DetailsItem [userid=6264750, brandid=0, clicknum=4, marknum=0, buynum=1]}
-{5293250=DetailsItem [userid=5293250, brandid=0, clicknum=272, marknum=0, buynum=13]}
-{892500=DetailsItem [userid=892500, brandid=0, clicknum=507, marknum=0, buynum=21]}
-{2797750=DetailsItem [userid=2797750, brandid=0, clicknum=51, marknum=0, buynum=4]}
-{10302500=DetailsItem [userid=10302500, brandid=0, clicknum=133, marknum=0, buynum=22]}
-{10257500=DetailsItem [userid=10257500, brandid=0, clicknum=14, marknum=0, buynum=2]}
-{4454500=DetailsItem [userid=4454500, brandid=0, clicknum=52, marknum=0, buynum=10]}
-{567250=DetailsItem [userid=567250, brandid=0, clicknum=54, marknum=0, buynum=12]}
-{2874500=DetailsItem [userid=2874500, brandid=0, clicknum=441, marknum=0, buynum=8]}
-{7787500=DetailsItem [userid=7787500, brandid=0, clicknum=16, marknum=0, buynum=1]}
-{10052000=DetailsItem [userid=10052000, brandid=0, clicknum=186, marknum=0, buynum=12]}
-{11625250=DetailsItem [userid=11625250, brandid=0, clicknum=114, marknum=0, buynum=18]}
-{848500=DetailsItem [userid=848500, brandid=0, clicknum=256, marknum=0, buynum=6]}
-{11896000=DetailsItem [userid=11896000, brandid=0, clicknum=150, marknum=0, buynum=5]}
-{3751500=DetailsItem [userid=3751500, brandid=0, clicknum=6, marknum=0, buynum=1]}
-{7797000=DetailsItem [userid=7797000, brandid=0, clicknum=213, marknum=0, buynum=6]}
-{9351750=DetailsItem [userid=9351750, brandid=0, clicknum=272, marknum=0, buynum=6]}
-{9906500=DetailsItem [userid=9906500, brandid=0, clicknum=117, marknum=0, buynum=6]}
-{10774750=DetailsItem [userid=10774750, brandid=0, clicknum=120, marknum=0, buynum=4]}
-{1086750=DetailsItem [userid=1086750, brandid=0, clicknum=388, marknum=0, buynum=11]}
-{4716750=DetailsItem [userid=4716750, brandid=0, clicknum=93, marknum=0, buynum=14]}
-{4967250=DetailsItem [userid=4967250, brandid=0, clicknum=137, marknum=0, buynum=11]}
-{2807500=DetailsItem [userid=2807500, brandid=0, clicknum=253, marknum=0, buynum=19]}
-{7854500=DetailsItem [userid=7854500, brandid=0, clicknum=173, marknum=0, buynum=19]}
-{861250=DetailsItem [userid=861250, brandid=0, clicknum=27, marknum=0, buynum=1]}
-{11936000=DetailsItem [userid=11936000, brandid=0, clicknum=94, marknum=0, buynum=2]}
-{7002750=DetailsItem [userid=7002750, brandid=0, clicknum=16, marknum=0, buynum=3]}
-{9720000=DetailsItem [userid=9720000, brandid=0, clicknum=148, marknum=0, buynum=5]}
-{2103250=DetailsItem [userid=2103250, brandid=0, clicknum=297, marknum=0, buynum=15]}
-{3245250=DetailsItem [userid=3245250, brandid=0, clicknum=8, marknum=0, buynum=1]}
-{8435250=DetailsItem [userid=8435250, brandid=0, clicknum=510, marknum=0, buynum=15]}
-{11352000=DetailsItem [userid=11352000, brandid=0, clicknum=15, marknum=0, buynum=1]}
-{5780000=DetailsItem [userid=5780000, brandid=0, clicknum=934, marknum=0, buynum=81]}
-{7830250=DetailsItem [userid=7830250, brandid=0, clicknum=17, marknum=0, buynum=3]}
-{9215000=DetailsItem [userid=9215000, brandid=0, clicknum=83, marknum=0, buynum=2]}
-{11949750=DetailsItem [userid=11949750, brandid=0, clicknum=138, marknum=0, buynum=10]}
-{5264500=DetailsItem [userid=5264500, brandid=0, clicknum=534, marknum=0, buynum=6]}
-{11590500=DetailsItem [userid=11590500, brandid=0, clicknum=190, marknum=0, buynum=4]}
-{11283500=DetailsItem [userid=11283500, brandid=0, clicknum=56, marknum=0, buynum=3]}
-{1727500=DetailsItem [userid=1727500, brandid=0, clicknum=60, marknum=0, buynum=10]}
-{2050000=DetailsItem [userid=2050000, brandid=0, clicknum=242, marknum=0, buynum=3]}
-{7657250=DetailsItem [userid=7657250, brandid=0, clicknum=82, marknum=0, buynum=4]}
-{12016750=DetailsItem [userid=12016750, brandid=0, clicknum=254, marknum=0, buynum=20]}
-{5726500=DetailsItem [userid=5726500, brandid=0, clicknum=159, marknum=0, buynum=4]}
-{11984750=DetailsItem [userid=11984750, brandid=0, clicknum=558, marknum=0, buynum=5]}
-{4963500=DetailsItem [userid=4963500, brandid=0, clicknum=89, marknum=0, buynum=2]}
-{6233750=DetailsItem [userid=6233750, brandid=0, clicknum=58, marknum=0, buynum=20]}
-{417250=DetailsItem [userid=417250, brandid=0, clicknum=62, marknum=0, buynum=4]}
-{7921500=DetailsItem [userid=7921500, brandid=0, clicknum=89, marknum=0, buynum=8]}
-{3344750=DetailsItem [userid=3344750, brandid=0, clicknum=353, marknum=0, buynum=25]}
-{7513250=DetailsItem [userid=7513250, brandid=0, clicknum=13, marknum=0, buynum=1]}
-{2200750=DetailsItem [userid=2200750, brandid=0, clicknum=245, marknum=0, buynum=13]}
-{4047000=DetailsItem [userid=4047000, brandid=0, clicknum=83, marknum=0, buynum=5]}
-{3054250=DetailsItem [userid=3054250, brandid=0, clicknum=40, marknum=0, buynum=7]}
-{4259500=DetailsItem [userid=4259500, brandid=0, clicknum=153, marknum=0, buynum=11]}
-{3524750=DetailsItem [userid=3524750, brandid=0, clicknum=35, marknum=0, buynum=3]}
-{2168250=DetailsItem [userid=2168250, brandid=0, clicknum=205, marknum=0, buynum=9]}
-{439000=DetailsItem [userid=439000, brandid=0, clicknum=730, marknum=0, buynum=39]}
-{7588000=DetailsItem [userid=7588000, brandid=0, clicknum=220, marknum=0, buynum=12]}
-{764000=DetailsItem [userid=764000, brandid=0, clicknum=12, marknum=0, buynum=2]}
-{3188000=DetailsItem [userid=3188000, brandid=0, clicknum=23, marknum=0, buynum=4]}
-{1110750=DetailsItem [userid=1110750, brandid=0, clicknum=29, marknum=0, buynum=7]}
-{4625750=DetailsItem [userid=4625750, brandid=0, clicknum=261, marknum=0, buynum=12]}
-{71250=DetailsItem [userid=71250, brandid=0, clicknum=0, marknum=0, buynum=2]}
-{6515500=DetailsItem [userid=6515500, brandid=0, clicknum=30, marknum=0, buynum=1]}
-{4921000=DetailsItem [userid=4921000, brandid=0, clicknum=141, marknum=0, buynum=9]}
-{4102750=DetailsItem [userid=4102750, brandid=0, clicknum=143, marknum=0, buynum=9]}
-{38250=DetailsItem [userid=38250, brandid=0, clicknum=313, marknum=0, buynum=8]}
-{3249250=DetailsItem [userid=3249250, brandid=0, clicknum=96, marknum=0, buynum=6]}
-{10609250=DetailsItem [userid=10609250, brandid=0, clicknum=105, marknum=0, buynum=10]}
-{4804500=DetailsItem [userid=4804500, brandid=0, clicknum=1, marknum=0, buynum=1]}
-{6766250=DetailsItem [userid=6766250, brandid=0, clicknum=103, marknum=0, buynum=10]}
-{11972750=DetailsItem [userid=11972750, brandid=0, clicknum=69, marknum=0, buynum=16]}
-{1446250=DetailsItem [userid=1446250, brandid=0, clicknum=101, marknum=0, buynum=8]}
-{5143250=DetailsItem [userid=5143250, brandid=0, clicknum=245, marknum=0, buynum=24]}
-{11129250=DetailsItem [userid=11129250, brandid=0, clicknum=284, marknum=0, buynum=1]}
-{434750=DetailsItem [userid=434750, brandid=0, clicknum=151, marknum=0, buynum=15]}
-{9076750=DetailsItem [userid=9076750, brandid=0, clicknum=181, marknum=0, buynum=1]}
-{2198750=DetailsItem [userid=2198750, brandid=0, clicknum=106, marknum=0, buynum=7]}
-{4025000=DetailsItem [userid=4025000, brandid=0, clicknum=5, marknum=0, buynum=1]}
-{4680000=DetailsItem [userid=4680000, brandid=0, clicknum=5, marknum=0, buynum=1]}
-{10885750=DetailsItem [userid=10885750, brandid=0, clicknum=3, marknum=0, buynum=1]}
-{1782250=DetailsItem [userid=1782250, brandid=0, clicknum=126, marknum=0, buynum=7]}
-{3304500=DetailsItem [userid=3304500, brandid=0, clicknum=271, marknum=0, buynum=47]}
-{10393750=DetailsItem [userid=10393750, brandid=0, clicknum=74, marknum=0, buynum=9]}
-{2378500=DetailsItem [userid=2378500, brandid=0, clicknum=84, marknum=0, buynum=13]}
-{6619500=DetailsItem [userid=6619500, brandid=0, clicknum=86, marknum=0, buynum=7]}
-{11142000=DetailsItem [userid=11142000, brandid=0, clicknum=110, marknum=0, buynum=3]}
-{9807250=DetailsItem [userid=9807250, brandid=0, clicknum=312, marknum=0, buynum=12]}
-{4956000=DetailsItem [userid=4956000, brandid=0, clicknum=159, marknum=0, buynum=3]}
-{8156500=DetailsItem [userid=8156500, brandid=0, clicknum=202, marknum=0, buynum=12]}
-{965500=DetailsItem [userid=965500, brandid=0, clicknum=130, marknum=0, buynum=6]}
-{1140750=DetailsItem [userid=1140750, brandid=0, clicknum=370, marknum=0, buynum=18]}
-{1966250=DetailsItem [userid=1966250, brandid=0, clicknum=479, marknum=0, buynum=6]}
-{425500=DetailsItem [userid=425500, brandid=0, clicknum=13, marknum=0, buynum=2]}
-{6700250=DetailsItem [userid=6700250, brandid=0, clicknum=146, marknum=0, buynum=4]}
-{6247250=DetailsItem [userid=6247250, brandid=0, clicknum=393, marknum=0, buynum=4]}
-{10224750=DetailsItem [userid=10224750, brandid=0, clicknum=84, marknum=0, buynum=7]}
-{3520000=DetailsItem [userid=3520000, brandid=0, clicknum=400, marknum=0, buynum=29]}
-{5491500=DetailsItem [userid=5491500, brandid=0, clicknum=906, marknum=0, buynum=18]}
-{2386250=DetailsItem [userid=2386250, brandid=0, clicknum=72, marknum=0, buynum=13]}
-{8628250=DetailsItem [userid=8628250, brandid=0, clicknum=234, marknum=0, buynum=3]}
-{5279750=DetailsItem [userid=5279750, brandid=0, clicknum=513, marknum=0, buynum=11]}
-{1758250=DetailsItem [userid=1758250, brandid=0, clicknum=82, marknum=0, buynum=7]}
-{341000=DetailsItem [userid=341000, brandid=0, clicknum=190, marknum=0, buynum=2]}
-{364250=DetailsItem [userid=364250, brandid=0, clicknum=24, marknum=0, buynum=2]}
-{7323750=DetailsItem [userid=7323750, brandid=0, clicknum=29, marknum=0, buynum=3]}
-{9782000=DetailsItem [userid=9782000, brandid=0, clicknum=71, marknum=0, buynum=9]}
-{6272000=DetailsItem [userid=6272000, brandid=0, clicknum=100, marknum=0, buynum=10]}
-{69500=DetailsItem [userid=69500, brandid=0, clicknum=440, marknum=0, buynum=8]}
-{47000=DetailsItem [userid=47000, brandid=0, clicknum=28, marknum=0, buynum=6]}
-{5024500=DetailsItem [userid=5024500, brandid=0, clicknum=550, marknum=0, buynum=10]}
-{12004000=DetailsItem [userid=12004000, brandid=0, clicknum=98, marknum=0, buynum=11]}
-{7163250=DetailsItem [userid=7163250, brandid=0, clicknum=200, marknum=0, buynum=8]}
-{12337750=DetailsItem [userid=12337750, brandid=0, clicknum=57, marknum=0, buynum=2]}
-{3846250=DetailsItem [userid=3846250, brandid=0, clicknum=451, marknum=0, buynum=15]}
-{11874000=DetailsItem [userid=11874000, brandid=0, clicknum=204, marknum=0, buynum=3]}
-{8845250=DetailsItem [userid=8845250, brandid=0, clicknum=960, marknum=0, buynum=39]}
-{8528750=DetailsItem [userid=8528750, brandid=0, clicknum=63, marknum=0, buynum=5]}
-{8940500=DetailsItem [userid=8940500, brandid=0, clicknum=399, marknum=0, buynum=9]}
-{3903500=DetailsItem [userid=3903500, brandid=0, clicknum=33, marknum=0, buynum=2]}
-{6257000=DetailsItem [userid=6257000, brandid=0, clicknum=40, marknum=0, buynum=6]}
-{969750=DetailsItem [userid=969750, brandid=0, clicknum=153, marknum=0, buynum=6]}
-{3266750=DetailsItem [userid=3266750, brandid=0, clicknum=80, marknum=0, buynum=3]}
-{5910250=DetailsItem [userid=5910250, brandid=0, clicknum=20, marknum=0, buynum=3]}
-{1710500=DetailsItem [userid=1710500, brandid=0, clicknum=15, marknum=0, buynum=2]}
-{12015000=DetailsItem [userid=12015000, brandid=0, clicknum=5, marknum=0, buynum=2]}
-{12142750=DetailsItem [userid=12142750, brandid=0, clicknum=133, marknum=0, buynum=1]}
-{1661750=DetailsItem [userid=1661750, brandid=0, clicknum=307, marknum=0, buynum=7]}
-{11111500=DetailsItem [userid=11111500, brandid=0, clicknum=17, marknum=0, buynum=5]}
-{10966250=DetailsItem [userid=10966250, brandid=0, clicknum=77, marknum=0, buynum=8]}
-{11616250=DetailsItem [userid=11616250, brandid=0, clicknum=13, marknum=0, buynum=1]}
-{3312500=DetailsItem [userid=3312500, brandid=0, clicknum=10, marknum=0, buynum=1]}
-{232000=DetailsItem [userid=232000, brandid=0, clicknum=207, marknum=0, buynum=7]}
-{7892000=DetailsItem [userid=7892000, brandid=0, clicknum=416, marknum=0, buynum=7]}
-{2891500=DetailsItem [userid=2891500, brandid=0, clicknum=1033, marknum=0, buynum=50]}
-{3590000=DetailsItem [userid=3590000, brandid=0, clicknum=78, marknum=0, buynum=3]}
-{11313000=DetailsItem [userid=11313000, brandid=0, clicknum=775, marknum=0, buynum=15]}
-{10261750=DetailsItem [userid=10261750, brandid=0, clicknum=637, marknum=0, buynum=40]}
-{6874250=DetailsItem [userid=6874250, brandid=0, clicknum=1010, marknum=0, buynum=67]}
-{5847500=DetailsItem [userid=5847500, brandid=0, clicknum=75, marknum=0, buynum=1]}
-{11730000=DetailsItem [userid=11730000, brandid=0, clicknum=409, marknum=0, buynum=16]}
-{8129250=DetailsItem [userid=8129250, brandid=0, clicknum=120, marknum=0, buynum=10]}
-{1622500=DetailsItem [userid=1622500, brandid=0, clicknum=439, marknum=0, buynum=15]}
-{10069500=DetailsItem [userid=10069500, brandid=0, clicknum=91, marknum=0, buynum=17]}
-{5139250=DetailsItem [userid=5139250, brandid=0, clicknum=404, marknum=0, buynum=8]}
-{6234000=DetailsItem [userid=6234000, brandid=0, clicknum=320, marknum=0, buynum=9]}
-{9794000=DetailsItem [userid=9794000, brandid=0, clicknum=12, marknum=0, buynum=4]}
-{4118250=DetailsItem [userid=4118250, brandid=0, clicknum=66, marknum=0, buynum=1]}
-{4658500=DetailsItem [userid=4658500, brandid=0, clicknum=344, marknum=0, buynum=15]}
-{3799500=DetailsItem [userid=3799500, brandid=0, clicknum=8, marknum=0, buynum=2]}
-{2480750=DetailsItem [userid=2480750, brandid=0, clicknum=100, marknum=0, buynum=6]}
-{8049000=DetailsItem [userid=8049000, brandid=0, clicknum=208, marknum=0, buynum=9]}
-{1806750=DetailsItem [userid=1806750, brandid=0, clicknum=38, marknum=0, buynum=2]}
-{10229250=DetailsItem [userid=10229250, brandid=0, clicknum=150, marknum=0, buynum=8]}
-{4257000=DetailsItem [userid=4257000, brandid=0, clicknum=96, marknum=0, buynum=3]}
-{2448250=DetailsItem [userid=2448250, brandid=0, clicknum=52, marknum=0, buynum=3]}
-{8949750=DetailsItem [userid=8949750, brandid=0, clicknum=125, marknum=0, buynum=2]}
-{8799750=DetailsItem [userid=8799750, brandid=0, clicknum=280, marknum=0, buynum=14]}
-{10773000=DetailsItem [userid=10773000, brandid=0, clicknum=480, marknum=0, buynum=14]}
-{12204750=DetailsItem [userid=12204750, brandid=0, clicknum=18, marknum=0, buynum=3]}
-{2187500=DetailsItem [userid=2187500, brandid=0, clicknum=163, marknum=0, buynum=7]}
-{9586500=DetailsItem [userid=9586500, brandid=0, clicknum=235, marknum=0, buynum=9]}
-{8346250=DetailsItem [userid=8346250, brandid=0, clicknum=9, marknum=0, buynum=2]}
-{2316250=DetailsItem [userid=2316250, brandid=0, clicknum=147, marknum=0, buynum=13]}
-{764750=DetailsItem [userid=764750, brandid=0, clicknum=22, marknum=0, buynum=1]}
-{4054000=DetailsItem [userid=4054000, brandid=0, clicknum=8, marknum=0, buynum=7]}
-{2882750=DetailsItem [userid=2882750, brandid=0, clicknum=63, marknum=0, buynum=11]}
-{8040000=DetailsItem [userid=8040000, brandid=0, clicknum=869, marknum=0, buynum=20]}
-{7435500=DetailsItem [userid=7435500, brandid=0, clicknum=63, marknum=0, buynum=5]}
-{6998500=DetailsItem [userid=6998500, brandid=0, clicknum=336, marknum=0, buynum=9]}
-{10768750=DetailsItem [userid=10768750, brandid=0, clicknum=52, marknum=0, buynum=4]}
-{10000250=DetailsItem [userid=10000250, brandid=0, clicknum=41, marknum=0, buynum=5]}
-{7476250=DetailsItem [userid=7476250, brandid=0, clicknum=160, marknum=0, buynum=8]}
-{731750=DetailsItem [userid=731750, brandid=0, clicknum=72, marknum=0, buynum=7]}
-{12229000=DetailsItem [userid=12229000, brandid=0, clicknum=73, marknum=0, buynum=14]}
-{10588000=DetailsItem [userid=10588000, brandid=0, clicknum=186, marknum=0, buynum=5]}
-{4153000=DetailsItem [userid=4153000, brandid=0, clicknum=121, marknum=0, buynum=11]}
-{2688750=DetailsItem [userid=2688750, brandid=0, clicknum=65, marknum=0, buynum=4]}
-{1969000=DetailsItem [userid=1969000, brandid=0, clicknum=167, marknum=0, buynum=9]}
-{4193750=DetailsItem [userid=4193750, brandid=0, clicknum=54, marknum=0, buynum=2]}
-{12028500=DetailsItem [userid=12028500, brandid=0, clicknum=81, marknum=0, buynum=7]}
-{1793250=DetailsItem [userid=1793250, brandid=0, clicknum=88, marknum=0, buynum=2]}
-{7699500=DetailsItem [userid=7699500, brandid=0, clicknum=1001, marknum=0, buynum=21]}
-{11687000=DetailsItem [userid=11687000, brandid=0, clicknum=15, marknum=0, buynum=2]}
-{12231250=DetailsItem [userid=12231250, brandid=0, clicknum=79, marknum=0, buynum=4]}
-{6564500=DetailsItem [userid=6564500, brandid=0, clicknum=687, marknum=0, buynum=25]}
-{6852750=DetailsItem [userid=6852750, brandid=0, clicknum=94, marknum=0, buynum=5]}
-{9592500=DetailsItem [userid=9592500, brandid=0, clicknum=57, marknum=0, buynum=1]}
-{3009000=DetailsItem [userid=3009000, brandid=0, clicknum=223, marknum=0, buynum=25]}
-{10063000=DetailsItem [userid=10063000, brandid=0, clicknum=113, marknum=0, buynum=7]}
-{448250=DetailsItem [userid=448250, brandid=0, clicknum=17, marknum=0, buynum=3]}
-{12275500=DetailsItem [userid=12275500, brandid=0, clicknum=89, marknum=0, buynum=6]}
-{4557250=DetailsItem [userid=4557250, brandid=0, clicknum=54, marknum=0, buynum=2]}
-{6172000=DetailsItem [userid=6172000, brandid=0, clicknum=26, marknum=0, buynum=3]}
-{6061250=DetailsItem [userid=6061250, brandid=0, clicknum=335, marknum=0, buynum=14]}
-{4922750=DetailsItem [userid=4922750, brandid=0, clicknum=139, marknum=0, buynum=8]}
-{7269250=DetailsItem [userid=7269250, brandid=0, clicknum=98, marknum=0, buynum=24]}
-{3719250=DetailsItem [userid=3719250, brandid=0, clicknum=20, marknum=0, buynum=1]}
-{9716500=DetailsItem [userid=9716500, brandid=0, clicknum=76, marknum=0, buynum=4]}
-{6683750=DetailsItem [userid=6683750, brandid=0, clicknum=204, marknum=0, buynum=6]}
-{621500=DetailsItem [userid=621500, brandid=0, clicknum=297, marknum=0, buynum=6]}
-{5742000=DetailsItem [userid=5742000, brandid=0, clicknum=436, marknum=0, buynum=20]}
-{7375000=DetailsItem [userid=7375000, brandid=0, clicknum=84, marknum=0, buynum=5]}
-{11114000=DetailsItem [userid=11114000, brandid=0, clicknum=45, marknum=0, buynum=2]}
-{4392000=DetailsItem [userid=4392000, brandid=0, clicknum=11, marknum=0, buynum=1]}
-{10619000=DetailsItem [userid=10619000, brandid=0, clicknum=33, marknum=0, buynum=1]}
-{11321750=DetailsItem [userid=11321750, brandid=0, clicknum=372, marknum=0, buynum=12]}
-{6751750=DetailsItem [userid=6751750, brandid=0, clicknum=187, marknum=0, buynum=6]}
-{2968250=DetailsItem [userid=2968250, brandid=0, clicknum=96, marknum=0, buynum=9]}
-{599750=DetailsItem [userid=599750, brandid=0, clicknum=173, marknum=0, buynum=11]}
-{4059500=DetailsItem [userid=4059500, brandid=0, clicknum=107, marknum=0, buynum=4]}
-{1492500=DetailsItem [userid=1492500, brandid=0, clicknum=173, marknum=0, buynum=3]}
-{2492500=DetailsItem [userid=2492500, brandid=0, clicknum=153, marknum=0, buynum=8]}
-{10972250=DetailsItem [userid=10972250, brandid=0, clicknum=37, marknum=0, buynum=3]}
-{9512750=DetailsItem [userid=9512750, brandid=0, clicknum=118, marknum=0, buynum=6]}
-{1724250=DetailsItem [userid=1724250, brandid=0, clicknum=304, marknum=0, buynum=11]}
-{6654750=DetailsItem [userid=6654750, brandid=0, clicknum=105, marknum=0, buynum=5]}
-{145750=DetailsItem [userid=145750, brandid=0, clicknum=42, marknum=0, buynum=7]}
-{3014750=DetailsItem [userid=3014750, brandid=0, clicknum=131, marknum=0, buynum=7]}
-{3644250=DetailsItem [userid=3644250, brandid=0, clicknum=366, marknum=0, buynum=19]}
-{9694750=DetailsItem [userid=9694750, brandid=0, clicknum=282, marknum=0, buynum=4]}
-{1240250=DetailsItem [userid=1240250, brandid=0, clicknum=11, marknum=0, buynum=2]}
-{1046250=DetailsItem [userid=1046250, brandid=0, clicknum=129, marknum=0, buynum=5]}
-{11527500=DetailsItem [userid=11527500, brandid=0, clicknum=49, marknum=0, buynum=3]}
-{4336750=DetailsItem [userid=4336750, brandid=0, clicknum=49, marknum=0, buynum=1]}
-{8385000=DetailsItem [userid=8385000, brandid=0, clicknum=122, marknum=0, buynum=18]}
-{12388250=DetailsItem [userid=12388250, brandid=0, clicknum=119, marknum=0, buynum=2]}
-{7190750=DetailsItem [userid=7190750, brandid=0, clicknum=12, marknum=0, buynum=2]}
-{4115500=DetailsItem [userid=4115500, brandid=0, clicknum=40, marknum=0, buynum=6]}
-{10513000=DetailsItem [userid=10513000, brandid=0, clicknum=0, marknum=0, buynum=1]}
-{5012750=DetailsItem [userid=5012750, brandid=0, clicknum=173, marknum=0, buynum=12]}
-{9982500=DetailsItem [userid=9982500, brandid=0, clicknum=54, marknum=0, buynum=4]}
-{7886000=DetailsItem [userid=7886000, brandid=0, clicknum=458, marknum=0, buynum=9]}
-{1165500=DetailsItem [userid=1165500, brandid=0, clicknum=16, marknum=0, buynum=3]}
-{7927750=DetailsItem [userid=7927750, brandid=0, clicknum=188, marknum=0, buynum=8]}
-{12331000=DetailsItem [userid=12331000, brandid=0, clicknum=222, marknum=0, buynum=13]}
-{10578000=DetailsItem [userid=10578000, brandid=0, clicknum=60, marknum=0, buynum=4]}
-{8195000=DetailsItem [userid=8195000, brandid=0, clicknum=367, marknum=0, buynum=5]}
-{415500=DetailsItem [userid=415500, brandid=0, clicknum=92, marknum=0, buynum=7]}
-{1525000=DetailsItem [userid=1525000, brandid=0, clicknum=127, marknum=0, buynum=3]}
-{11847750=DetailsItem [userid=11847750, brandid=0, clicknum=17, marknum=0, buynum=1]}
-{5239500=DetailsItem [userid=5239500, brandid=0, clicknum=110, marknum=0, buynum=6]}
-{9946250=DetailsItem [userid=9946250, brandid=0, clicknum=60, marknum=0, buynum=7]}
-{11711250=DetailsItem [userid=11711250, brandid=0, clicknum=250, marknum=0, buynum=16]}
-{11734000=DetailsItem [userid=11734000, brandid=0, clicknum=156, marknum=0, buynum=5]}
-{861750=DetailsItem [userid=861750, brandid=0, clicknum=38, marknum=0, buynum=3]}
-{3795000=DetailsItem [userid=3795000, brandid=0, clicknum=161, marknum=0, buynum=3]}
-{2350750=DetailsItem [userid=2350750, brandid=0, clicknum=3, marknum=0, buynum=1]}
-{4907500=DetailsItem [userid=4907500, brandid=0, clicknum=67, marknum=0, buynum=6]}
-{4814750=DetailsItem [userid=4814750, brandid=0, clicknum=1, marknum=0, buynum=1]}
-{2428500=DetailsItem [userid=2428500, brandid=0, clicknum=73, marknum=0, buynum=2]}
-{11683250=DetailsItem [userid=11683250, brandid=0, clicknum=70, marknum=0, buynum=4]}
-{4886500=DetailsItem [userid=4886500, brandid=0, clicknum=73, marknum=0, buynum=6]}
-{3723750=DetailsItem [userid=3723750, brandid=0, clicknum=166, marknum=0, buynum=9]}
-{472000=DetailsItem [userid=472000, brandid=0, clicknum=175, marknum=0, buynum=5]}
-{9811750=DetailsItem [userid=9811750, brandid=0, clicknum=30, marknum=0, buynum=1]}
-{10539250=DetailsItem [userid=10539250, brandid=0, clicknum=33, marknum=0, buynum=5]}
-{8555500=DetailsItem [userid=8555500, brandid=0, clicknum=123, marknum=0, buynum=11]}
-{11169500=DetailsItem [userid=11169500, brandid=0, clicknum=344, marknum=0, buynum=7]}
-{3734250=DetailsItem [userid=3734250, brandid=0, clicknum=12, marknum=0, buynum=1]}
-{6848750=DetailsItem [userid=6848750, brandid=0, clicknum=230, marknum=0, buynum=15]}
-{5697750=DetailsItem [userid=5697750, brandid=0, clicknum=20, marknum=0, buynum=6]}
-{10054250=DetailsItem [userid=10054250, brandid=0, clicknum=206, marknum=0, buynum=11]}
-{8280500=DetailsItem [userid=8280500, brandid=0, clicknum=17, marknum=0, buynum=6]}
-{5354000=DetailsItem [userid=5354000, brandid=0, clicknum=188, marknum=0, buynum=7]}
-{42000=DetailsItem [userid=42000, brandid=0, clicknum=167, marknum=0, buynum=3]}
-{6458500=DetailsItem [userid=6458500, brandid=0, clicknum=30, marknum=0, buynum=5]}
-{11440500=DetailsItem [userid=11440500, brandid=0, clicknum=226, marknum=0, buynum=13]}
-{528250=DetailsItem [userid=528250, brandid=0, clicknum=49, marknum=0, buynum=3]}
-{5915250=DetailsItem [userid=5915250, brandid=0, clicknum=20, marknum=0, buynum=8]}
-{3149000=DetailsItem [userid=3149000, brandid=0, clicknum=77, marknum=0, buynum=4]}
-{6003750=DetailsItem [userid=6003750, brandid=0, clicknum=264, marknum=0, buynum=24]}
-{6754250=DetailsItem [userid=6754250, brandid=0, clicknum=42, marknum=0, buynum=2]}
-{2733500=DetailsItem [userid=2733500, brandid=0, clicknum=40, marknum=0, buynum=2]}
-{5226500=DetailsItem [userid=5226500, brandid=0, clicknum=129, marknum=0, buynum=6]}
-{8163500=DetailsItem [userid=8163500, brandid=0, clicknum=739, marknum=0, buynum=7]}
-{5226250=DetailsItem [userid=5226250, brandid=0, clicknum=167, marknum=0, buynum=9]}
-{8730250=DetailsItem [userid=8730250, brandid=0, clicknum=562, marknum=0, buynum=48]}
-{2988000=DetailsItem [userid=2988000, brandid=0, clicknum=58, marknum=0, buynum=9]}
-{9651250=DetailsItem [userid=9651250, brandid=0, clicknum=96, marknum=0, buynum=6]}
-{10212500=DetailsItem [userid=10212500, brandid=0, clicknum=36, marknum=0, buynum=4]}
-{7600250=DetailsItem [userid=7600250, brandid=0, clicknum=212, marknum=0, buynum=3]}
-{11131750=DetailsItem [userid=11131750, brandid=0, clicknum=140, marknum=0, buynum=2]}
-{9079500=DetailsItem [userid=9079500, brandid=0, clicknum=50, marknum=0, buynum=7]}
-{8216500=DetailsItem [userid=8216500, brandid=0, clicknum=282, marknum=0, buynum=25]}
-{7810250=DetailsItem [userid=7810250, brandid=0, clicknum=20, marknum=0, buynum=2]}
-{1244250=DetailsItem [userid=1244250, brandid=0, clicknum=194, marknum=0, buynum=14]}
-{5078750=DetailsItem [userid=5078750, brandid=0, clicknum=267, marknum=0, buynum=26]}
-{2364500=DetailsItem [userid=2364500, brandid=0, clicknum=31, marknum=0, buynum=2]}
-{11535500=DetailsItem [userid=11535500, brandid=0, clicknum=0, marknum=0, buynum=1]}
-{11496750=DetailsItem [userid=11496750, brandid=0, clicknum=47, marknum=0, buynum=2]}
-{8072250=DetailsItem [userid=8072250, brandid=0, clicknum=210, marknum=0, buynum=15]}
-{4876750=DetailsItem [userid=4876750, brandid=0, clicknum=82, marknum=0, buynum=1]}
-{3001000=DetailsItem [userid=3001000, brandid=0, clicknum=0, marknum=0, buynum=6]}
-{8033500=DetailsItem [userid=8033500, brandid=0, clicknum=315, marknum=0, buynum=12]}
-{3405000=DetailsItem [userid=3405000, brandid=0, clicknum=35, marknum=0, buynum=1]}
-{7715000=DetailsItem [userid=7715000, brandid=0, clicknum=280, marknum=0, buynum=4]}
-{10592000=DetailsItem [userid=10592000, brandid=0, clicknum=436, marknum=0, buynum=4]}
-{6694750=DetailsItem [userid=6694750, brandid=0, clicknum=630, marknum=0, buynum=16]}
-{3787750=DetailsItem [userid=3787750, brandid=0, clicknum=39, marknum=0, buynum=3]}
-{6996000=DetailsItem [userid=6996000, brandid=0, clicknum=42, marknum=0, buynum=3]}
-{5261000=DetailsItem [userid=5261000, brandid=0, clicknum=123, marknum=0, buynum=10]}
-{5906250=DetailsItem [userid=5906250, brandid=0, clicknum=89, marknum=0, buynum=3]}
-{5769750=DetailsItem [userid=5769750, brandid=0, clicknum=118, marknum=0, buynum=17]}
-{236000=DetailsItem [userid=236000, brandid=0, clicknum=70, marknum=0, buynum=3]}
-{5642000=DetailsItem [userid=5642000, brandid=0, clicknum=756, marknum=0, buynum=11]}
-{1104500=DetailsItem [userid=1104500, brandid=0, clicknum=548, marknum=0, buynum=2]}
-{1531250=DetailsItem [userid=1531250, brandid=0, clicknum=448, marknum=0, buynum=7]}
-{1617250=DetailsItem [userid=1617250, brandid=0, clicknum=359, marknum=0, buynum=16]}
-{6412250=DetailsItem [userid=6412250, brandid=0, clicknum=53, marknum=0, buynum=1]}
-{6099250=DetailsItem [userid=6099250, brandid=0, clicknum=269, marknum=0, buynum=7]}
-{7918750=DetailsItem [userid=7918750, brandid=0, clicknum=26, marknum=0, buynum=1]}
-{5952250=DetailsItem [userid=5952250, brandid=0, clicknum=46, marknum=0, buynum=5]}
-{11601500=DetailsItem [userid=11601500, brandid=0, clicknum=303, marknum=0, buynum=6]}
-{2921750=DetailsItem [userid=2921750, brandid=0, clicknum=593, marknum=0, buynum=13]}
-{7184500=DetailsItem [userid=7184500, brandid=0, clicknum=390, marknum=0, buynum=14]}
-{725000=DetailsItem [userid=725000, brandid=0, clicknum=55, marknum=0, buynum=2]}
-{11493000=DetailsItem [userid=11493000, brandid=0, clicknum=247, marknum=0, buynum=14]}
-{2232500=DetailsItem [userid=2232500, brandid=0, clicknum=136, marknum=0, buynum=5]}
-{6400000=DetailsItem [userid=6400000, brandid=0, clicknum=116, marknum=0, buynum=20]}
-{7405250=DetailsItem [userid=7405250, brandid=0, clicknum=30, marknum=0, buynum=3]}
-{1724000=DetailsItem [userid=1724000, brandid=0, clicknum=30, marknum=0, buynum=1]}
-{4133750=DetailsItem [userid=4133750, brandid=0, clicknum=278, marknum=0, buynum=17]}
-{8617500=DetailsItem [userid=8617500, brandid=0, clicknum=135, marknum=0, buynum=8]}
-{1838750=DetailsItem [userid=1838750, brandid=0, clicknum=12, marknum=0, buynum=2]}
-{1324500=DetailsItem [userid=1324500, brandid=0, clicknum=278, marknum=0, buynum=23]}
-{1459750=DetailsItem [userid=1459750, brandid=0, clicknum=36, marknum=0, buynum=2]}
-{10790500=DetailsItem [userid=10790500, brandid=0, clicknum=2, marknum=0, buynum=1]}
-{8702500=DetailsItem [userid=8702500, brandid=0, clicknum=692, marknum=0, buynum=26]}
-{12417500=DetailsItem [userid=12417500, brandid=0, clicknum=7, marknum=0, buynum=24]}
-{5440750=DetailsItem [userid=5440750, brandid=0, clicknum=128, marknum=0, buynum=10]}
-{6266000=DetailsItem [userid=6266000, brandid=0, clicknum=36, marknum=0, buynum=2]}
-{5865750=DetailsItem [userid=5865750, brandid=0, clicknum=445, marknum=0, buynum=11]}
-{5336750=DetailsItem [userid=5336750, brandid=0, clicknum=139, marknum=0, buynum=14]}
-{5655250=DetailsItem [userid=5655250, brandid=0, clicknum=564, marknum=0, buynum=7]}
-{3963750=DetailsItem [userid=3963750, brandid=0, clicknum=565, marknum=0, buynum=22]}
-{3981750=DetailsItem [userid=3981750, brandid=0, clicknum=262, marknum=0, buynum=12]}
-{2088000=DetailsItem [userid=2088000, brandid=0, clicknum=182, marknum=0, buynum=10]}
-{835000=DetailsItem [userid=835000, brandid=0, clicknum=231, marknum=0, buynum=23]}
-{1906000=DetailsItem [userid=1906000, brandid=0, clicknum=331, marknum=0, buynum=24]}
-{9244000=DetailsItem [userid=9244000, brandid=0, clicknum=480, marknum=0, buynum=20]}
-{8910750=DetailsItem [userid=8910750, brandid=0, clicknum=311, marknum=0, buynum=18]}
-{4189500=DetailsItem [userid=4189500, brandid=0, clicknum=28, marknum=0, buynum=1]}
-{4853750=DetailsItem [userid=4853750, brandid=0, clicknum=13, marknum=0, buynum=2]}
-{7143250=DetailsItem [userid=7143250, brandid=0, clicknum=337, marknum=0, buynum=41]}
-{6848000=DetailsItem [userid=6848000, brandid=0, clicknum=66, marknum=0, buynum=5]}
-{7445000=DetailsItem [userid=7445000, brandid=0, clicknum=32, marknum=0, buynum=4]}
+DetailsItem [userid=9842500, brandid=0, data=null, clicknum=184, marknum=0, buynum=9]
+DetailsItem [userid=11535250, brandid=0, data=null, clicknum=162, marknum=0, buynum=2]
+DetailsItem [userid=4880250, brandid=0, data=null, clicknum=111, marknum=0, buynum=3]
+DetailsItem [userid=11894500, brandid=0, data=null, clicknum=26, marknum=0, buynum=1]
+DetailsItem [userid=5846250, brandid=0, data=null, clicknum=66, marknum=0, buynum=5]
+DetailsItem [userid=9179500, brandid=0, data=null, clicknum=347, marknum=0, buynum=14]
+DetailsItem [userid=3363000, brandid=0, data=null, clicknum=70, marknum=0, buynum=0]
+DetailsItem [userid=6683250, brandid=0, data=null, clicknum=58, marknum=0, buynum=0]
+DetailsItem [userid=2331750, brandid=0, data=null, clicknum=144, marknum=0, buynum=10]
+DetailsItem [userid=7361250, brandid=0, data=null, clicknum=73, marknum=0, buynum=2]
+DetailsItem [userid=9344000, brandid=0, data=null, clicknum=47, marknum=0, buynum=2]
+DetailsItem [userid=5654000, brandid=0, data=null, clicknum=112, marknum=0, buynum=7]
+DetailsItem [userid=11947000, brandid=0, data=null, clicknum=245, marknum=0, buynum=14]
+DetailsItem [userid=5027500, brandid=0, data=null, clicknum=23, marknum=0, buynum=0]
+DetailsItem [userid=2808500, brandid=0, data=null, clicknum=40, marknum=0, buynum=1]
+DetailsItem [userid=12154500, brandid=0, data=null, clicknum=670, marknum=0, buynum=35]
+DetailsItem [userid=5292000, brandid=0, data=null, clicknum=65, marknum=0, buynum=7]
+DetailsItem [userid=7703750, brandid=0, data=null, clicknum=168, marknum=0, buynum=2]
+DetailsItem [userid=5034000, brandid=0, data=null, clicknum=200, marknum=0, buynum=2]
+DetailsItem [userid=2148250, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=1247000, brandid=0, data=null, clicknum=42, marknum=0, buynum=6]
+DetailsItem [userid=691500, brandid=0, data=null, clicknum=372, marknum=0, buynum=5]
+DetailsItem [userid=8701250, brandid=0, data=null, clicknum=138, marknum=0, buynum=0]
+DetailsItem [userid=418500, brandid=0, data=null, clicknum=9, marknum=0, buynum=2]
+DetailsItem [userid=7483500, brandid=0, data=null, clicknum=42, marknum=0, buynum=0]
+DetailsItem [userid=2557000, brandid=0, data=null, clicknum=19, marknum=0, buynum=0]
+DetailsItem [userid=2768250, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=5735000, brandid=0, data=null, clicknum=102, marknum=0, buynum=0]
+DetailsItem [userid=8573000, brandid=0, data=null, clicknum=193, marknum=0, buynum=5]
+DetailsItem [userid=1528500, brandid=0, data=null, clicknum=165, marknum=0, buynum=13]
+DetailsItem [userid=2852250, brandid=0, data=null, clicknum=167, marknum=0, buynum=0]
+DetailsItem [userid=9352750, brandid=0, data=null, clicknum=17, marknum=0, buynum=2]
+DetailsItem [userid=10185000, brandid=0, data=null, clicknum=34, marknum=0, buynum=0]
+DetailsItem [userid=7367000, brandid=0, data=null, clicknum=63, marknum=0, buynum=12]
+DetailsItem [userid=5948500, brandid=0, data=null, clicknum=61, marknum=0, buynum=0]
+DetailsItem [userid=847750, brandid=0, data=null, clicknum=23, marknum=0, buynum=0]
+DetailsItem [userid=6458250, brandid=0, data=null, clicknum=2, marknum=0, buynum=0]
+DetailsItem [userid=10047250, brandid=0, data=null, clicknum=17, marknum=0, buynum=1]
+DetailsItem [userid=7320250, brandid=0, data=null, clicknum=40, marknum=0, buynum=5]
+DetailsItem [userid=650750, brandid=0, data=null, clicknum=23, marknum=0, buynum=2]
+DetailsItem [userid=8757750, brandid=0, data=null, clicknum=21, marknum=0, buynum=2]
+DetailsItem [userid=19500, brandid=0, data=null, clicknum=199, marknum=0, buynum=4]
+DetailsItem [userid=266500, brandid=0, data=null, clicknum=23, marknum=0, buynum=7]
+DetailsItem [userid=2676250, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=832250, brandid=0, data=null, clicknum=164, marknum=0, buynum=8]
+DetailsItem [userid=4844000, brandid=0, data=null, clicknum=220, marknum=0, buynum=9]
+DetailsItem [userid=9513250, brandid=0, data=null, clicknum=286, marknum=0, buynum=9]
+DetailsItem [userid=252500, brandid=0, data=null, clicknum=21, marknum=0, buynum=1]
+DetailsItem [userid=10976250, brandid=0, data=null, clicknum=68, marknum=0, buynum=5]
+DetailsItem [userid=6433000, brandid=0, data=null, clicknum=39, marknum=0, buynum=1]
+DetailsItem [userid=6603750, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=4256500, brandid=0, data=null, clicknum=33, marknum=0, buynum=0]
+DetailsItem [userid=3215500, brandid=0, data=null, clicknum=46, marknum=0, buynum=0]
+DetailsItem [userid=5320000, brandid=0, data=null, clicknum=140, marknum=0, buynum=2]
+DetailsItem [userid=2616250, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=1114000, brandid=0, data=null, clicknum=13, marknum=0, buynum=1]
+DetailsItem [userid=9055750, brandid=0, data=null, clicknum=17, marknum=0, buynum=1]
+DetailsItem [userid=3781500, brandid=0, data=null, clicknum=63, marknum=0, buynum=1]
+DetailsItem [userid=8633500, brandid=0, data=null, clicknum=60, marknum=0, buynum=4]
+DetailsItem [userid=9628250, brandid=0, data=null, clicknum=36, marknum=0, buynum=3]
+DetailsItem [userid=776750, brandid=0, data=null, clicknum=411, marknum=0, buynum=19]
+DetailsItem [userid=6977000, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=5440500, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=4304250, brandid=0, data=null, clicknum=11, marknum=0, buynum=3]
+DetailsItem [userid=3031750, brandid=0, data=null, clicknum=881, marknum=0, buynum=15]
+DetailsItem [userid=4195500, brandid=0, data=null, clicknum=159, marknum=0, buynum=10]
+DetailsItem [userid=9437500, brandid=0, data=null, clicknum=77, marknum=0, buynum=5]
+DetailsItem [userid=6523250, brandid=0, data=null, clicknum=105, marknum=0, buynum=0]
+DetailsItem [userid=2752000, brandid=0, data=null, clicknum=112, marknum=0, buynum=4]
+DetailsItem [userid=6380000, brandid=0, data=null, clicknum=75, marknum=0, buynum=2]
+DetailsItem [userid=11579750, brandid=0, data=null, clicknum=43, marknum=0, buynum=0]
+DetailsItem [userid=11552750, brandid=0, data=null, clicknum=24, marknum=0, buynum=1]
+DetailsItem [userid=1517000, brandid=0, data=null, clicknum=1, marknum=0, buynum=1]
+DetailsItem [userid=887750, brandid=0, data=null, clicknum=179, marknum=0, buynum=6]
+DetailsItem [userid=4895250, brandid=0, data=null, clicknum=189, marknum=0, buynum=13]
+DetailsItem [userid=8070000, brandid=0, data=null, clicknum=12, marknum=0, buynum=0]
+DetailsItem [userid=1381000, brandid=0, data=null, clicknum=29, marknum=0, buynum=4]
+DetailsItem [userid=11300000, brandid=0, data=null, clicknum=131, marknum=0, buynum=3]
+DetailsItem [userid=2033500, brandid=0, data=null, clicknum=356, marknum=0, buynum=9]
+DetailsItem [userid=5187750, brandid=0, data=null, clicknum=113, marknum=0, buynum=2]
+DetailsItem [userid=4902250, brandid=0, data=null, clicknum=127, marknum=0, buynum=5]
+DetailsItem [userid=405000, brandid=0, data=null, clicknum=33, marknum=0, buynum=1]
+DetailsItem [userid=11564250, brandid=0, data=null, clicknum=36, marknum=0, buynum=0]
+DetailsItem [userid=5754500, brandid=0, data=null, clicknum=126, marknum=0, buynum=9]
+DetailsItem [userid=8170750, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=1579250, brandid=0, data=null, clicknum=127, marknum=0, buynum=10]
+DetailsItem [userid=7976750, brandid=0, data=null, clicknum=79, marknum=0, buynum=1]
+DetailsItem [userid=6497000, brandid=0, data=null, clicknum=34, marknum=0, buynum=4]
+DetailsItem [userid=11632250, brandid=0, data=null, clicknum=62, marknum=0, buynum=0]
+DetailsItem [userid=5155750, brandid=0, data=null, clicknum=142, marknum=0, buynum=9]
+DetailsItem [userid=5898500, brandid=0, data=null, clicknum=125, marknum=0, buynum=3]
+DetailsItem [userid=12027000, brandid=0, data=null, clicknum=0, marknum=0, buynum=1]
+DetailsItem [userid=5199750, brandid=0, data=null, clicknum=13, marknum=0, buynum=1]
+DetailsItem [userid=7898750, brandid=0, data=null, clicknum=29, marknum=0, buynum=0]
+DetailsItem [userid=6867750, brandid=0, data=null, clicknum=96, marknum=0, buynum=0]
+DetailsItem [userid=2251750, brandid=0, data=null, clicknum=105, marknum=0, buynum=5]
+DetailsItem [userid=11782250, brandid=0, data=null, clicknum=11, marknum=0, buynum=1]
+DetailsItem [userid=2078000, brandid=0, data=null, clicknum=131, marknum=0, buynum=11]
+DetailsItem [userid=7269750, brandid=0, data=null, clicknum=6, marknum=0, buynum=1]
+DetailsItem [userid=11923000, brandid=0, data=null, clicknum=11, marknum=0, buynum=0]
+DetailsItem [userid=8327250, brandid=0, data=null, clicknum=0, marknum=0, buynum=1]
+DetailsItem [userid=4063000, brandid=0, data=null, clicknum=88, marknum=0, buynum=2]
+DetailsItem [userid=200250, brandid=0, data=null, clicknum=111, marknum=0, buynum=7]
+DetailsItem [userid=9463750, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=3096750, brandid=0, data=null, clicknum=19, marknum=0, buynum=2]
+DetailsItem [userid=8100250, brandid=0, data=null, clicknum=54, marknum=0, buynum=2]
+DetailsItem [userid=10546500, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=5220750, brandid=0, data=null, clicknum=9, marknum=0, buynum=0]
+DetailsItem [userid=1499750, brandid=0, data=null, clicknum=21, marknum=0, buynum=0]
+DetailsItem [userid=3581250, brandid=0, data=null, clicknum=168, marknum=0, buynum=8]
+DetailsItem [userid=5467250, brandid=0, data=null, clicknum=83, marknum=0, buynum=3]
+DetailsItem [userid=7893250, brandid=0, data=null, clicknum=12, marknum=0, buynum=0]
+DetailsItem [userid=6014750, brandid=0, data=null, clicknum=26, marknum=0, buynum=0]
+DetailsItem [userid=2704750, brandid=0, data=null, clicknum=52, marknum=0, buynum=14]
+DetailsItem [userid=4631250, brandid=0, data=null, clicknum=95, marknum=0, buynum=2]
+DetailsItem [userid=6904000, brandid=0, data=null, clicknum=82, marknum=0, buynum=1]
+DetailsItem [userid=2076000, brandid=0, data=null, clicknum=115, marknum=0, buynum=4]
+DetailsItem [userid=563500, brandid=0, data=null, clicknum=200, marknum=0, buynum=3]
+DetailsItem [userid=1025250, brandid=0, data=null, clicknum=37, marknum=0, buynum=1]
+DetailsItem [userid=1641000, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=5082750, brandid=0, data=null, clicknum=53, marknum=0, buynum=0]
+DetailsItem [userid=2737250, brandid=0, data=null, clicknum=52, marknum=0, buynum=0]
+DetailsItem [userid=11220500, brandid=0, data=null, clicknum=9, marknum=0, buynum=0]
+DetailsItem [userid=2253250, brandid=0, data=null, clicknum=275, marknum=0, buynum=4]
+DetailsItem [userid=11121500, brandid=0, data=null, clicknum=33, marknum=0, buynum=5]
+DetailsItem [userid=4809000, brandid=0, data=null, clicknum=18, marknum=0, buynum=4]
+DetailsItem [userid=10653250, brandid=0, data=null, clicknum=234, marknum=0, buynum=3]
+DetailsItem [userid=3317500, brandid=0, data=null, clicknum=234, marknum=0, buynum=9]
+DetailsItem [userid=7116750, brandid=0, data=null, clicknum=90, marknum=0, buynum=12]
+DetailsItem [userid=11340250, brandid=0, data=null, clicknum=78, marknum=0, buynum=1]
+DetailsItem [userid=10756500, brandid=0, data=null, clicknum=39, marknum=0, buynum=4]
+DetailsItem [userid=3742000, brandid=0, data=null, clicknum=242, marknum=0, buynum=16]
+DetailsItem [userid=3288250, brandid=0, data=null, clicknum=221, marknum=0, buynum=5]
+DetailsItem [userid=5957500, brandid=0, data=null, clicknum=89, marknum=0, buynum=2]
+DetailsItem [userid=1815750, brandid=0, data=null, clicknum=32, marknum=0, buynum=2]
+DetailsItem [userid=1561250, brandid=0, data=null, clicknum=192, marknum=0, buynum=3]
+DetailsItem [userid=4184250, brandid=0, data=null, clicknum=979, marknum=0, buynum=15]
+DetailsItem [userid=1047000, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=4852000, brandid=0, data=null, clicknum=144, marknum=0, buynum=2]
+DetailsItem [userid=5465250, brandid=0, data=null, clicknum=39, marknum=0, buynum=0]
+DetailsItem [userid=2975500, brandid=0, data=null, clicknum=235, marknum=0, buynum=8]
+DetailsItem [userid=11032250, brandid=0, data=null, clicknum=69, marknum=0, buynum=0]
+DetailsItem [userid=5108000, brandid=0, data=null, clicknum=369, marknum=0, buynum=12]
+DetailsItem [userid=1620500, brandid=0, data=null, clicknum=20, marknum=0, buynum=3]
+DetailsItem [userid=5812000, brandid=0, data=null, clicknum=392, marknum=0, buynum=19]
+DetailsItem [userid=3148500, brandid=0, data=null, clicknum=87, marknum=0, buynum=10]
+DetailsItem [userid=5238000, brandid=0, data=null, clicknum=87, marknum=0, buynum=8]
+DetailsItem [userid=5061750, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=3954500, brandid=0, data=null, clicknum=109, marknum=0, buynum=3]
+DetailsItem [userid=4533750, brandid=0, data=null, clicknum=65, marknum=0, buynum=3]
+DetailsItem [userid=6571000, brandid=0, data=null, clicknum=133, marknum=0, buynum=7]
+DetailsItem [userid=6458000, brandid=0, data=null, clicknum=0, marknum=0, buynum=1]
+DetailsItem [userid=3226500, brandid=0, data=null, clicknum=9, marknum=0, buynum=3]
+DetailsItem [userid=2626250, brandid=0, data=null, clicknum=37, marknum=0, buynum=1]
+DetailsItem [userid=10064500, brandid=0, data=null, clicknum=37, marknum=0, buynum=2]
+DetailsItem [userid=745750, brandid=0, data=null, clicknum=223, marknum=0, buynum=5]
+DetailsItem [userid=3293750, brandid=0, data=null, clicknum=52, marknum=0, buynum=7]
+DetailsItem [userid=8060000, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=10057000, brandid=0, data=null, clicknum=39, marknum=0, buynum=2]
+DetailsItem [userid=1074750, brandid=0, data=null, clicknum=491, marknum=0, buynum=17]
+DetailsItem [userid=8243500, brandid=0, data=null, clicknum=131, marknum=0, buynum=9]
+DetailsItem [userid=10628500, brandid=0, data=null, clicknum=347, marknum=0, buynum=56]
+DetailsItem [userid=3114000, brandid=0, data=null, clicknum=26, marknum=0, buynum=0]
+DetailsItem [userid=8523250, brandid=0, data=null, clicknum=44, marknum=0, buynum=2]
+DetailsItem [userid=5745000, brandid=0, data=null, clicknum=59, marknum=0, buynum=0]
+DetailsItem [userid=8111500, brandid=0, data=null, clicknum=144, marknum=0, buynum=2]
+DetailsItem [userid=11225500, brandid=0, data=null, clicknum=321, marknum=0, buynum=9]
+DetailsItem [userid=6412750, brandid=0, data=null, clicknum=181, marknum=0, buynum=1]
+DetailsItem [userid=4850000, brandid=0, data=null, clicknum=164, marknum=0, buynum=1]
+DetailsItem [userid=887500, brandid=0, data=null, clicknum=10, marknum=0, buynum=2]
+DetailsItem [userid=2823250, brandid=0, data=null, clicknum=45, marknum=0, buynum=1]
+DetailsItem [userid=10309250, brandid=0, data=null, clicknum=54, marknum=0, buynum=5]
+DetailsItem [userid=7034000, brandid=0, data=null, clicknum=377, marknum=0, buynum=6]
+DetailsItem [userid=3913250, brandid=0, data=null, clicknum=169, marknum=0, buynum=4]
+DetailsItem [userid=1971500, brandid=0, data=null, clicknum=601, marknum=0, buynum=20]
+DetailsItem [userid=1629250, brandid=0, data=null, clicknum=77, marknum=0, buynum=1]
+DetailsItem [userid=9035750, brandid=0, data=null, clicknum=0, marknum=0, buynum=11]
+DetailsItem [userid=11747250, brandid=0, data=null, clicknum=214, marknum=0, buynum=7]
+DetailsItem [userid=10018000, brandid=0, data=null, clicknum=43, marknum=0, buynum=0]
+DetailsItem [userid=9979000, brandid=0, data=null, clicknum=202, marknum=0, buynum=6]
+DetailsItem [userid=10401500, brandid=0, data=null, clicknum=215, marknum=0, buynum=7]
+DetailsItem [userid=6957500, brandid=0, data=null, clicknum=217, marknum=0, buynum=6]
+DetailsItem [userid=12386500, brandid=0, data=null, clicknum=16, marknum=0, buynum=2]
+DetailsItem [userid=1365000, brandid=0, data=null, clicknum=43, marknum=0, buynum=3]
+DetailsItem [userid=5052000, brandid=0, data=null, clicknum=66, marknum=0, buynum=2]
+DetailsItem [userid=1449250, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=6150750, brandid=0, data=null, clicknum=40, marknum=0, buynum=1]
+DetailsItem [userid=7016500, brandid=0, data=null, clicknum=175, marknum=0, buynum=2]
+DetailsItem [userid=6780500, brandid=0, data=null, clicknum=17, marknum=0, buynum=1]
+DetailsItem [userid=3257000, brandid=0, data=null, clicknum=260, marknum=0, buynum=0]
+DetailsItem [userid=6358500, brandid=0, data=null, clicknum=5, marknum=0, buynum=1]
+DetailsItem [userid=65500, brandid=0, data=null, clicknum=276, marknum=0, buynum=6]
+DetailsItem [userid=3675000, brandid=0, data=null, clicknum=36, marknum=0, buynum=3]
+DetailsItem [userid=8529750, brandid=0, data=null, clicknum=268, marknum=0, buynum=8]
+DetailsItem [userid=4317250, brandid=0, data=null, clicknum=136, marknum=0, buynum=7]
+DetailsItem [userid=3625250, brandid=0, data=null, clicknum=59, marknum=0, buynum=7]
+DetailsItem [userid=3684750, brandid=0, data=null, clicknum=72, marknum=0, buynum=3]
+DetailsItem [userid=11494250, brandid=0, data=null, clicknum=26, marknum=0, buynum=0]
+DetailsItem [userid=4503500, brandid=0, data=null, clicknum=11, marknum=0, buynum=0]
+DetailsItem [userid=3573750, brandid=0, data=null, clicknum=60, marknum=0, buynum=1]
+DetailsItem [userid=8145500, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=4620000, brandid=0, data=null, clicknum=18, marknum=0, buynum=2]
+DetailsItem [userid=6250250, brandid=0, data=null, clicknum=11, marknum=0, buynum=0]
+DetailsItem [userid=11939000, brandid=0, data=null, clicknum=54, marknum=0, buynum=1]
+DetailsItem [userid=9288000, brandid=0, data=null, clicknum=60, marknum=0, buynum=1]
+DetailsItem [userid=9972250, brandid=0, data=null, clicknum=72, marknum=0, buynum=0]
+DetailsItem [userid=3592750, brandid=0, data=null, clicknum=114, marknum=0, buynum=6]
+DetailsItem [userid=8822250, brandid=0, data=null, clicknum=11, marknum=0, buynum=2]
+DetailsItem [userid=11022500, brandid=0, data=null, clicknum=23, marknum=0, buynum=0]
+DetailsItem [userid=9394500, brandid=0, data=null, clicknum=51, marknum=0, buynum=6]
+DetailsItem [userid=6301250, brandid=0, data=null, clicknum=191, marknum=0, buynum=9]
+DetailsItem [userid=12384250, brandid=0, data=null, clicknum=43, marknum=0, buynum=1]
+DetailsItem [userid=10312750, brandid=0, data=null, clicknum=85, marknum=0, buynum=5]
+DetailsItem [userid=9212500, brandid=0, data=null, clicknum=35, marknum=0, buynum=2]
+DetailsItem [userid=1118250, brandid=0, data=null, clicknum=199, marknum=0, buynum=16]
+DetailsItem [userid=3075000, brandid=0, data=null, clicknum=11, marknum=0, buynum=0]
+DetailsItem [userid=2182750, brandid=0, data=null, clicknum=52, marknum=0, buynum=4]
+DetailsItem [userid=4215750, brandid=0, data=null, clicknum=562, marknum=0, buynum=13]
+DetailsItem [userid=10592750, brandid=0, data=null, clicknum=61, marknum=0, buynum=4]
+DetailsItem [userid=11307500, brandid=0, data=null, clicknum=93, marknum=0, buynum=6]
+DetailsItem [userid=4782250, brandid=0, data=null, clicknum=29, marknum=0, buynum=0]
+DetailsItem [userid=791500, brandid=0, data=null, clicknum=110, marknum=0, buynum=2]
+DetailsItem [userid=4037500, brandid=0, data=null, clicknum=2, marknum=0, buynum=0]
+DetailsItem [userid=1699500, brandid=0, data=null, clicknum=25, marknum=0, buynum=0]
+DetailsItem [userid=1338750, brandid=0, data=null, clicknum=273, marknum=0, buynum=8]
+DetailsItem [userid=3010000, brandid=0, data=null, clicknum=9, marknum=0, buynum=2]
+DetailsItem [userid=3549000, brandid=0, data=null, clicknum=103, marknum=0, buynum=0]
+DetailsItem [userid=9420500, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=10642000, brandid=0, data=null, clicknum=90, marknum=0, buynum=1]
+DetailsItem [userid=6921750, brandid=0, data=null, clicknum=102, marknum=0, buynum=2]
+DetailsItem [userid=10818500, brandid=0, data=null, clicknum=304, marknum=0, buynum=6]
+DetailsItem [userid=6897000, brandid=0, data=null, clicknum=143, marknum=0, buynum=1]
+DetailsItem [userid=10598500, brandid=0, data=null, clicknum=74, marknum=0, buynum=0]
+DetailsItem [userid=10566000, brandid=0, data=null, clicknum=72, marknum=0, buynum=3]
+DetailsItem [userid=3350250, brandid=0, data=null, clicknum=167, marknum=0, buynum=6]
+DetailsItem [userid=4423500, brandid=0, data=null, clicknum=145, marknum=0, buynum=8]
+DetailsItem [userid=3952000, brandid=0, data=null, clicknum=206, marknum=0, buynum=1]
+DetailsItem [userid=10492250, brandid=0, data=null, clicknum=567, marknum=0, buynum=10]
+DetailsItem [userid=746000, brandid=0, data=null, clicknum=15, marknum=0, buynum=2]
+DetailsItem [userid=9706000, brandid=0, data=null, clicknum=136, marknum=0, buynum=3]
+DetailsItem [userid=8017000, brandid=0, data=null, clicknum=50, marknum=0, buynum=14]
+DetailsItem [userid=2870250, brandid=0, data=null, clicknum=509, marknum=0, buynum=11]
+DetailsItem [userid=7103000, brandid=0, data=null, clicknum=76, marknum=0, buynum=3]
+DetailsItem [userid=7149500, brandid=0, data=null, clicknum=28, marknum=0, buynum=1]
+DetailsItem [userid=8215250, brandid=0, data=null, clicknum=40, marknum=0, buynum=1]
+DetailsItem [userid=12065000, brandid=0, data=null, clicknum=5, marknum=0, buynum=3]
+DetailsItem [userid=8314250, brandid=0, data=null, clicknum=159, marknum=0, buynum=2]
+DetailsItem [userid=7345250, brandid=0, data=null, clicknum=5, marknum=0, buynum=3]
+DetailsItem [userid=9202750, brandid=0, data=null, clicknum=2, marknum=0, buynum=0]
+DetailsItem [userid=5170500, brandid=0, data=null, clicknum=239, marknum=0, buynum=4]
+DetailsItem [userid=9163000, brandid=0, data=null, clicknum=271, marknum=0, buynum=9]
+DetailsItem [userid=8430000, brandid=0, data=null, clicknum=44, marknum=0, buynum=2]
+DetailsItem [userid=9173750, brandid=0, data=null, clicknum=131, marknum=0, buynum=5]
+DetailsItem [userid=4378500, brandid=0, data=null, clicknum=80, marknum=0, buynum=4]
+DetailsItem [userid=9438000, brandid=0, data=null, clicknum=30, marknum=0, buynum=0]
+DetailsItem [userid=5287000, brandid=0, data=null, clicknum=10, marknum=0, buynum=0]
+DetailsItem [userid=6807250, brandid=0, data=null, clicknum=194, marknum=0, buynum=5]
+DetailsItem [userid=4399750, brandid=0, data=null, clicknum=84, marknum=0, buynum=6]
+DetailsItem [userid=10521000, brandid=0, data=null, clicknum=335, marknum=0, buynum=5]
+DetailsItem [userid=981000, brandid=0, data=null, clicknum=517, marknum=0, buynum=4]
+DetailsItem [userid=9199500, brandid=0, data=null, clicknum=71, marknum=0, buynum=1]
+DetailsItem [userid=1792000, brandid=0, data=null, clicknum=395, marknum=0, buynum=2]
+DetailsItem [userid=5901250, brandid=0, data=null, clicknum=50, marknum=0, buynum=0]
+DetailsItem [userid=12371000, brandid=0, data=null, clicknum=50, marknum=0, buynum=5]
+DetailsItem [userid=299750, brandid=0, data=null, clicknum=119, marknum=0, buynum=1]
+DetailsItem [userid=10915250, brandid=0, data=null, clicknum=30, marknum=0, buynum=0]
+DetailsItem [userid=799000, brandid=0, data=null, clicknum=141, marknum=0, buynum=6]
+DetailsItem [userid=11558000, brandid=0, data=null, clicknum=86, marknum=0, buynum=1]
+DetailsItem [userid=8230750, brandid=0, data=null, clicknum=50, marknum=0, buynum=8]
+DetailsItem [userid=10264750, brandid=0, data=null, clicknum=4, marknum=0, buynum=1]
+DetailsItem [userid=854250, brandid=0, data=null, clicknum=121, marknum=0, buynum=4]
+DetailsItem [userid=154500, brandid=0, data=null, clicknum=204, marknum=0, buynum=6]
+DetailsItem [userid=9685000, brandid=0, data=null, clicknum=28, marknum=0, buynum=1]
+DetailsItem [userid=11701500, brandid=0, data=null, clicknum=113, marknum=0, buynum=0]
+DetailsItem [userid=1812000, brandid=0, data=null, clicknum=35, marknum=0, buynum=0]
+DetailsItem [userid=9039750, brandid=0, data=null, clicknum=145, marknum=0, buynum=7]
+DetailsItem [userid=267250, brandid=0, data=null, clicknum=101, marknum=0, buynum=15]
+DetailsItem [userid=4712250, brandid=0, data=null, clicknum=8, marknum=0, buynum=1]
+DetailsItem [userid=7545250, brandid=0, data=null, clicknum=55, marknum=0, buynum=2]
+DetailsItem [userid=5254500, brandid=0, data=null, clicknum=172, marknum=0, buynum=7]
+DetailsItem [userid=10443000, brandid=0, data=null, clicknum=213, marknum=0, buynum=0]
+DetailsItem [userid=2132250, brandid=0, data=null, clicknum=2, marknum=0, buynum=0]
+DetailsItem [userid=11761750, brandid=0, data=null, clicknum=117, marknum=0, buynum=4]
+DetailsItem [userid=1063000, brandid=0, data=null, clicknum=33, marknum=0, buynum=0]
+DetailsItem [userid=3310750, brandid=0, data=null, clicknum=199, marknum=0, buynum=6]
+DetailsItem [userid=1838000, brandid=0, data=null, clicknum=8, marknum=0, buynum=1]
+DetailsItem [userid=4073250, brandid=0, data=null, clicknum=26, marknum=0, buynum=0]
+DetailsItem [userid=2788750, brandid=0, data=null, clicknum=333, marknum=0, buynum=8]
+DetailsItem [userid=3211250, brandid=0, data=null, clicknum=164, marknum=0, buynum=17]
+DetailsItem [userid=8861500, brandid=0, data=null, clicknum=15, marknum=0, buynum=0]
+DetailsItem [userid=1074500, brandid=0, data=null, clicknum=58, marknum=0, buynum=4]
+DetailsItem [userid=8649250, brandid=0, data=null, clicknum=86, marknum=0, buynum=4]
+DetailsItem [userid=620500, brandid=0, data=null, clicknum=75, marknum=0, buynum=6]
+DetailsItem [userid=2322750, brandid=0, data=null, clicknum=19, marknum=0, buynum=1]
+DetailsItem [userid=5082500, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=4004500, brandid=0, data=null, clicknum=35, marknum=0, buynum=3]
+DetailsItem [userid=10654750, brandid=0, data=null, clicknum=17, marknum=0, buynum=0]
+DetailsItem [userid=5522250, brandid=0, data=null, clicknum=250, marknum=0, buynum=3]
+DetailsItem [userid=7211250, brandid=0, data=null, clicknum=17, marknum=0, buynum=3]
+DetailsItem [userid=1688750, brandid=0, data=null, clicknum=159, marknum=0, buynum=2]
+DetailsItem [userid=12061000, brandid=0, data=null, clicknum=15, marknum=0, buynum=2]
+DetailsItem [userid=10696000, brandid=0, data=null, clicknum=125, marknum=0, buynum=11]
+DetailsItem [userid=140500, brandid=0, data=null, clicknum=14, marknum=0, buynum=0]
+DetailsItem [userid=9802000, brandid=0, data=null, clicknum=66, marknum=0, buynum=1]
+DetailsItem [userid=2940000, brandid=0, data=null, clicknum=1769, marknum=0, buynum=22]
+DetailsItem [userid=10845500, brandid=0, data=null, clicknum=140, marknum=0, buynum=0]
+DetailsItem [userid=1459000, brandid=0, data=null, clicknum=35, marknum=0, buynum=0]
+DetailsItem [userid=6299000, brandid=0, data=null, clicknum=39, marknum=0, buynum=0]
+DetailsItem [userid=8102000, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=10533750, brandid=0, data=null, clicknum=84, marknum=0, buynum=4]
+DetailsItem [userid=12239250, brandid=0, data=null, clicknum=158, marknum=0, buynum=13]
+DetailsItem [userid=10322250, brandid=0, data=null, clicknum=46, marknum=0, buynum=5]
+DetailsItem [userid=3861500, brandid=0, data=null, clicknum=61, marknum=0, buynum=9]
+DetailsItem [userid=3404000, brandid=0, data=null, clicknum=376, marknum=0, buynum=79]
+DetailsItem [userid=139000, brandid=0, data=null, clicknum=6, marknum=0, buynum=0]
+DetailsItem [userid=5110750, brandid=0, data=null, clicknum=39, marknum=0, buynum=6]
+DetailsItem [userid=10234000, brandid=0, data=null, clicknum=369, marknum=0, buynum=9]
+DetailsItem [userid=8123500, brandid=0, data=null, clicknum=19, marknum=0, buynum=0]
+DetailsItem [userid=7568750, brandid=0, data=null, clicknum=55, marknum=0, buynum=0]
+DetailsItem [userid=3295250, brandid=0, data=null, clicknum=3, marknum=0, buynum=0]
+DetailsItem [userid=11957000, brandid=0, data=null, clicknum=132, marknum=0, buynum=3]
+DetailsItem [userid=6155250, brandid=0, data=null, clicknum=164, marknum=0, buynum=8]
+DetailsItem [userid=3035250, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=984500, brandid=0, data=null, clicknum=175, marknum=0, buynum=9]
+DetailsItem [userid=1181250, brandid=0, data=null, clicknum=157, marknum=0, buynum=8]
+DetailsItem [userid=3396250, brandid=0, data=null, clicknum=26, marknum=0, buynum=3]
+DetailsItem [userid=9394250, brandid=0, data=null, clicknum=240, marknum=0, buynum=4]
+DetailsItem [userid=1985250, brandid=0, data=null, clicknum=95, marknum=0, buynum=0]
+DetailsItem [userid=10119250, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=9069000, brandid=0, data=null, clicknum=261, marknum=0, buynum=17]
+DetailsItem [userid=3282250, brandid=0, data=null, clicknum=28, marknum=0, buynum=4]
+DetailsItem [userid=5693000, brandid=0, data=null, clicknum=57, marknum=0, buynum=1]
+DetailsItem [userid=4370750, brandid=0, data=null, clicknum=295, marknum=0, buynum=4]
+DetailsItem [userid=12215000, brandid=0, data=null, clicknum=786, marknum=0, buynum=8]
+DetailsItem [userid=2138750, brandid=0, data=null, clicknum=51, marknum=0, buynum=0]
+DetailsItem [userid=4770500, brandid=0, data=null, clicknum=383, marknum=0, buynum=14]
+DetailsItem [userid=8508750, brandid=0, data=null, clicknum=2, marknum=0, buynum=0]
+DetailsItem [userid=4376250, brandid=0, data=null, clicknum=152, marknum=0, buynum=16]
+DetailsItem [userid=1173500, brandid=0, data=null, clicknum=269, marknum=0, buynum=23]
+DetailsItem [userid=1319000, brandid=0, data=null, clicknum=59, marknum=0, buynum=0]
+DetailsItem [userid=9436000, brandid=0, data=null, clicknum=103, marknum=0, buynum=1]
+DetailsItem [userid=4475750, brandid=0, data=null, clicknum=468, marknum=0, buynum=8]
+DetailsItem [userid=4547500, brandid=0, data=null, clicknum=157, marknum=0, buynum=0]
+DetailsItem [userid=5037000, brandid=0, data=null, clicknum=260, marknum=0, buynum=10]
+DetailsItem [userid=3588500, brandid=0, data=null, clicknum=418, marknum=0, buynum=8]
+DetailsItem [userid=5256500, brandid=0, data=null, clicknum=31, marknum=0, buynum=3]
+DetailsItem [userid=12234750, brandid=0, data=null, clicknum=117, marknum=0, buynum=4]
+DetailsItem [userid=10713250, brandid=0, data=null, clicknum=71, marknum=0, buynum=4]
+DetailsItem [userid=9121750, brandid=0, data=null, clicknum=187, marknum=0, buynum=10]
+DetailsItem [userid=4852500, brandid=0, data=null, clicknum=184, marknum=0, buynum=22]
+DetailsItem [userid=309750, brandid=0, data=null, clicknum=4, marknum=0, buynum=1]
+DetailsItem [userid=4097500, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=190500, brandid=0, data=null, clicknum=22, marknum=0, buynum=2]
+DetailsItem [userid=4035250, brandid=0, data=null, clicknum=48, marknum=0, buynum=5]
+DetailsItem [userid=1953250, brandid=0, data=null, clicknum=157, marknum=0, buynum=9]
+DetailsItem [userid=3272000, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=380000, brandid=0, data=null, clicknum=53, marknum=0, buynum=4]
+DetailsItem [userid=9839750, brandid=0, data=null, clicknum=47, marknum=0, buynum=1]
+DetailsItem [userid=7450000, brandid=0, data=null, clicknum=146, marknum=0, buynum=8]
+DetailsItem [userid=5994250, brandid=0, data=null, clicknum=69, marknum=0, buynum=0]
+DetailsItem [userid=6849750, brandid=0, data=null, clicknum=239, marknum=0, buynum=16]
+DetailsItem [userid=11158000, brandid=0, data=null, clicknum=121, marknum=0, buynum=7]
+DetailsItem [userid=4421250, brandid=0, data=null, clicknum=24, marknum=0, buynum=0]
+DetailsItem [userid=6334000, brandid=0, data=null, clicknum=33, marknum=0, buynum=1]
+DetailsItem [userid=6634500, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=8051750, brandid=0, data=null, clicknum=126, marknum=0, buynum=2]
+DetailsItem [userid=1441500, brandid=0, data=null, clicknum=36, marknum=0, buynum=1]
+DetailsItem [userid=382250, brandid=0, data=null, clicknum=19, marknum=0, buynum=0]
+DetailsItem [userid=9123500, brandid=0, data=null, clicknum=67, marknum=0, buynum=8]
+DetailsItem [userid=8909750, brandid=0, data=null, clicknum=72, marknum=0, buynum=1]
+DetailsItem [userid=1206500, brandid=0, data=null, clicknum=2, marknum=0, buynum=0]
+DetailsItem [userid=8096750, brandid=0, data=null, clicknum=380, marknum=0, buynum=9]
+DetailsItem [userid=6713250, brandid=0, data=null, clicknum=105, marknum=0, buynum=16]
+DetailsItem [userid=239250, brandid=0, data=null, clicknum=86, marknum=0, buynum=7]
+DetailsItem [userid=1767500, brandid=0, data=null, clicknum=83, marknum=0, buynum=6]
+DetailsItem [userid=8149250, brandid=0, data=null, clicknum=341, marknum=0, buynum=4]
+DetailsItem [userid=7383000, brandid=0, data=null, clicknum=12, marknum=0, buynum=0]
+DetailsItem [userid=4186500, brandid=0, data=null, clicknum=19, marknum=0, buynum=1]
+DetailsItem [userid=29750, brandid=0, data=null, clicknum=14, marknum=0, buynum=0]
+DetailsItem [userid=9671750, brandid=0, data=null, clicknum=95, marknum=0, buynum=0]
+DetailsItem [userid=11612500, brandid=0, data=null, clicknum=220, marknum=0, buynum=3]
+DetailsItem [userid=3977750, brandid=0, data=null, clicknum=47, marknum=0, buynum=4]
+DetailsItem [userid=7306250, brandid=0, data=null, clicknum=179, marknum=0, buynum=1]
+DetailsItem [userid=3326250, brandid=0, data=null, clicknum=47, marknum=0, buynum=8]
+DetailsItem [userid=282500, brandid=0, data=null, clicknum=27, marknum=0, buynum=6]
+DetailsItem [userid=7218000, brandid=0, data=null, clicknum=301, marknum=0, buynum=12]
+DetailsItem [userid=5968250, brandid=0, data=null, clicknum=56, marknum=0, buynum=2]
+DetailsItem [userid=1909250, brandid=0, data=null, clicknum=18, marknum=0, buynum=9]
+DetailsItem [userid=5959000, brandid=0, data=null, clicknum=192, marknum=0, buynum=9]
+DetailsItem [userid=4256000, brandid=0, data=null, clicknum=120, marknum=0, buynum=8]
+DetailsItem [userid=3895750, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=3410000, brandid=0, data=null, clicknum=34, marknum=0, buynum=0]
+DetailsItem [userid=3511000, brandid=0, data=null, clicknum=75, marknum=0, buynum=0]
+DetailsItem [userid=2771250, brandid=0, data=null, clicknum=234, marknum=0, buynum=8]
+DetailsItem [userid=1189000, brandid=0, data=null, clicknum=247, marknum=0, buynum=15]
+DetailsItem [userid=12377250, brandid=0, data=null, clicknum=232, marknum=0, buynum=14]
+DetailsItem [userid=11503250, brandid=0, data=null, clicknum=114, marknum=0, buynum=0]
+DetailsItem [userid=452750, brandid=0, data=null, clicknum=145, marknum=0, buynum=15]
+DetailsItem [userid=6900500, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=8216750, brandid=0, data=null, clicknum=44, marknum=0, buynum=0]
+DetailsItem [userid=7003500, brandid=0, data=null, clicknum=14, marknum=0, buynum=0]
+DetailsItem [userid=39750, brandid=0, data=null, clicknum=3, marknum=0, buynum=0]
+DetailsItem [userid=8353250, brandid=0, data=null, clicknum=74, marknum=0, buynum=5]
+DetailsItem [userid=5011500, brandid=0, data=null, clicknum=301, marknum=0, buynum=4]
+DetailsItem [userid=11078500, brandid=0, data=null, clicknum=15, marknum=0, buynum=0]
+DetailsItem [userid=11362000, brandid=0, data=null, clicknum=158, marknum=0, buynum=7]
+DetailsItem [userid=6258500, brandid=0, data=null, clicknum=73, marknum=0, buynum=0]
+DetailsItem [userid=711500, brandid=0, data=null, clicknum=387, marknum=0, buynum=32]
+DetailsItem [userid=2756000, brandid=0, data=null, clicknum=43, marknum=0, buynum=0]
+DetailsItem [userid=6572500, brandid=0, data=null, clicknum=21, marknum=0, buynum=1]
+DetailsItem [userid=11434750, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=6067750, brandid=0, data=null, clicknum=6, marknum=0, buynum=1]
+DetailsItem [userid=1911500, brandid=0, data=null, clicknum=335, marknum=0, buynum=2]
+DetailsItem [userid=9782500, brandid=0, data=null, clicknum=69, marknum=0, buynum=2]
+DetailsItem [userid=2920750, brandid=0, data=null, clicknum=430, marknum=0, buynum=15]
+DetailsItem [userid=83250, brandid=0, data=null, clicknum=24, marknum=0, buynum=3]
+DetailsItem [userid=5999000, brandid=0, data=null, clicknum=4, marknum=0, buynum=2]
+DetailsItem [userid=4994000, brandid=0, data=null, clicknum=34, marknum=0, buynum=1]
+DetailsItem [userid=4606000, brandid=0, data=null, clicknum=42, marknum=0, buynum=0]
+DetailsItem [userid=12173500, brandid=0, data=null, clicknum=175, marknum=0, buynum=30]
+DetailsItem [userid=1194750, brandid=0, data=null, clicknum=74, marknum=0, buynum=16]
+DetailsItem [userid=8745250, brandid=0, data=null, clicknum=99, marknum=0, buynum=2]
+DetailsItem [userid=9103250, brandid=0, data=null, clicknum=48, marknum=0, buynum=2]
+DetailsItem [userid=7494250, brandid=0, data=null, clicknum=26, marknum=0, buynum=0]
+DetailsItem [userid=10944750, brandid=0, data=null, clicknum=125, marknum=0, buynum=1]
+DetailsItem [userid=10297000, brandid=0, data=null, clicknum=103, marknum=0, buynum=6]
+DetailsItem [userid=7687500, brandid=0, data=null, clicknum=196, marknum=0, buynum=6]
+DetailsItem [userid=6126750, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=5608250, brandid=0, data=null, clicknum=73, marknum=0, buynum=0]
+DetailsItem [userid=8271000, brandid=0, data=null, clicknum=28, marknum=0, buynum=2]
+DetailsItem [userid=6571750, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=10095000, brandid=0, data=null, clicknum=135, marknum=0, buynum=9]
+DetailsItem [userid=5407750, brandid=0, data=null, clicknum=173, marknum=0, buynum=3]
+DetailsItem [userid=10840750, brandid=0, data=null, clicknum=28, marknum=0, buynum=0]
+DetailsItem [userid=3216500, brandid=0, data=null, clicknum=37, marknum=0, buynum=2]
+DetailsItem [userid=11794250, brandid=0, data=null, clicknum=37, marknum=0, buynum=4]
+DetailsItem [userid=5751500, brandid=0, data=null, clicknum=128, marknum=0, buynum=13]
+DetailsItem [userid=8324500, brandid=0, data=null, clicknum=64, marknum=0, buynum=4]
+DetailsItem [userid=317500, brandid=0, data=null, clicknum=60, marknum=0, buynum=0]
+DetailsItem [userid=393250, brandid=0, data=null, clicknum=119, marknum=0, buynum=2]
+DetailsItem [userid=5987000, brandid=0, data=null, clicknum=13, marknum=0, buynum=0]
+DetailsItem [userid=5899750, brandid=0, data=null, clicknum=118, marknum=0, buynum=2]
+DetailsItem [userid=12008000, brandid=0, data=null, clicknum=36, marknum=0, buynum=2]
+DetailsItem [userid=6205000, brandid=0, data=null, clicknum=30, marknum=0, buynum=1]
+DetailsItem [userid=8997500, brandid=0, data=null, clicknum=10, marknum=0, buynum=0]
+DetailsItem [userid=4809750, brandid=0, data=null, clicknum=44, marknum=0, buynum=1]
+DetailsItem [userid=5962750, brandid=0, data=null, clicknum=46, marknum=0, buynum=10]
+DetailsItem [userid=573000, brandid=0, data=null, clicknum=182, marknum=0, buynum=3]
+DetailsItem [userid=5059000, brandid=0, data=null, clicknum=57, marknum=0, buynum=6]
+DetailsItem [userid=6264750, brandid=0, data=null, clicknum=9, marknum=0, buynum=0]
+DetailsItem [userid=5293250, brandid=0, data=null, clicknum=203, marknum=0, buynum=12]
+DetailsItem [userid=892500, brandid=0, data=null, clicknum=363, marknum=0, buynum=19]
+DetailsItem [userid=2797750, brandid=0, data=null, clicknum=45, marknum=0, buynum=4]
+DetailsItem [userid=10302500, brandid=0, data=null, clicknum=119, marknum=0, buynum=22]
+DetailsItem [userid=64000, brandid=0, data=null, clicknum=21, marknum=0, buynum=0]
+DetailsItem [userid=203750, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=10257500, brandid=0, data=null, clicknum=8, marknum=0, buynum=0]
+DetailsItem [userid=4454500, brandid=0, data=null, clicknum=29, marknum=0, buynum=2]
+DetailsItem [userid=567250, brandid=0, data=null, clicknum=77, marknum=0, buynum=12]
+DetailsItem [userid=2874500, brandid=0, data=null, clicknum=286, marknum=0, buynum=5]
+DetailsItem [userid=8248750, brandid=0, data=null, clicknum=11, marknum=0, buynum=0]
+DetailsItem [userid=7787500, brandid=0, data=null, clicknum=28, marknum=0, buynum=1]
+DetailsItem [userid=10052000, brandid=0, data=null, clicknum=146, marknum=0, buynum=7]
+DetailsItem [userid=11625250, brandid=0, data=null, clicknum=99, marknum=0, buynum=7]
+DetailsItem [userid=848500, brandid=0, data=null, clicknum=102, marknum=0, buynum=2]
+DetailsItem [userid=11631250, brandid=0, data=null, clicknum=14, marknum=0, buynum=0]
+DetailsItem [userid=11896000, brandid=0, data=null, clicknum=128, marknum=0, buynum=5]
+DetailsItem [userid=5828250, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=3751500, brandid=0, data=null, clicknum=18, marknum=0, buynum=1]
+DetailsItem [userid=7797000, brandid=0, data=null, clicknum=195, marknum=0, buynum=6]
+DetailsItem [userid=9351750, brandid=0, data=null, clicknum=272, marknum=0, buynum=4]
+DetailsItem [userid=9906500, brandid=0, data=null, clicknum=123, marknum=0, buynum=1]
+DetailsItem [userid=10774750, brandid=0, data=null, clicknum=122, marknum=0, buynum=2]
+DetailsItem [userid=1086750, brandid=0, data=null, clicknum=173, marknum=0, buynum=0]
+DetailsItem [userid=11737250, brandid=0, data=null, clicknum=6, marknum=0, buynum=0]
+DetailsItem [userid=4716750, brandid=0, data=null, clicknum=77, marknum=0, buynum=11]
+DetailsItem [userid=5068750, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=4967250, brandid=0, data=null, clicknum=148, marknum=0, buynum=11]
+DetailsItem [userid=2807500, brandid=0, data=null, clicknum=230, marknum=0, buynum=17]
+DetailsItem [userid=7854500, brandid=0, data=null, clicknum=170, marknum=0, buynum=15]
+DetailsItem [userid=861250, brandid=0, data=null, clicknum=74, marknum=0, buynum=1]
+DetailsItem [userid=11936000, brandid=0, data=null, clicknum=106, marknum=0, buynum=1]
+DetailsItem [userid=7002750, brandid=0, data=null, clicknum=55, marknum=0, buynum=3]
+DetailsItem [userid=9720000, brandid=0, data=null, clicknum=125, marknum=0, buynum=2]
+DetailsItem [userid=2103250, brandid=0, data=null, clicknum=186, marknum=0, buynum=6]
+DetailsItem [userid=8792750, brandid=0, data=null, clicknum=22, marknum=0, buynum=0]
+DetailsItem [userid=8435250, brandid=0, data=null, clicknum=327, marknum=0, buynum=10]
+DetailsItem [userid=11352000, brandid=0, data=null, clicknum=71, marknum=0, buynum=1]
+DetailsItem [userid=5780000, brandid=0, data=null, clicknum=654, marknum=0, buynum=71]
+DetailsItem [userid=7830250, brandid=0, data=null, clicknum=25, marknum=0, buynum=3]
+DetailsItem [userid=9215000, brandid=0, data=null, clicknum=6, marknum=0, buynum=0]
+DetailsItem [userid=11949750, brandid=0, data=null, clicknum=96, marknum=0, buynum=6]
+DetailsItem [userid=5264500, brandid=0, data=null, clicknum=604, marknum=0, buynum=6]
+DetailsItem [userid=11590500, brandid=0, data=null, clicknum=173, marknum=0, buynum=3]
+DetailsItem [userid=11283500, brandid=0, data=null, clicknum=27, marknum=0, buynum=2]
+DetailsItem [userid=1727500, brandid=0, data=null, clicknum=27, marknum=0, buynum=1]
+DetailsItem [userid=2050000, brandid=0, data=null, clicknum=87, marknum=0, buynum=1]
+DetailsItem [userid=7657250, brandid=0, data=null, clicknum=62, marknum=0, buynum=1]
+DetailsItem [userid=12016750, brandid=0, data=null, clicknum=202, marknum=0, buynum=18]
+DetailsItem [userid=5726500, brandid=0, data=null, clicknum=16, marknum=0, buynum=2]
+DetailsItem [userid=11984750, brandid=0, data=null, clicknum=561, marknum=0, buynum=5]
+DetailsItem [userid=4963500, brandid=0, data=null, clicknum=60, marknum=0, buynum=1]
+DetailsItem [userid=6233750, brandid=0, data=null, clicknum=54, marknum=0, buynum=18]
+DetailsItem [userid=417250, brandid=0, data=null, clicknum=55, marknum=0, buynum=2]
+DetailsItem [userid=7921500, brandid=0, data=null, clicknum=99, marknum=0, buynum=7]
+DetailsItem [userid=3344750, brandid=0, data=null, clicknum=230, marknum=0, buynum=19]
+DetailsItem [userid=7513250, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=2200750, brandid=0, data=null, clicknum=207, marknum=0, buynum=12]
+DetailsItem [userid=4047000, brandid=0, data=null, clicknum=52, marknum=0, buynum=3]
+DetailsItem [userid=3054250, brandid=0, data=null, clicknum=32, marknum=0, buynum=4]
+DetailsItem [userid=4259500, brandid=0, data=null, clicknum=96, marknum=0, buynum=7]
+DetailsItem [userid=2168250, brandid=0, data=null, clicknum=115, marknum=0, buynum=7]
+DetailsItem [userid=10715500, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=439000, brandid=0, data=null, clicknum=576, marknum=0, buynum=30]
+DetailsItem [userid=7588000, brandid=0, data=null, clicknum=92, marknum=0, buynum=1]
+DetailsItem [userid=764000, brandid=0, data=null, clicknum=24, marknum=0, buynum=0]
+DetailsItem [userid=3188000, brandid=0, data=null, clicknum=6, marknum=0, buynum=2]
+DetailsItem [userid=1110750, brandid=0, data=null, clicknum=34, marknum=0, buynum=7]
+DetailsItem [userid=4625750, brandid=0, data=null, clicknum=93, marknum=0, buynum=3]
+DetailsItem [userid=71250, brandid=0, data=null, clicknum=0, marknum=0, buynum=2]
+DetailsItem [userid=7785250, brandid=0, data=null, clicknum=15, marknum=0, buynum=0]
+DetailsItem [userid=5438000, brandid=0, data=null, clicknum=25, marknum=0, buynum=0]
+DetailsItem [userid=6515500, brandid=0, data=null, clicknum=88, marknum=0, buynum=1]
+DetailsItem [userid=4921000, brandid=0, data=null, clicknum=146, marknum=0, buynum=9]
+DetailsItem [userid=4102750, brandid=0, data=null, clicknum=81, marknum=0, buynum=7]
+DetailsItem [userid=38250, brandid=0, data=null, clicknum=246, marknum=0, buynum=5]
+DetailsItem [userid=9015000, brandid=0, data=null, clicknum=17, marknum=0, buynum=0]
+DetailsItem [userid=10609250, brandid=0, data=null, clicknum=109, marknum=0, buynum=10]
+DetailsItem [userid=3249250, brandid=0, data=null, clicknum=78, marknum=0, buynum=5]
+DetailsItem [userid=4804500, brandid=0, data=null, clicknum=2, marknum=0, buynum=1]
+DetailsItem [userid=6766250, brandid=0, data=null, clicknum=79, marknum=0, buynum=5]
+DetailsItem [userid=154750, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=11972750, brandid=0, data=null, clicknum=51, marknum=0, buynum=14]
+DetailsItem [userid=1446250, brandid=0, data=null, clicknum=75, marknum=0, buynum=6]
+DetailsItem [userid=3892750, brandid=0, data=null, clicknum=24, marknum=0, buynum=0]
+DetailsItem [userid=5143250, brandid=0, data=null, clicknum=228, marknum=0, buynum=22]
+DetailsItem [userid=11129250, brandid=0, data=null, clicknum=350, marknum=0, buynum=1]
+DetailsItem [userid=434750, brandid=0, data=null, clicknum=137, marknum=0, buynum=11]
+DetailsItem [userid=9076750, brandid=0, data=null, clicknum=141, marknum=0, buynum=1]
+DetailsItem [userid=2198750, brandid=0, data=null, clicknum=19, marknum=0, buynum=2]
+DetailsItem [userid=10185750, brandid=0, data=null, clicknum=7, marknum=0, buynum=0]
+DetailsItem [userid=4025000, brandid=0, data=null, clicknum=10, marknum=0, buynum=1]
+DetailsItem [userid=4680000, brandid=0, data=null, clicknum=12, marknum=0, buynum=0]
+DetailsItem [userid=10885750, brandid=0, data=null, clicknum=5, marknum=0, buynum=1]
+DetailsItem [userid=1782250, brandid=0, data=null, clicknum=76, marknum=0, buynum=5]
+DetailsItem [userid=3304500, brandid=0, data=null, clicknum=172, marknum=0, buynum=29]
+DetailsItem [userid=10393750, brandid=0, data=null, clicknum=80, marknum=0, buynum=9]
+DetailsItem [userid=2378500, brandid=0, data=null, clicknum=58, marknum=0, buynum=5]
+DetailsItem [userid=6619500, brandid=0, data=null, clicknum=45, marknum=0, buynum=5]
+DetailsItem [userid=1832000, brandid=0, data=null, clicknum=12, marknum=0, buynum=0]
+DetailsItem [userid=11142000, brandid=0, data=null, clicknum=115, marknum=0, buynum=2]
+DetailsItem [userid=9807250, brandid=0, data=null, clicknum=211, marknum=0, buynum=11]
+DetailsItem [userid=4956000, brandid=0, data=null, clicknum=144, marknum=0, buynum=3]
+DetailsItem [userid=8156500, brandid=0, data=null, clicknum=111, marknum=0, buynum=7]
+DetailsItem [userid=965500, brandid=0, data=null, clicknum=71, marknum=0, buynum=4]
+DetailsItem [userid=1140750, brandid=0, data=null, clicknum=277, marknum=0, buynum=14]
+DetailsItem [userid=4087750, brandid=0, data=null, clicknum=93, marknum=0, buynum=0]
+DetailsItem [userid=1966250, brandid=0, data=null, clicknum=640, marknum=0, buynum=6]
+DetailsItem [userid=425500, brandid=0, data=null, clicknum=9, marknum=0, buynum=1]
+DetailsItem [userid=6700250, brandid=0, data=null, clicknum=79, marknum=0, buynum=0]
+DetailsItem [userid=6247250, brandid=0, data=null, clicknum=218, marknum=0, buynum=1]
+DetailsItem [userid=10224750, brandid=0, data=null, clicknum=62, marknum=0, buynum=5]
+DetailsItem [userid=3520000, brandid=0, data=null, clicknum=321, marknum=0, buynum=24]
+DetailsItem [userid=5491500, brandid=0, data=null, clicknum=745, marknum=0, buynum=12]
+DetailsItem [userid=2386250, brandid=0, data=null, clicknum=45, marknum=0, buynum=4]
+DetailsItem [userid=591750, brandid=0, data=null, clicknum=14, marknum=0, buynum=0]
+DetailsItem [userid=8628250, brandid=0, data=null, clicknum=155, marknum=0, buynum=2]
+DetailsItem [userid=4447000, brandid=0, data=null, clicknum=18, marknum=0, buynum=0]
+DetailsItem [userid=5279750, brandid=0, data=null, clicknum=380, marknum=0, buynum=8]
+DetailsItem [userid=1758250, brandid=0, data=null, clicknum=70, marknum=0, buynum=5]
+DetailsItem [userid=341000, brandid=0, data=null, clicknum=139, marknum=0, buynum=2]
+DetailsItem [userid=7568250, brandid=0, data=null, clicknum=6, marknum=0, buynum=0]
+DetailsItem [userid=364250, brandid=0, data=null, clicknum=40, marknum=0, buynum=2]
+DetailsItem [userid=7323750, brandid=0, data=null, clicknum=20, marknum=0, buynum=2]
+DetailsItem [userid=10112000, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=9782000, brandid=0, data=null, clicknum=61, marknum=0, buynum=5]
+DetailsItem [userid=69500, brandid=0, data=null, clicknum=81, marknum=0, buynum=2]
+DetailsItem [userid=47000, brandid=0, data=null, clicknum=25, marknum=0, buynum=6]
+DetailsItem [userid=5024500, brandid=0, data=null, clicknum=89, marknum=0, buynum=1]
+DetailsItem [userid=12004000, brandid=0, data=null, clicknum=89, marknum=0, buynum=7]
+DetailsItem [userid=7163250, brandid=0, data=null, clicknum=114, marknum=0, buynum=4]
+DetailsItem [userid=12337750, brandid=0, data=null, clicknum=28, marknum=0, buynum=0]
+DetailsItem [userid=3846250, brandid=0, data=null, clicknum=224, marknum=0, buynum=13]
+DetailsItem [userid=11874000, brandid=0, data=null, clicknum=213, marknum=0, buynum=3]
+DetailsItem [userid=11646500, brandid=0, data=null, clicknum=41, marknum=0, buynum=0]
+DetailsItem [userid=8845250, brandid=0, data=null, clicknum=667, marknum=0, buynum=14]
+DetailsItem [userid=8848250, brandid=0, data=null, clicknum=36, marknum=0, buynum=0]
+DetailsItem [userid=8528750, brandid=0, data=null, clicknum=72, marknum=0, buynum=4]
+DetailsItem [userid=8940500, brandid=0, data=null, clicknum=350, marknum=0, buynum=7]
+DetailsItem [userid=6257000, brandid=0, data=null, clicknum=31, marknum=0, buynum=2]
+DetailsItem [userid=969750, brandid=0, data=null, clicknum=121, marknum=0, buynum=2]
+DetailsItem [userid=3266750, brandid=0, data=null, clicknum=91, marknum=0, buynum=3]
+DetailsItem [userid=5910250, brandid=0, data=null, clicknum=24, marknum=0, buynum=3]
+DetailsItem [userid=1710500, brandid=0, data=null, clicknum=117, marknum=0, buynum=0]
+DetailsItem [userid=12015000, brandid=0, data=null, clicknum=60, marknum=0, buynum=2]
+DetailsItem [userid=12142750, brandid=0, data=null, clicknum=175, marknum=0, buynum=1]
+DetailsItem [userid=2476250, brandid=0, data=null, clicknum=22, marknum=0, buynum=0]
+DetailsItem [userid=1661750, brandid=0, data=null, clicknum=235, marknum=0, buynum=5]
+DetailsItem [userid=11111500, brandid=0, data=null, clicknum=68, marknum=0, buynum=5]
+DetailsItem [userid=10966250, brandid=0, data=null, clicknum=78, marknum=0, buynum=7]
+DetailsItem [userid=11339250, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=11616250, brandid=0, data=null, clicknum=20, marknum=0, buynum=1]
+DetailsItem [userid=3312500, brandid=0, data=null, clicknum=40, marknum=0, buynum=1]
+DetailsItem [userid=232000, brandid=0, data=null, clicknum=72, marknum=0, buynum=4]
+DetailsItem [userid=7892000, brandid=0, data=null, clicknum=333, marknum=0, buynum=7]
+DetailsItem [userid=11391250, brandid=0, data=null, clicknum=10, marknum=0, buynum=0]
+DetailsItem [userid=2891500, brandid=0, data=null, clicknum=839, marknum=0, buynum=37]
+DetailsItem [userid=3590000, brandid=0, data=null, clicknum=32, marknum=0, buynum=1]
+DetailsItem [userid=11313000, brandid=0, data=null, clicknum=443, marknum=0, buynum=8]
+DetailsItem [userid=10261750, brandid=0, data=null, clicknum=559, marknum=0, buynum=32]
+DetailsItem [userid=6874250, brandid=0, data=null, clicknum=712, marknum=0, buynum=53]
+DetailsItem [userid=5847500, brandid=0, data=null, clicknum=57, marknum=0, buynum=0]
+DetailsItem [userid=11730000, brandid=0, data=null, clicknum=271, marknum=0, buynum=13]
+DetailsItem [userid=8129250, brandid=0, data=null, clicknum=29, marknum=0, buynum=4]
+DetailsItem [userid=9488750, brandid=0, data=null, clicknum=6, marknum=0, buynum=0]
+DetailsItem [userid=1622500, brandid=0, data=null, clicknum=426, marknum=0, buynum=14]
+DetailsItem [userid=10069500, brandid=0, data=null, clicknum=59, marknum=0, buynum=12]
+DetailsItem [userid=5139250, brandid=0, data=null, clicknum=416, marknum=0, buynum=8]
+DetailsItem [userid=6234000, brandid=0, data=null, clicknum=243, marknum=0, buynum=7]
+DetailsItem [userid=9794000, brandid=0, data=null, clicknum=11, marknum=0, buynum=3]
+DetailsItem [userid=4118250, brandid=0, data=null, clicknum=83, marknum=0, buynum=1]
+DetailsItem [userid=4658500, brandid=0, data=null, clicknum=290, marknum=0, buynum=12]
+DetailsItem [userid=3799500, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=2480750, brandid=0, data=null, clicknum=87, marknum=0, buynum=6]
+DetailsItem [userid=8049000, brandid=0, data=null, clicknum=160, marknum=0, buynum=6]
+DetailsItem [userid=9278500, brandid=0, data=null, clicknum=11, marknum=0, buynum=0]
+DetailsItem [userid=1806750, brandid=0, data=null, clicknum=30, marknum=0, buynum=1]
+DetailsItem [userid=10229250, brandid=0, data=null, clicknum=82, marknum=0, buynum=1]
+DetailsItem [userid=4257000, brandid=0, data=null, clicknum=3, marknum=0, buynum=0]
+DetailsItem [userid=2448250, brandid=0, data=null, clicknum=57, marknum=0, buynum=1]
+DetailsItem [userid=8949750, brandid=0, data=null, clicknum=28, marknum=0, buynum=0]
+DetailsItem [userid=8799750, brandid=0, data=null, clicknum=220, marknum=0, buynum=8]
+DetailsItem [userid=10773000, brandid=0, data=null, clicknum=356, marknum=0, buynum=10]
+DetailsItem [userid=12204750, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=2187500, brandid=0, data=null, clicknum=72, marknum=0, buynum=4]
+DetailsItem [userid=9586500, brandid=0, data=null, clicknum=99, marknum=0, buynum=4]
+DetailsItem [userid=8346250, brandid=0, data=null, clicknum=22, marknum=0, buynum=2]
+DetailsItem [userid=2316250, brandid=0, data=null, clicknum=91, marknum=0, buynum=7]
+DetailsItem [userid=764750, brandid=0, data=null, clicknum=20, marknum=0, buynum=1]
+DetailsItem [userid=4054000, brandid=0, data=null, clicknum=13, marknum=0, buynum=7]
+DetailsItem [userid=2882750, brandid=0, data=null, clicknum=39, marknum=0, buynum=4]
+DetailsItem [userid=8040000, brandid=0, data=null, clicknum=346, marknum=0, buynum=12]
+DetailsItem [userid=5980500, brandid=0, data=null, clicknum=15, marknum=0, buynum=0]
+DetailsItem [userid=7435500, brandid=0, data=null, clicknum=68, marknum=0, buynum=5]
+DetailsItem [userid=1148000, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=6998500, brandid=0, data=null, clicknum=177, marknum=0, buynum=8]
+DetailsItem [userid=10768750, brandid=0, data=null, clicknum=27, marknum=0, buynum=2]
+DetailsItem [userid=10000250, brandid=0, data=null, clicknum=16, marknum=0, buynum=1]
+DetailsItem [userid=7476250, brandid=0, data=null, clicknum=89, marknum=0, buynum=6]
+DetailsItem [userid=731750, brandid=0, data=null, clicknum=80, marknum=0, buynum=5]
+DetailsItem [userid=12229000, brandid=0, data=null, clicknum=61, marknum=0, buynum=2]
+DetailsItem [userid=10588000, brandid=0, data=null, clicknum=153, marknum=0, buynum=3]
+DetailsItem [userid=4153000, brandid=0, data=null, clicknum=100, marknum=0, buynum=7]
+DetailsItem [userid=2688750, brandid=0, data=null, clicknum=29, marknum=0, buynum=1]
+DetailsItem [userid=1969000, brandid=0, data=null, clicknum=76, marknum=0, buynum=6]
+DetailsItem [userid=4193750, brandid=0, data=null, clicknum=29, marknum=0, buynum=1]
+DetailsItem [userid=12028500, brandid=0, data=null, clicknum=20, marknum=0, buynum=1]
+DetailsItem [userid=1793250, brandid=0, data=null, clicknum=77, marknum=0, buynum=1]
+DetailsItem [userid=7699500, brandid=0, data=null, clicknum=773, marknum=0, buynum=13]
+DetailsItem [userid=11687000, brandid=0, data=null, clicknum=25, marknum=0, buynum=2]
+DetailsItem [userid=12231250, brandid=0, data=null, clicknum=123, marknum=0, buynum=0]
+DetailsItem [userid=10933250, brandid=0, data=null, clicknum=28, marknum=0, buynum=0]
+DetailsItem [userid=6564500, brandid=0, data=null, clicknum=212, marknum=0, buynum=5]
+DetailsItem [userid=6852750, brandid=0, data=null, clicknum=71, marknum=0, buynum=3]
+DetailsItem [userid=9592500, brandid=0, data=null, clicknum=144, marknum=0, buynum=1]
+DetailsItem [userid=3009000, brandid=0, data=null, clicknum=13, marknum=0, buynum=0]
+DetailsItem [userid=10063000, brandid=0, data=null, clicknum=113, marknum=0, buynum=5]
+DetailsItem [userid=448250, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=12275500, brandid=0, data=null, clicknum=89, marknum=0, buynum=5]
+DetailsItem [userid=4557250, brandid=0, data=null, clicknum=44, marknum=0, buynum=2]
+DetailsItem [userid=6172000, brandid=0, data=null, clicknum=25, marknum=0, buynum=3]
+DetailsItem [userid=6061250, brandid=0, data=null, clicknum=198, marknum=0, buynum=13]
+DetailsItem [userid=4922750, brandid=0, data=null, clicknum=95, marknum=0, buynum=7]
+DetailsItem [userid=7269250, brandid=0, data=null, clicknum=95, marknum=0, buynum=23]
+DetailsItem [userid=3719250, brandid=0, data=null, clicknum=66, marknum=0, buynum=0]
+DetailsItem [userid=9716500, brandid=0, data=null, clicknum=77, marknum=0, buynum=2]
+DetailsItem [userid=6683750, brandid=0, data=null, clicknum=66, marknum=0, buynum=2]
+DetailsItem [userid=980000, brandid=0, data=null, clicknum=16, marknum=0, buynum=0]
+DetailsItem [userid=621500, brandid=0, data=null, clicknum=209, marknum=0, buynum=3]
+DetailsItem [userid=5742000, brandid=0, data=null, clicknum=349, marknum=0, buynum=17]
+DetailsItem [userid=7375000, brandid=0, data=null, clicknum=60, marknum=0, buynum=1]
+DetailsItem [userid=11114000, brandid=0, data=null, clicknum=111, marknum=0, buynum=2]
+DetailsItem [userid=4392000, brandid=0, data=null, clicknum=27, marknum=0, buynum=1]
+DetailsItem [userid=10619000, brandid=0, data=null, clicknum=44, marknum=0, buynum=1]
+DetailsItem [userid=11321750, brandid=0, data=null, clicknum=228, marknum=0, buynum=3]
+DetailsItem [userid=7060500, brandid=0, data=null, clicknum=117, marknum=0, buynum=0]
+DetailsItem [userid=6751750, brandid=0, data=null, clicknum=152, marknum=0, buynum=5]
+DetailsItem [userid=2968250, brandid=0, data=null, clicknum=85, marknum=0, buynum=7]
+DetailsItem [userid=599750, brandid=0, data=null, clicknum=81, marknum=0, buynum=6]
+DetailsItem [userid=4059500, brandid=0, data=null, clicknum=75, marknum=0, buynum=1]
+DetailsItem [userid=1627000, brandid=0, data=null, clicknum=9, marknum=0, buynum=0]
+DetailsItem [userid=1492500, brandid=0, data=null, clicknum=111, marknum=0, buynum=2]
+DetailsItem [userid=2492500, brandid=0, data=null, clicknum=162, marknum=0, buynum=8]
+DetailsItem [userid=10972250, brandid=0, data=null, clicknum=40, marknum=0, buynum=3]
+DetailsItem [userid=9512750, brandid=0, data=null, clicknum=77, marknum=0, buynum=3]
+DetailsItem [userid=2006000, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=1724250, brandid=0, data=null, clicknum=262, marknum=0, buynum=11]
+DetailsItem [userid=6654750, brandid=0, data=null, clicknum=85, marknum=0, buynum=3]
+DetailsItem [userid=145750, brandid=0, data=null, clicknum=47, marknum=0, buynum=7]
+DetailsItem [userid=3014750, brandid=0, data=null, clicknum=114, marknum=0, buynum=3]
+DetailsItem [userid=3644250, brandid=0, data=null, clicknum=313, marknum=0, buynum=13]
+DetailsItem [userid=9694750, brandid=0, data=null, clicknum=258, marknum=0, buynum=4]
+DetailsItem [userid=1240250, brandid=0, data=null, clicknum=24, marknum=0, buynum=2]
+DetailsItem [userid=1046250, brandid=0, data=null, clicknum=121, marknum=0, buynum=4]
+DetailsItem [userid=8869250, brandid=0, data=null, clicknum=10, marknum=0, buynum=0]
+DetailsItem [userid=11527500, brandid=0, data=null, clicknum=65, marknum=0, buynum=2]
+DetailsItem [userid=4336750, brandid=0, data=null, clicknum=49, marknum=0, buynum=1]
+DetailsItem [userid=8385000, brandid=0, data=null, clicknum=123, marknum=0, buynum=18]
+DetailsItem [userid=12388250, brandid=0, data=null, clicknum=96, marknum=0, buynum=2]
+DetailsItem [userid=4115500, brandid=0, data=null, clicknum=14, marknum=0, buynum=2]
+DetailsItem [userid=10513000, brandid=0, data=null, clicknum=4, marknum=0, buynum=1]
+DetailsItem [userid=5012750, brandid=0, data=null, clicknum=80, marknum=0, buynum=3]
+DetailsItem [userid=9982500, brandid=0, data=null, clicknum=49, marknum=0, buynum=1]
+DetailsItem [userid=7886000, brandid=0, data=null, clicknum=402, marknum=0, buynum=9]
+DetailsItem [userid=1165500, brandid=0, data=null, clicknum=20, marknum=0, buynum=3]
+DetailsItem [userid=6354500, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=7927750, brandid=0, data=null, clicknum=118, marknum=0, buynum=5]
+DetailsItem [userid=12331000, brandid=0, data=null, clicknum=206, marknum=0, buynum=13]
+DetailsItem [userid=10578000, brandid=0, data=null, clicknum=47, marknum=0, buynum=3]
+DetailsItem [userid=8195000, brandid=0, data=null, clicknum=379, marknum=0, buynum=5]
+DetailsItem [userid=415500, brandid=0, data=null, clicknum=80, marknum=0, buynum=4]
+DetailsItem [userid=1525000, brandid=0, data=null, clicknum=168, marknum=0, buynum=3]
+DetailsItem [userid=11772000, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=11847750, brandid=0, data=null, clicknum=14, marknum=0, buynum=1]
+DetailsItem [userid=5239500, brandid=0, data=null, clicknum=83, marknum=0, buynum=6]
+DetailsItem [userid=9946250, brandid=0, data=null, clicknum=40, marknum=0, buynum=5]
+DetailsItem [userid=11711250, brandid=0, data=null, clicknum=233, marknum=0, buynum=14]
+DetailsItem [userid=11734000, brandid=0, data=null, clicknum=198, marknum=0, buynum=5]
+DetailsItem [userid=861750, brandid=0, data=null, clicknum=13, marknum=0, buynum=3]
+DetailsItem [userid=3795000, brandid=0, data=null, clicknum=57, marknum=0, buynum=0]
+DetailsItem [userid=2350750, brandid=0, data=null, clicknum=21, marknum=0, buynum=1]
+DetailsItem [userid=10477000, brandid=0, data=null, clicknum=9, marknum=0, buynum=0]
+DetailsItem [userid=4907500, brandid=0, data=null, clicknum=57, marknum=0, buynum=3]
+DetailsItem [userid=4814750, brandid=0, data=null, clicknum=5, marknum=0, buynum=1]
+DetailsItem [userid=2428500, brandid=0, data=null, clicknum=160, marknum=0, buynum=2]
+DetailsItem [userid=6015000, brandid=0, data=null, clicknum=72, marknum=0, buynum=0]
+DetailsItem [userid=11683250, brandid=0, data=null, clicknum=64, marknum=0, buynum=2]
+DetailsItem [userid=4886500, brandid=0, data=null, clicknum=76, marknum=0, buynum=6]
+DetailsItem [userid=3723750, brandid=0, data=null, clicknum=140, marknum=0, buynum=8]
+DetailsItem [userid=472000, brandid=0, data=null, clicknum=110, marknum=0, buynum=2]
+DetailsItem [userid=9811750, brandid=0, data=null, clicknum=90, marknum=0, buynum=1]
+DetailsItem [userid=10539250, brandid=0, data=null, clicknum=20, marknum=0, buynum=5]
+DetailsItem [userid=8555500, brandid=0, data=null, clicknum=97, marknum=0, buynum=10]
+DetailsItem [userid=8666500, brandid=0, data=null, clicknum=23, marknum=0, buynum=0]
+DetailsItem [userid=11169500, brandid=0, data=null, clicknum=212, marknum=0, buynum=4]
+DetailsItem [userid=3734250, brandid=0, data=null, clicknum=23, marknum=0, buynum=1]
+DetailsItem [userid=3552000, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=6848750, brandid=0, data=null, clicknum=229, marknum=0, buynum=11]
+DetailsItem [userid=1934750, brandid=0, data=null, clicknum=77, marknum=0, buynum=0]
+DetailsItem [userid=9044750, brandid=0, data=null, clicknum=3, marknum=0, buynum=0]
+DetailsItem [userid=5697750, brandid=0, data=null, clicknum=10, marknum=0, buynum=3]
+DetailsItem [userid=10054250, brandid=0, data=null, clicknum=99, marknum=0, buynum=8]
+DetailsItem [userid=8280500, brandid=0, data=null, clicknum=4, marknum=0, buynum=1]
+DetailsItem [userid=5354000, brandid=0, data=null, clicknum=171, marknum=0, buynum=7]
+DetailsItem [userid=42000, brandid=0, data=null, clicknum=145, marknum=0, buynum=3]
+DetailsItem [userid=6458500, brandid=0, data=null, clicknum=40, marknum=0, buynum=5]
+DetailsItem [userid=11440500, brandid=0, data=null, clicknum=202, marknum=0, buynum=13]
+DetailsItem [userid=528250, brandid=0, data=null, clicknum=55, marknum=0, buynum=2]
+DetailsItem [userid=5915250, brandid=0, data=null, clicknum=57, marknum=0, buynum=8]
+DetailsItem [userid=3149000, brandid=0, data=null, clicknum=128, marknum=0, buynum=4]
+DetailsItem [userid=8172250, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=6003750, brandid=0, data=null, clicknum=219, marknum=0, buynum=20]
+DetailsItem [userid=6754250, brandid=0, data=null, clicknum=80, marknum=0, buynum=2]
+DetailsItem [userid=2733500, brandid=0, data=null, clicknum=45, marknum=0, buynum=1]
+DetailsItem [userid=5226500, brandid=0, data=null, clicknum=115, marknum=0, buynum=4]
+DetailsItem [userid=8163500, brandid=0, data=null, clicknum=709, marknum=0, buynum=6]
+DetailsItem [userid=5226250, brandid=0, data=null, clicknum=117, marknum=0, buynum=6]
+DetailsItem [userid=8730250, brandid=0, data=null, clicknum=528, marknum=0, buynum=48]
+DetailsItem [userid=2988000, brandid=0, data=null, clicknum=40, marknum=0, buynum=3]
+DetailsItem [userid=9651250, brandid=0, data=null, clicknum=32, marknum=0, buynum=2]
+DetailsItem [userid=10212500, brandid=0, data=null, clicknum=36, marknum=0, buynum=3]
+DetailsItem [userid=7600250, brandid=0, data=null, clicknum=101, marknum=0, buynum=0]
+DetailsItem [userid=11131750, brandid=0, data=null, clicknum=37, marknum=0, buynum=1]
+DetailsItem [userid=8216500, brandid=0, data=null, clicknum=145, marknum=0, buynum=7]
+DetailsItem [userid=7810250, brandid=0, data=null, clicknum=10, marknum=0, buynum=0]
+DetailsItem [userid=1244250, brandid=0, data=null, clicknum=185, marknum=0, buynum=9]
+DetailsItem [userid=5078750, brandid=0, data=null, clicknum=183, marknum=0, buynum=18]
+DetailsItem [userid=2364500, brandid=0, data=null, clicknum=48, marknum=0, buynum=2]
+DetailsItem [userid=11535500, brandid=0, data=null, clicknum=1, marknum=0, buynum=1]
+DetailsItem [userid=11496750, brandid=0, data=null, clicknum=40, marknum=0, buynum=2]
+DetailsItem [userid=8072250, brandid=0, data=null, clicknum=74, marknum=0, buynum=11]
+DetailsItem [userid=4876750, brandid=0, data=null, clicknum=26, marknum=0, buynum=0]
+DetailsItem [userid=3001000, brandid=0, data=null, clicknum=0, marknum=0, buynum=5]
+DetailsItem [userid=8033500, brandid=0, data=null, clicknum=247, marknum=0, buynum=4]
+DetailsItem [userid=3405000, brandid=0, data=null, clicknum=136, marknum=0, buynum=1]
+DetailsItem [userid=7715000, brandid=0, data=null, clicknum=292, marknum=0, buynum=2]
+DetailsItem [userid=10592000, brandid=0, data=null, clicknum=423, marknum=0, buynum=2]
+DetailsItem [userid=6694750, brandid=0, data=null, clicknum=479, marknum=0, buynum=9]
+DetailsItem [userid=3787750, brandid=0, data=null, clicknum=53, marknum=0, buynum=3]
+DetailsItem [userid=6996000, brandid=0, data=null, clicknum=31, marknum=0, buynum=2]
+DetailsItem [userid=5261000, brandid=0, data=null, clicknum=78, marknum=0, buynum=8]
+DetailsItem [userid=5906250, brandid=0, data=null, clicknum=94, marknum=0, buynum=3]
+DetailsItem [userid=5769750, brandid=0, data=null, clicknum=119, marknum=0, buynum=15]
+DetailsItem [userid=236000, brandid=0, data=null, clicknum=35, marknum=0, buynum=1]
+DetailsItem [userid=5642000, brandid=0, data=null, clicknum=628, marknum=0, buynum=10]
+DetailsItem [userid=1104500, brandid=0, data=null, clicknum=355, marknum=0, buynum=1]
+DetailsItem [userid=11141500, brandid=0, data=null, clicknum=2, marknum=0, buynum=0]
+DetailsItem [userid=1531250, brandid=0, data=null, clicknum=242, marknum=0, buynum=4]
+DetailsItem [userid=1617250, brandid=0, data=null, clicknum=274, marknum=0, buynum=12]
+DetailsItem [userid=6412250, brandid=0, data=null, clicknum=11, marknum=0, buynum=0]
+DetailsItem [userid=6099250, brandid=0, data=null, clicknum=176, marknum=0, buynum=0]
+DetailsItem [userid=7918750, brandid=0, data=null, clicknum=41, marknum=0, buynum=1]
+DetailsItem [userid=5952250, brandid=0, data=null, clicknum=4, marknum=0, buynum=0]
+DetailsItem [userid=11601500, brandid=0, data=null, clicknum=360, marknum=0, buynum=5]
+DetailsItem [userid=2921750, brandid=0, data=null, clicknum=509, marknum=0, buynum=11]
+DetailsItem [userid=7184500, brandid=0, data=null, clicknum=370, marknum=0, buynum=10]
+DetailsItem [userid=725000, brandid=0, data=null, clicknum=76, marknum=0, buynum=0]
+DetailsItem [userid=11493000, brandid=0, data=null, clicknum=209, marknum=0, buynum=11]
+DetailsItem [userid=2232500, brandid=0, data=null, clicknum=88, marknum=0, buynum=2]
+DetailsItem [userid=6140500, brandid=0, data=null, clicknum=22, marknum=0, buynum=0]
+DetailsItem [userid=805750, brandid=0, data=null, clicknum=10, marknum=0, buynum=0]
+DetailsItem [userid=6400000, brandid=0, data=null, clicknum=71, marknum=0, buynum=10]
+DetailsItem [userid=7405250, brandid=0, data=null, clicknum=23, marknum=0, buynum=3]
+DetailsItem [userid=3661500, brandid=0, data=null, clicknum=12, marknum=0, buynum=0]
+DetailsItem [userid=1724000, brandid=0, data=null, clicknum=100, marknum=0, buynum=1]
+DetailsItem [userid=4133750, brandid=0, data=null, clicknum=193, marknum=0, buynum=6]
+DetailsItem [userid=8617500, brandid=0, data=null, clicknum=102, marknum=0, buynum=1]
+DetailsItem [userid=1838750, brandid=0, data=null, clicknum=24, marknum=0, buynum=2]
+DetailsItem [userid=1324500, brandid=0, data=null, clicknum=229, marknum=0, buynum=17]
+DetailsItem [userid=11397250, brandid=0, data=null, clicknum=5, marknum=0, buynum=0]
+DetailsItem [userid=1459750, brandid=0, data=null, clicknum=82, marknum=0, buynum=2]
+DetailsItem [userid=11613500, brandid=0, data=null, clicknum=82, marknum=0, buynum=0]
+DetailsItem [userid=11751000, brandid=0, data=null, clicknum=9, marknum=0, buynum=0]
+DetailsItem [userid=10790500, brandid=0, data=null, clicknum=11, marknum=0, buynum=1]
+DetailsItem [userid=8702500, brandid=0, data=null, clicknum=421, marknum=0, buynum=13]
+DetailsItem [userid=12417500, brandid=0, data=null, clicknum=7, marknum=0, buynum=15]
+DetailsItem [userid=5440750, brandid=0, data=null, clicknum=33, marknum=0, buynum=3]
+DetailsItem [userid=6266000, brandid=0, data=null, clicknum=36, marknum=0, buynum=1]
+DetailsItem [userid=82250, brandid=0, data=null, clicknum=8, marknum=0, buynum=0]
+DetailsItem [userid=5865750, brandid=0, data=null, clicknum=128, marknum=0, buynum=3]
+DetailsItem [userid=5336750, brandid=0, data=null, clicknum=113, marknum=0, buynum=12]
+DetailsItem [userid=5655250, brandid=0, data=null, clicknum=398, marknum=0, buynum=6]
+DetailsItem [userid=3963750, brandid=0, data=null, clicknum=523, marknum=0, buynum=19]
+DetailsItem [userid=3981750, brandid=0, data=null, clicknum=218, marknum=0, buynum=7]
+DetailsItem [userid=2088000, brandid=0, data=null, clicknum=128, marknum=0, buynum=9]
+DetailsItem [userid=835000, brandid=0, data=null, clicknum=176, marknum=0, buynum=19]
+DetailsItem [userid=747500, brandid=0, data=null, clicknum=3, marknum=0, buynum=0]
+DetailsItem [userid=1906000, brandid=0, data=null, clicknum=329, marknum=0, buynum=21]
+DetailsItem [userid=9244000, brandid=0, data=null, clicknum=455, marknum=0, buynum=20]
+DetailsItem [userid=8910750, brandid=0, data=null, clicknum=61, marknum=0, buynum=2]
+DetailsItem [userid=4189500, brandid=0, data=null, clicknum=23, marknum=0, buynum=0]
+DetailsItem [userid=4853750, brandid=0, data=null, clicknum=3, marknum=0, buynum=0]
+DetailsItem [userid=7143250, brandid=0, data=null, clicknum=242, marknum=0, buynum=32]
+DetailsItem [userid=11716000, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=6848000, brandid=0, data=null, clicknum=48, marknum=0, buynum=1]
+DetailsItem [userid=7860250, brandid=0, data=null, clicknum=1, marknum=0, buynum=0]
+DetailsItem [userid=7445000, brandid=0, data=null, clicknum=9, marknum=0, buynum=0]

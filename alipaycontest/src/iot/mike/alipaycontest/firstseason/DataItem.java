@@ -7,7 +7,22 @@ public class DataItem {
     private int brandid;
     private int type;
     private Date date;
+    private int preference;
     
+    /**
+     * @return the preference
+     */
+    public int getPreference() {
+        return preference;
+    }
+
+    /**
+     * @param preference the preference to set
+     */
+    public void setPreference(int preference) {
+        this.preference = preference;
+    }
+
     /**
      * @return the userid
      */
@@ -73,6 +88,7 @@ public class DataItem {
         int result = 1;
         result = prime * result + brandid;
         result = prime * result + ((date == null) ? 0 : date.hashCode());
+        result = prime * result + preference;
         result = prime * result + type;
         result = prime * result + userid;
         return result;
@@ -88,10 +104,6 @@ public class DataItem {
         if (!(obj instanceof DataItem)) return false;
         DataItem other = (DataItem) obj;
         if (brandid != other.brandid) return false;
-        if (date == null) {
-            if (other.date != null) return false;
-        } else if (!date.equals(other.date)) return false;
-        if (type != other.type) return false;
         if (userid != other.userid) return false;
         return true;
     }
@@ -101,7 +113,16 @@ public class DataItem {
      */
     @Override
     public String toString() {
-        return "DataItem [userid=" + userid + ", brandid=" + brandid + ", type=" + type + ", data=" + date + "]";
+        return "DataItem [userid=" + userid
+               + ", brandid="
+               + brandid
+               + ", type="
+               + type
+               + ", date="
+               + date
+               + ", preference="
+               + preference
+               + "]";
     }
     
 }

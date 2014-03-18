@@ -1,34 +1,30 @@
 package iot.mike.alipaycontest.firstseason;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.cassandra.cli.CliParser.newColumnFamily_return;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-/**
- * This class used to hold the data instead of get data from the database each
- * time.
- * 
- * @author mike
- * 
- */
-public class DataHolder {
+public class DataCheck {
 
-    static Logger         logger     = LogManager.getLogger(DataHolder.class.getName());
+    static Logger                             logger     = LogManager.getLogger(DataCheck.class);
 
-    static List<DataItem> dataItems  = new LinkedList<>();
+    static List<DataItem>                     dataItems  = new LinkedList<DataItem>();
 
-    static Connection     connection = null;
+    static Connection                         connection = null;
 
     static {
         try {
@@ -40,9 +36,9 @@ public class DataHolder {
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM "
                                                              + "tmailcontest.tmail_firstseason "
                                                              + "where visit_datetime "
-                                                             + "not like '2013-08%%%' "
-                                                             + "and visit_datetime "
-                                                             + "not like '2013-07%%%';");
+                                                             + "like '2013-07%%%' "
+                                                             + "and type != 0 "
+                                                             + "and type != 2;");
 
                 int num = 0;
                 while (resultSet.next()) {
@@ -78,66 +74,43 @@ public class DataHolder {
         }
     }
 
-    /**
-     * get the data each event, which has been classfied by the userid
-     * 
-     * @param userid
-     *            userid
-     * @return list\<DataItem\>
-     */
-    public static LinkedList<DataItem> getDataByUserID(int userid) {
-        LinkedList<DataItem> items = new LinkedList<>();
-        for (DataItem iterable : dataItems) {
-            if (iterable.getUserid() == userid) {
-                items.add(iterable);
+    static HashMap<Integer, HashSet<Integer>> realmap   = new HashMap<>();
+    static HashMap<Integer, HashSet<Integer>> predictmap   = new HashMap<>();
+
+    public static void main(String[] args) {
+        for (DataItem item : dataItems) {
+            if (realmap.containsKey(item.getUserid())) {
+                if (realmap.get(item.getUserid()).contains(item.getBrandid())) {
+                    continue;
+                }else {
+                    realmap.get(item.getUserid()).add(item.getBrandid());
+                }
+            } else {
+                HashSet<Integer> goodset = new HashSet<>();
+                goodset.add(item.getBrandid());
+                realmap.put(item.getUserid(), goodset);
             }
         }
-        return items;
+        System.out.print(realmap);
+        DataAnalyze.write2File(new File("mike_tmp/real"), realmap.toString());
+        predictmap = DataAnalyze.analyzeSimilarity();
+        System.out.print(predictmap);
+        DataAnalyze.write2File(new File("mike_tmp/predict"), predictmap.toString());
     }
 
-    /**
-     * get the data each event, which has been classfied by the userid
-     * 
-     * @param brandid
-     *            brandid
-     * @return list\<DataItem\>
-     */
-    public static LinkedList<DataItem> getDataByBrandID(int brandid) {
-        LinkedList<DataItem> items = new LinkedList<>();
-        for (DataItem iterable : dataItems) {
-            if (iterable.getBrandid() == brandid) {
-                items.add(iterable);
-            }
-        }
-        return items;
+    public static double calculatePrecision(HashMap<Integer, HashSet<Integer>> real,
+                                            HashMap<Integer, HashSet<Integer>> predict) {
+        
+        return 0;
     }
 
-    /**
-     * Get all user id
-     * 
-     * @return int[]
-     */
-    public static Integer[] getUserID() {
-        Integer[] users = new Integer[10];
-        HashSet<Integer> usersMap = new HashSet<>();
-        for (DataItem item : dataItems) {
-            usersMap.add(item.getUserid());
-        }
-        return usersMap.toArray(users);
+    public static double calculateRecall(HashMap<Integer, HashSet<Integer>> real,
+                                         HashMap<Integer, HashSet<Integer>> predict) {
+        
+        return 0;
     }
 
-    /**
-     * Get all brand id
-     * 
-     * @return int[]
-     */
-    public static Integer[] getBrandID() {
-        Integer[] brands = new Integer[10];
-        HashSet<Integer> brandsMap = new HashSet<>();
-        for (DataItem item : dataItems) {
-            brandsMap.add(item.getBrandid());
-        }
-        return brandsMap.toArray(brands);
+    public static double calculateF1(double p, double r) {
+        return (2 * p * r) / (p + r);
     }
-
 }

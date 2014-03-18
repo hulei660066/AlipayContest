@@ -3,12 +3,26 @@ package iot.mike.alipaycontest.firstseason;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.mahout.cf.taste.common.TasteException;
+import org.apache.mahout.cf.taste.eval.RecommenderBuilder;
+import org.apache.mahout.cf.taste.eval.RecommenderEvaluator;
+import org.apache.mahout.cf.taste.impl.eval.AverageAbsoluteDifferenceRecommenderEvaluator;
+import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
+import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
+import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
+import org.apache.mahout.cf.taste.model.DataModel;
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
+import org.apache.mahout.cf.taste.recommender.RecommendedItem;
+import org.apache.mahout.cf.taste.recommender.Recommender;
+import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
 public class DataAnalyze {
 
@@ -17,7 +31,7 @@ public class DataAnalyze {
     public static void main(String[] args) {
         // analyzeUserAction();
         // analyzeBrandTimes();
-        analyzeTBrand();
+        analyzeSimilarity();
     }
 
     /**
@@ -26,25 +40,24 @@ public class DataAnalyze {
      * @param items
      *            The Whole Data
      */
-    public static void analyzeUserAction() {
+    public static HashMap<Integer, DetailsItem> analyzeUserAction() {
         Integer[] users = DataHolder.getUserID();
         StringBuilder builder = new StringBuilder();
+        HashMap<Integer, DetailsItem> userDetails = new HashMap<>();
         // 这边的数据为，某个用户买了多少商品，找出最多的人
         for (Integer userid : users) {
             LinkedList<DataItem> detailsItem = DataHolder.getDataByUserID(userid);
-            HashMap<Integer, DetailsItem> userDetails = new HashMap<>();
 
             for (DataItem item : detailsItem) {
                 DetailsItem userItem;
 
                 if (userDetails.containsKey(userid)) {
                     userItem = userDetails.get(userid);
+                    userDetails.remove(userid);
                 } else {
                     userItem = new DetailsItem();
+                    userItem.setUserid(userid);
                 }
-
-                userItem.setUserid(userid);
-
                 switch (item.getType()) {
                     case 0: {// click
                         userItem.setClicknum(userItem.getClicknum() + 1);
@@ -65,20 +78,16 @@ public class DataAnalyze {
                         break;
                     }
                 }
-
-                if (userItem.getBuynum() != 0) {
-                    userDetails.put(userid, userItem);
-                }
+                userDetails.put(userid, userItem);
             }
-
             // 输出用户购买的商品的详细条目。
-            // System.out.println(userDetails);
             if (userDetails.size() != 0) {
+                System.out.println(userDetails.size() + userDetails.get(userid).toString());
+                builder.append(userDetails.get(userid).toString() + "\n");
                 // System.out.println(user + ":" + userDetails.size());
                 // System.out.println(userDetails);
-                builder.append(userDetails + "\n");
-                write2File(new File(ETLCONFIG.USERS_FILE), builder.toString());
             }
+            write2File(new File(ETLCONFIG.USERS_FILE), builder.toString());
 
             /*
              * 想到，对于经常购物的人员，我们可以进行细致的分析，而对于大部分购物或者加入购物车的人来说，数据量不够
@@ -90,14 +99,15 @@ public class DataAnalyze {
                 try {
                     if (userDetails.get(user).getBuynum() >= 30
                         && userDetails.get(user).getClicknum() / userDetails.get(user).getBuynum() <= 20) {
-                        System.out.println(userDetails.get(user));
+                        // System.out.println(userDetails.get(user));
                     }
                 } catch (Exception e) {
 
                 }
             }
-
         }
+        return userDetails;
+
     }
 
     /**
@@ -116,11 +126,11 @@ public class DataAnalyze {
                 DetailsItem detailsItem;
                 if (brandDetails.containsKey(brandid)) {
                     detailsItem = brandDetails.get(brandid);
+                    brandDetails.remove(brandid);
                 } else {
                     detailsItem = new DetailsItem();
+                    detailsItem.setBrandid(brandid);
                 }
-
-                detailsItem.setBrandid(brandid);
 
                 switch (item.getType()) {
                     case 0: {// click
@@ -148,14 +158,14 @@ public class DataAnalyze {
                 }
             }
             // 输出商品商标的详细条目。
-            // System.out.println(userDetails);
+            System.out.println(brandDetails.get(brandid));
             if (brandDetails.size() != 0) {
                 // System.out.println(user + ":" + userDetails.size());
                 // System.out.println(brandDetails);
-                builder.append(brandDetails + "\n");
-                write2File(new File(ETLCONFIG.BRANDS_FILE), builder.toString());
+                builder.append(brandDetails.get(brandid).toString() + "\n");
             }
         }
+        write2File(new File(ETLCONFIG.BRANDS_FILE), builder.toString());
     }
 
     /**
@@ -179,177 +189,60 @@ public class DataAnalyze {
         }
     }
 
-    /**
-     * 找到周期性的商品品牌
-     */
-    public static void analyzeTBrand() {
+    public static HashMap<Integer, HashSet<Integer>> analyzeSimilarity() {
+        File modelFile = new File(ETLCONFIG.PREFERENCE_FILE);
         Integer[] users = DataHolder.getUserID();
-        HashMap<String, LinkedList<DataItem>> userdata = new HashMap<>();
-        for (Integer user : users) {
-            LinkedList<DataItem> useritems = DataHolder.getDataByUserID(user);
-            LinkedList<DataItem> buyitems = new LinkedList<>();
-            for (DataItem useritem : useritems) {
-                if (useritem.getType() == 1
-                    || useritem.getType() == 3) {
-                    buyitems.add(useritem);
+
+        HashMap<Integer, HashSet<Integer>> results = new HashMap<>();
+
+        DataModel model;
+        try {
+            model = new FileDataModel(modelFile);
+
+            RecommenderEvaluator evaluator = new AverageAbsoluteDifferenceRecommenderEvaluator();
+            RecommenderBuilder recommenderBuilder = new RecommenderBuilder() {
+                @Override
+                public Recommender buildRecommender(DataModel model)
+                    throws TasteException {
+                    UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
+                    UserNeighborhood neighborhood = new NearestNUserNeighborhood(5,
+                                                                                 similarity,
+                                                                                 model);
+                    return new GenericUserBasedRecommender(model,
+                                                           neighborhood,
+                                                           similarity);
                 }
+            };
+
+            Recommender recommender = recommenderBuilder.buildRecommender(model);
+
+            for (Integer user : users) {
+                List<RecommendedItem> re = recommender.recommend((long) user, 10);
+                // System.out.println("User : " + user);
+                for (RecommendedItem recommendedItem : re) {
+                    if (recommendedItem.getValue() > 52) {
+                        if (results.containsKey(user)) {
+                            results.get(user).add((int) recommendedItem.getItemID());
+                        }else {
+                            HashSet<Integer> temp = new HashSet<Integer>();
+                            temp.add((int)recommendedItem.getItemID());
+                            results.put(user, temp);
+                        }
+                        // System.out.println(recommendedItem.getItemID() + " " + recommendedItem.getValue());
+                    }
+                }
+                // System.out.println();
             }
-            
-            
-            
-            if (buyitems.size() > 20) {
-                System.out.println(buyitems);
-            }
+
+            evaluator.evaluate(recommenderBuilder, null, model, 0.95, 0.05);
+            // 0.95说明我们计算95%的数据，余下的作为测试数据
+            // System.out.println(score);
+            // 这个结果因人而异，不过大体上应该是在0.89附近
+        } catch (IOException | TasteException e) {
+            logger.warn(e.getMessage());
         }
-    }
-}
-
-class DetailsItem {
-    private int  userid;
-    private int  brandid;
-    private Date data;
-
-    /**
-     * @return the data
-     */
-    public Date getData() {
-        return data;
-    }
-
-    /**
-     * @param data
-     *            the data to set
-     */
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    private int clicknum;
-    private int marknum;
-    private int buynum;
-
-    /**
-     * @return the userid
-     */
-    public int getUserid() {
-        return userid;
-    }
-
-    /**
-     * @param userid
-     *            the userid to set
-     */
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
-
-    /**
-     * @return the brandid
-     */
-    public int getBrandid() {
-        return brandid;
-    }
-
-    /**
-     * @param brandid
-     *            the brandid to set
-     */
-    public void setBrandid(int brandid) {
-        this.brandid = brandid;
-    }
-
-    /**
-     * @return the clicknum
-     */
-    public int getClicknum() {
-        return clicknum;
-    }
-
-    /**
-     * @param clicknum
-     *            the clicknum to set
-     */
-    public void setClicknum(int clicknum) {
-        this.clicknum = clicknum;
-    }
-
-    /**
-     * @return the marknum
-     */
-    public int getMarknum() {
-        return marknum;
-    }
-
-    /**
-     * @param marknum
-     *            the marknum to set
-     */
-    public void setMarknum(int marknum) {
-        this.marknum = marknum;
-    }
-
-    /**
-     * @return the buynum
-     */
-    public int getBuynum() {
-        return buynum;
-    }
-
-    /**
-     * @param buynum
-     *            the buynum to set
-     */
-    public void setBuynum(int buynum) {
-        this.buynum = buynum;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + brandid;
-        result = prime * result + buynum;
-        result = prime * result + clicknum;
-        result = prime * result + ((data == null) ? 0 : data.hashCode());
-        result = prime * result + marknum;
-        result = prime * result + userid;
-        return result;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (!(obj instanceof DetailsItem)) return false;
-        DetailsItem other = (DetailsItem) obj;
-        if (brandid != other.brandid) return false;
-        if (buynum != other.buynum) return false;
-        if (clicknum != other.clicknum) return false;
-        if (data == null) {
-            if (other.data != null) return false;
-        } else if (!data.equals(other.data)) return false;
-        if (marknum != other.marknum) return false;
-        if (userid != other.userid) return false;
-        return true;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-        return "DetailsItem [userid=" + userid
-               + ", brandid=" + brandid
-               + ", data=" + data
-               + ", clicknum=" + clicknum
-               + ", marknum=" + marknum
-               + ", buynum=" + buynum + "]";
+        System.out.print(results);
+        return results;
     }
 }
 
