@@ -11,10 +11,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.cassandra.cli.CliParser.newColumnFamily_return;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -74,15 +74,15 @@ public class DataCheck {
         }
     }
 
-    static HashMap<Integer, HashSet<Integer>> realmap   = new HashMap<>();
-    static HashMap<Integer, HashSet<Integer>> predictmap   = new HashMap<>();
+    static HashMap<Integer, HashSet<Integer>> realmap    = new HashMap<>();
+    static HashMap<Integer, HashSet<Integer>> predictmap = new HashMap<>();
 
     public static void main(String[] args) {
         for (DataItem item : dataItems) {
             if (realmap.containsKey(item.getUserid())) {
                 if (realmap.get(item.getUserid()).contains(item.getBrandid())) {
                     continue;
-                }else {
+                } else {
                     realmap.get(item.getUserid()).add(item.getBrandid());
                 }
             } else {
@@ -91,23 +91,68 @@ public class DataCheck {
                 realmap.put(item.getUserid(), goodset);
             }
         }
-        System.out.print(realmap);
+        System.out.println(realmap);
         DataAnalyze.write2File(new File("mike_tmp/real"), realmap.toString());
         predictmap = DataAnalyze.analyzeSimilarity();
-        System.out.print(predictmap);
+        System.out.println(predictmap);
         DataAnalyze.write2File(new File("mike_tmp/predict"), predictmap.toString());
+
+        double precision = calculatePrecision(realmap, predictmap);
+        double recall = calculateRecall(realmap, predictmap);
+        double f1 = calculateF1(precision, recall);
+
+        System.out.println("recall : " + recall * 100 + "%");
+        System.out.println("precision : " + precision * 100 + "%");
+        System.out.println("f1 : " + f1 * 100 + "%");
     }
 
     public static double calculatePrecision(HashMap<Integer, HashSet<Integer>> real,
                                             HashMap<Integer, HashSet<Integer>> predict) {
-        
-        return 0;
+
+        int hit = 0;
+        int sum = sumTimes(predict);
+
+        Set<Integer> prediotusers = predict.keySet();
+        for (Integer user : prediotusers) {
+            if (real.containsKey(user)) {
+                for (Integer brand : predict.get(user)) {
+                    if (real.get(user).contains(brand)) {
+                        hit++;
+                    }
+                }
+            }
+        }
+
+        return (double) hit / sum;
+
     }
 
     public static double calculateRecall(HashMap<Integer, HashSet<Integer>> real,
                                          HashMap<Integer, HashSet<Integer>> predict) {
-        
-        return 0;
+        int hit = 0;
+        int sum = sumTimes(real);
+
+        Set<Integer> realusers = real.keySet();
+        for (Integer user : realusers) {
+            if (predict.containsKey(user)) {
+                for (Integer brand : real.get(user)) {
+                    if (predict.get(user).contains(brand)) {
+                        hit++;
+                    }
+                }
+            }
+        }
+
+        return (double) hit / sum;
+    }
+
+    public static int sumTimes(HashMap<Integer, HashSet<Integer>> param) {
+        int sum = 0;
+        Set<Integer> users = param.keySet();
+        for (Integer user : users) {
+            sum += param.get(user).size();
+        }
+        return sum;
     }
 
     public static double calculateF1(double p, double r) {

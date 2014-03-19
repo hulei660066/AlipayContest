@@ -29,7 +29,7 @@ public class DataETL {
                         break;
                     }
                     case 1: {// buy
-                        userItem.setPreference(userItem.getPreference() + 26);
+                        userItem.setPreference(userItem.getPreference() + 50);
                         break;
                     }
                     case 2: {// mark
