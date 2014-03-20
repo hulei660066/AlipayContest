@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< .merge_file_eg9dgT
 	<classpathentry kind="src" output="target/classes" path="src">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -34,4 +35,50 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
+=======
+	<classpathentry excluding="iot/lane/alipaycontest/test/excelTest.java" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="jar/mysql-connector-java-5.1.26.jar"/>
+	<classpathentry kind="lib" path="jar/log4j-core-2.0-beta3.jar"/>
+	<classpathentry kind="lib" path="jar/log4j-api-2.0-beta9.jar"/>
+	<classpathentry kind="lib" path="jar/poi-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="jar/poi-examples-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="jar/poi-excelant-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="jar/poi-ooxml-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="jar/poi-ooxml-schemas-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="jar/poi-scratchpad-3.10-FINAL-20140208.jar"/>
+	<classpathentry kind="lib" path="jar/xmlbeans-2.4.0-sources.jar"/>
+	<classpathentry kind="lib" path="jar/resolver.jar"/>
+	<classpathentry kind="lib" path="jar/xbean_xpath.jar"/>
+	<classpathentry kind="lib" path="jar/xbean.jar"/>
+	<classpathentry kind="lib" path="jar/xmlbeans-qname.jar"/>
+	<classpathentry kind="lib" path="jar/xmlpublic.jar"/>
+	<classpathentry kind="lib" path="jar/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="jar/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="jar/hadoop-core-1.1.2.jar"/>
+	<classpathentry kind="lib" path="jar/mahout-core-0.8.jar" sourcepath="/home/lane/.m2/repository/org/apache/mahout/mahout-core/0.8/mahout-core-0.8-sources.jar"/>
+	<classpathentry kind="lib" path="jar/commons-logging-1.0.3.jar"/>
+	<classpathentry kind="lib" path="jar/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="jar/commons-beanutils-core-1.8.0.jar"/>
+	<classpathentry kind="lib" path="jar/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="jar/commons-cli-2.0-mahout.jar"/>
+	<classpathentry kind="lib" path="jar/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="jar/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="jar/commons-digester-1.8.jar"/>
+	<classpathentry kind="lib" path="jar/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="jar/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="jar/commons-math-2.2.jar"/>
+	<classpathentry kind="lib" path="jar/guava-r09.jar"/>
+	<classpathentry kind="lib" path="jar/jackson-core-asl-1.8.2.jar"/>
+	<classpathentry kind="lib" path="jar/jackson-mapper-asl-1.8.2.jar"/>
+	<classpathentry kind="lib" path="jar/jcommon-1.0.12.jar"/>
+	<classpathentry kind="lib" path="jar/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="jar/uncommons-maths-1.2.2.jar"/>
+	<classpathentry kind="lib" path="jar/xpp3_min-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="jar/xstream-1.3.1.jar"/>
+	<classpathentry kind="lib" path="jar/lucene-analyzers-3.6.0.jar"/>
+	<classpathentry kind="lib" path="jar/mahout-math-0.7.jar"/>
+	<classpathentry kind="output" path="bin"/>
+>>>>>>> .merge_file_IKUuiU
 </classpath>

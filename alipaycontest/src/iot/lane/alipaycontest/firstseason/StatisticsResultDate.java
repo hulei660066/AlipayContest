@@ -1,7 +1,7 @@
 package iot.lane.alipaycontest.firstseason;
 
 
-public class PredictDateHolder {
+public class StatisticsResultDate {
 
 	private int dayNumber = 0;
 	private double precision = 0;
@@ -117,7 +117,7 @@ public class PredictDateHolder {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PredictDateHolder other = (PredictDateHolder) obj;
+		StatisticsResultDate other = (StatisticsResultDate) obj;
 		if (Double.doubleToLongBits(F1Score) != Double
 				.doubleToLongBits(other.F1Score))
 			return false;
