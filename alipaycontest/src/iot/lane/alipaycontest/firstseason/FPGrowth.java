@@ -18,7 +18,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.mahout.common.Pair;
 import org.apache.mahout.fpm.pfpgrowth.convertors.string.TopKStringPatterns;
 
-public class ResultReader {
+public class FPGrowth {
 	public static Map<Integer, Long> readFrequency(Configuration configuration,
 			String fileName) throws Exception {
 		FileSystem fs = FileSystem.get(configuration);
@@ -78,7 +78,7 @@ public class ResultReader {
 							/ firstFrequencyItem;
 					if (support > minSupport && confidence > minConfidence) {
 						List<String> listWithoutFirstItem = new ArrayList<String>();
-						DateFPGrowth dateFPGrowth = new DateFPGrowth();
+						FPGrowthDate dateFPGrowth = new FPGrowthDate();
 
 						// for (String itemId : itemList) {
 						// if (!itemId.equals(firstItemId)) {

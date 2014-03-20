@@ -67,7 +67,7 @@ public class DataAnalyze {
 			// do nothing
 		}
 		// LinkedList<Object> myStatistics = new LinkedList<Object>();
-		LinkedList<PredictDateHolder> myStatistics = new LinkedList<PredictDateHolder>();
+		LinkedList<StatisticsResultDate> myStatistics = new LinkedList<StatisticsResultDate>();
 		Calendar cal = Calendar.getInstance();
 		try {
 			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
@@ -78,7 +78,7 @@ public class DataAnalyze {
 		for (int i = 1; i <= 90; i++) {
 			try {
 				cal.add(Calendar.DAY_OF_YEAR, -1);
-				PredictDateHolder myStatistic = statisticsResult(MYSQLCONFIG.dateFormat
+				StatisticsResultDate myStatistic = statisticsResult(MYSQLCONFIG.dateFormat
 						.format(cal.getTime()));
 				myStatistics.add(myStatistic);
 
@@ -99,10 +99,10 @@ public class DataAnalyze {
 
 		Hashtable<Integer, LinkedList<Integer>> myTable = new Hashtable<Integer, LinkedList<Integer>>();
 		for (Object IndexdByUseridItem : IndexdByUseridItems) {
-			DateUser IndexdByUseridItemt = (DateUser) IndexdByUseridItem;
+			UserWithItemsDate IndexdByUseridItemt = (UserWithItemsDate) IndexdByUseridItem;
 			LinkedList<Object> products = IndexdByUseridItemt.getProducts();
 			for (Object product : products) {
-				DateUser.Product productt = (DateUser.Product) product;
+				UserWithItemsDate.Product productt = (UserWithItemsDate.Product) product;
 				add2myCompositeResultTable(myTable,
 						IndexdByUseridItemt.getUserID(), productt.getBrandID());
 			}
@@ -167,15 +167,15 @@ public class DataAnalyze {
 		LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
 				MYSQLCONFIG.isOnlypurchaseAction);
 		for (Object myUser : myUsers) {
-			DateUser myUsert = (DateUser) myUser;
+			UserWithItemsDate myUsert = (UserWithItemsDate) myUser;
 			LinkedList<Object> myItems = myUsert.getProducts();
 			// Hashtable<Integer, Integer> periodUsersTable = new
 			// Hashtable<Integer, Integer>();
 
 			for (int i = 0; i < myItems.size(); i++) {
-				DateUser.Product itemI = (DateUser.Product) myItems.get(i);
+				UserWithItemsDate.Product itemI = (UserWithItemsDate.Product) myItems.get(i);
 				for (int j = i + 1; j < myItems.size(); j++) {
-					DateUser.Product itemJ = (DateUser.Product) myItems.get(j);
+					UserWithItemsDate.Product itemJ = (UserWithItemsDate.Product) myItems.get(j);
 					if (itemI.getBrandID() == itemJ.getBrandID()) {
 
 						long timeI = itemI.getVisitDaytime().getTime();
@@ -252,9 +252,9 @@ public class DataAnalyze {
 	 * @return parameters PredictDateHolder, includes precision/recall/f1score
 	 *         scores.
 	 */
-	public static PredictDateHolder statisticsResult(String dayTime)
+	public static StatisticsResultDate statisticsResult(String dayTime)
 			throws SQLException {
-		PredictDateHolder predictBuy = new PredictDateHolder();
+		StatisticsResultDate predictBuy = new StatisticsResultDate();
 
 		try {
 			Hashtable<Integer, LinkedList<Integer>> predictBuyItemsNTable = getPredictItems(
@@ -278,7 +278,7 @@ public class DataAnalyze {
 			double allbBrands = 0;
 
 			for (Object actualBuyNumItem : actualBuyNumItems) {
-				DateUser usert = (DateUser) actualBuyNumItem;
+				UserWithItemsDate usert = (UserWithItemsDate) actualBuyNumItem;
 				int userId = usert.getUserID();
 				// pBrandsi为对用户i 预测他(她)会购买的品牌列表个数
 				double pBrands = 0;
@@ -294,7 +294,7 @@ public class DataAnalyze {
 					pBrands = predictBuyItemsNTable.get(userId).size();
 					allpBrands += pBrands;
 					for (Object product : usert.getProducts()) {
-						DateUser.Product productt = (DateUser.Product) product;
+						UserWithItemsDate.Product productt = (UserWithItemsDate.Product) product;
 						LinkedList<Integer> products = predictBuyItemsNTable
 								.get(userId);
 						boolean isContainThisProduct = products
@@ -353,13 +353,13 @@ public class DataAnalyze {
 		Hashtable<Integer, LinkedList<Integer>> resultUserItems = new Hashtable<Integer, LinkedList<Integer>>();
 
 		for (Object user : users) {
-			LinkedList<DateItemWithWeight> tmpItems = new LinkedList<DateItemWithWeight>();
+			LinkedList<ItemOnlyWithWeightDate> tmpItems = new LinkedList<ItemOnlyWithWeightDate>();
 			LinkedList<Integer> resultItems = new LinkedList<Integer>();
-			DateUser usert = (DateUser) user;
+			UserWithItemsDate usert = (UserWithItemsDate) user;
 			Hashtable<Integer, Integer> userItemsTable = new Hashtable<Integer, Integer>();
 
 			for (Object product : usert.getProducts()) {
-				DateUser.Product productt = (DateUser.Product) product;
+				UserWithItemsDate.Product productt = (UserWithItemsDate.Product) product;
 				int brandId = productt.getBrandID();
 
 				boolean isContainsKey = userItemsTable.containsKey(brandId);
@@ -378,14 +378,14 @@ public class DataAnalyze {
 			Enumeration<Integer> key = userItemsTable.keys();
 			while (key.hasMoreElements()) {
 				int myk = key.nextElement();
-				DateItemWithWeight userWithItems = new DateItemWithWeight();
+				ItemOnlyWithWeightDate userWithItems = new ItemOnlyWithWeightDate();
 				userWithItems.setProductID(myk);
 				userWithItems.setWeight(userItemsTable.get(myk));
 				tmpItems.add(userWithItems);
 			}
-			Collections.sort(tmpItems, new Comparator<DateItemWithWeight>() {
+			Collections.sort(tmpItems, new Comparator<ItemOnlyWithWeightDate>() {
 				@Override
-				public int compare(DateItemWithWeight o1, DateItemWithWeight o2) {
+				public int compare(ItemOnlyWithWeightDate o1, ItemOnlyWithWeightDate o2) {
 					return Integer.valueOf(o2.getWeight()).compareTo(
 							o1.getWeight());
 				}
@@ -395,7 +395,7 @@ public class DataAnalyze {
 			// int forecastItemN = usert.getWeight() / 26;
 			int tmp[] = usert.getUserActionCount();
 			int forecastItemN = tmp[1] + tmp[3];
-			for (DateItemWithWeight tmpItem : tmpItems) {
+			for (ItemOnlyWithWeightDate tmpItem : tmpItems) {
 
 				// if (forecastItemN-- <= 0)break;
 				resultItems.add(tmpItem.getProductID());
@@ -464,9 +464,9 @@ public class DataAnalyze {
 			boolean isContainsKey = userItemsTable.containsKey(user_id);
 			if (isContainsKey) {
 				Object tmp = userItemsTable.get(user_id);
-				DateUser user = (DateUser) tmp;
+				UserWithItemsDate user = (UserWithItemsDate) tmp;
 
-				DateUser.Product product = user.new Product();
+				UserWithItemsDate.Product product = user.new Product();
 				product.setBrandID(resultSet.getInt(3));
 				int type = resultSet.getInt(4);
 				product.setType(type);
@@ -486,9 +486,9 @@ public class DataAnalyze {
 			} else {
 
 				int userActionCount[] = { 0, 0, 0, 0 };
-				DateUser user = new DateUser();
+				UserWithItemsDate user = new UserWithItemsDate();
 				user.setUserID(user_id);
-				DateUser.Product product = user.new Product();
+				UserWithItemsDate.Product product = user.new Product();
 				product.setBrandID(resultSet.getInt(3));
 				int type = resultSet.getInt(4);
 				int userActive = getItemWeight(0, type);
@@ -583,9 +583,9 @@ public class DataAnalyze {
 			boolean isContainsKey = ItemsTable.containsKey(brand_id);
 			if (isContainsKey) {
 				Object tmp = ItemsTable.get(brand_id);
-				DateItem item = (DateItem) tmp;
+				ItemWithUsersDate item = (ItemWithUsersDate) tmp;
 
-				DateItem.User user = item.new User();
+				ItemWithUsersDate.User user = item.new User();
 				user.setUserID(resultSet.getInt(2));
 				int type = resultSet.getInt(4);
 				user.setType(type);
@@ -605,8 +605,8 @@ public class DataAnalyze {
 			} else {
 
 				int itemActionCount[] = { 0, 0, 0, 0 };
-				DateItem item = new DateItem();
-				DateItem.User user = item.new User();
+				ItemWithUsersDate item = new ItemWithUsersDate();
+				ItemWithUsersDate.User user = item.new User();
 				int type = resultSet.getInt(4);
 
 				int userActive = getItemWeight(0, type);
@@ -721,7 +721,7 @@ public class DataAnalyze {
 	}
 
 	// write to excelFile
-	public static void write2ExcelFile(LinkedList<PredictDateHolder> datas) {
+	public static void write2ExcelFile(LinkedList<StatisticsResultDate> datas) {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("Sample sheet");
 
@@ -738,7 +738,7 @@ public class DataAnalyze {
 		cell.setCellValue("f1score");
 		cell = row.createCell(3);
 		cell.setCellValue("datetime");
-		for (PredictDateHolder data : datas) {
+		for (StatisticsResultDate data : datas) {
 			int cellnum = 0;
 			row = sheet.createRow(rownum++);
 			cell = row.createCell(cellnum++);
@@ -857,7 +857,7 @@ public class DataAnalyze {
 							/ firstFrequencyItem;
 					if (support > minSupport && confidence > minConfidence) {
 						List<String> listWithoutFirstItem = new ArrayList<String>();
-						DateFPGrowth dateFPGrowth = new DateFPGrowth();
+						FPGrowthDate dateFPGrowth = new FPGrowthDate();
 
 						// for (String itemId : itemList) {
 						// if (!itemId.equals(firstItemId)) {

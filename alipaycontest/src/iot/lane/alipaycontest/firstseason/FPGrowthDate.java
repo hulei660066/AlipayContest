@@ -2,7 +2,7 @@ package iot.lane.alipaycontest.firstseason;
 
 import java.util.LinkedList;
 
-public class DateFPGrowth {
+public class FPGrowthDate {
 	private double support = 0;
 	private double confidence = 0;
 	private LinkedList<Integer> fromItems = new LinkedList<Integer>();
@@ -53,7 +53,7 @@ public class DateFPGrowth {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DateFPGrowth other = (DateFPGrowth) obj;
+		FPGrowthDate other = (FPGrowthDate) obj;
 		if (Double.doubleToLongBits(confidence) != Double
 				.doubleToLongBits(other.confidence))
 			return false;
