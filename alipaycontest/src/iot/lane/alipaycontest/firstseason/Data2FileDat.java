@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class Date2FileDat {
+public class Data2FileDat {
 	public static void main(String args[]) throws Exception {
 		if (args.length != 1) {
 			System.err.println("Arguments: [marketbasket.csv path]");

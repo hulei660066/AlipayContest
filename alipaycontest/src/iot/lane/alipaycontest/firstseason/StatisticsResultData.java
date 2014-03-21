@@ -1,7 +1,7 @@
 package iot.lane.alipaycontest.firstseason;
 
 
-public class StatisticsResultDate {
+public class StatisticsResultData {
 
 	private double precision = 0;
 	private double recall = 0;
@@ -46,7 +46,7 @@ public class StatisticsResultDate {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		StatisticsResultDate other = (StatisticsResultDate) obj;
+		StatisticsResultData other = (StatisticsResultData) obj;
 		if (Double.doubleToLongBits(F1Score) != Double
 				.doubleToLongBits(other.F1Score))
 			return false;

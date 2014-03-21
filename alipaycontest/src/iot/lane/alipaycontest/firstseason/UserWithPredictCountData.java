@@ -3,10 +3,10 @@ package iot.lane.alipaycontest.firstseason;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class UserWithPredictCountDate {
+public class UserWithPredictCountData {
 
 	private int userID = 0;
-	//第一个参数：预测个数；第二个参数：推荐个数；第三个参数：总个数，3：1：4
+	//第一个参数：预测下个月购买个数；第二个参数：推荐下个月购买个数；第三个参数：下个月购买总个数，比例应该为：3：1：4
 	private int userPredictCount[] = { 0, 0, 0 };
 	
 	public int getUserID() {
@@ -37,7 +37,7 @@ public class UserWithPredictCountDate {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserWithPredictCountDate other = (UserWithPredictCountDate) obj;
+		UserWithPredictCountData other = (UserWithPredictCountData) obj;
 		if (userID != other.userID)
 			return false;
 		if (!Arrays.equals(userPredictCount, other.userPredictCount))
