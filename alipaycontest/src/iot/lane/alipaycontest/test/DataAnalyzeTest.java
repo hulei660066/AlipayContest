@@ -1,4 +1,6 @@
-package iot.lane.alipaycontest.firstseason;
+package iot.lane.alipaycontest.test;
+
+import iot.lane.alipaycontest.test.MYSQLCONFIG;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

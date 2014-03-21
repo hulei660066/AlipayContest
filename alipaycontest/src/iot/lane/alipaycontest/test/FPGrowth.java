@@ -1,4 +1,6 @@
-package iot.lane.alipaycontest.firstseason;
+package iot.lane.alipaycontest.test;
+
+import iot.lane.alipaycontest.firstseason.FPGrowthDate;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
