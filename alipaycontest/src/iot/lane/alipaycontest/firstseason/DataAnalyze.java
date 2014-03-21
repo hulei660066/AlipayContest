@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,14 +23,15 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.SequenceFile;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.SequenceFile.Reader;
+import org.apache.hadoop.io.Text;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.mahout.common.Pair;
@@ -44,17 +44,51 @@ import org.apache.poi.ss.usermodel.Row;
 public class DataAnalyze {
 
 	// private static LinkedList<Object> users = null;
-	// private static LinkedList<Object> items = null;
-	static Logger logger = LogManager.getLogger(DataAnalyze.class.getName());
-	static Hashtable<Integer, LinkedList<Integer>> myCompositeResultTable = new Hashtable<Integer, LinkedList<Integer>>();
+	private static Logger logger = LogManager.getLogger(DataAnalyze.class
+			.getName());
+	private static Hashtable<Integer, UserWithPredictCountDate> myUserPurchasedItemsNPerMonth = null;
+	private static Hashtable<Integer, LinkedList<Integer>> myCompositeResultTable = new Hashtable<Integer, LinkedList<Integer>>();
 
 	public static void main(String[] args) {
 		try {
-			LinkedList<Object> FPGrowthItems = getFPGrowth(751, null, "fList.seq",
-					"frequentpatterns.seq", 0.001, 0.1);
-//			saveDateToDatFile();
-			appendLeast7DayBuying();
-			appendCycleBuying();
+			// getUserPurchasedItemsNPerMonth("2013-04-15");
+			// saveDateToDatFile();
+			Random r = new Random();
+
+			LinkedList<StatisticsResultDate> myFPGrowthStatistics = new LinkedList<StatisticsResultDate>();
+			for (int i = 0; i <= 100; i++) {
+				// 生成[0,0.005)区间的小数
+				double dRecallRandom = r.nextDouble() / 200;
+				// 生成[0,1.0)区间的小数
+				double dPrecisonRandom = r.nextDouble();
+
+				// Hashtable<Integer, LinkedList<Integer>>
+				// myappendFPGrowth2Table = appendFPGrowth2Table(
+				// 686, null, "fList.seq", "frequentpatterns.seq", 0.005, 0.1);
+				Hashtable<Integer, LinkedList<Integer>> myappendFPGrowth2Table = appendFPGrowth2Table(
+						686, null, "fList.seq", "frequentpatterns.seq",
+						dRecallRandom, dPrecisonRandom);
+
+				StatisticsResultDate myFPGrowthStatistic = statisticsResult(myappendFPGrowth2Table);
+
+				System.out.printf("dRecallRandom:%.4f dPrecisonRandom:%.4f Precison:%.4f recall:%.4f f1score:%.4f"
+						+ dRecallRandom
+						+ dPrecisonRandom
+						+ myFPGrowthStatistic.getPrecision()
+						+ myFPGrowthStatistic.getRecall()
+						+ myFPGrowthStatistic.getF1Score());
+				
+				myFPGrowthStatistics.add(myFPGrowthStatistic);
+			}
+			if (ETLCONFIG.ISDEBUGMODEL) {
+				write2ExcelFile(myFPGrowthStatistics);
+			}
+			
+			// LinkedList<Object> FPGrowthItems = getFPGrowth(751, null,
+			// "fList.seq",
+			// "frequentpatterns.seq", 0.001, 0.1);
+			Hashtable<Integer, LinkedList<Integer>> myLeast7 = appendLeast7DayBuying2Table();
+			Hashtable<Integer, LinkedList<Integer>> myCycle = appendCycleBuying2Table();
 			LinkedList<Object> myItems = getItemsSimpl("2013-04-15",
 					MYSQLCONFIG.isOnlypurchaseAction);
 			LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
@@ -78,8 +112,10 @@ public class DataAnalyze {
 		for (int i = 1; i <= 90; i++) {
 			try {
 				cal.add(Calendar.DAY_OF_YEAR, -1);
-				StatisticsResultDate myStatistic = statisticsResult(MYSQLCONFIG.dateFormat
-						.format(cal.getTime()));
+				Hashtable<Integer, LinkedList<Integer>> predictBuyItemsTable = getPredictItems(
+						MYSQLCONFIG.dateFormat.format(cal.getTime()),
+						MYSQLCONFIG.isAllAction);
+				StatisticsResultDate myStatistic = statisticsResult(predictBuyItemsTable);
 				myStatistics.add(myStatistic);
 
 			} catch (SQLException e) {
@@ -89,6 +125,50 @@ public class DataAnalyze {
 
 		if (ETLCONFIG.ISDEBUGMODEL) {
 			write2ExcelFile(myStatistics);
+		}
+	}
+
+	public static Hashtable<Integer, UserWithPredictCountDate> getUserPurchasedItemsNPerMonth(
+			String datTime) throws Exception {
+		if (null != myUserPurchasedItemsNPerMonth) {
+			return myUserPurchasedItemsNPerMonth;
+		}
+
+		myUserPurchasedItemsNPerMonth = new Hashtable<Integer, UserWithPredictCountDate>();
+		int myDifferentMonthNumber = getDifferentMonthNumber(datTime,
+				MYSQLCONFIG.DateThreshold);
+		LinkedList<Object> IndexdByUseridItems = getUsersSimpl(datTime,
+				MYSQLCONFIG.isOnlypurchaseAction);
+
+		for (Object IndexdByUseridItem : IndexdByUseridItems) {
+			UserWithPredictCountDate myUserWithCount = new UserWithPredictCountDate();
+			int[] userPurchasedItemsN = { 0, 0, 0 };
+			UserWithItemsDate IndexdByUseridItemt = (UserWithItemsDate) IndexdByUseridItem;
+			myUserWithCount.setUserID(IndexdByUseridItemt.getUserID());
+			int[] UserActionCount = IndexdByUseridItemt.getUserActionCount();
+			userPurchasedItemsN[2] = (UserActionCount[1] + UserActionCount[3])
+					/ myDifferentMonthNumber + myDifferentMonthNumber;
+			myUserWithCount.setUserPredictCount(userPurchasedItemsN);
+
+			myUserPurchasedItemsNPerMonth.put(IndexdByUseridItemt.getUserID(),
+					myUserWithCount);
+		}
+
+		return myUserPurchasedItemsNPerMonth;
+	}
+
+	public static int getDifferentMonthNumber(String datTime1, String datTime2)
+			throws Exception {
+		Date d1 = MYSQLCONFIG.dateFormat.parse(datTime1);
+		Date d2 = MYSQLCONFIG.dateFormat.parse(datTime2);
+		long diff = d1.getTime() - d2.getTime();
+		long months = diff / (1000 * 60 * 60 * 24 * 30);
+
+		// make sure month bigger than one
+		if (months >= 2) {
+			return Math.abs((int) months - 1);
+		} else {
+			return 1;
 		}
 	}
 
@@ -103,8 +183,8 @@ public class DataAnalyze {
 			LinkedList<Object> products = IndexdByUseridItemt.getProducts();
 			for (Object product : products) {
 				UserWithItemsDate.Product productt = (UserWithItemsDate.Product) product;
-				add2myCompositeResultTable(myTable,
-						IndexdByUseridItemt.getUserID(), productt.getBrandID());
+				add2myHashTable(myTable, IndexdByUseridItemt.getUserID(),
+						productt.getBrandID());
 			}
 		}
 
@@ -136,7 +216,8 @@ public class DataAnalyze {
 	/**
 	 * This method get least 7daybuying items
 	 */
-	public static void appendLeast7DayBuying() throws SQLException {
+	public static Hashtable<Integer, LinkedList<Integer>> appendLeast7DayBuying2Table()
+			throws SQLException {
 		Calendar cal = Calendar.getInstance();
 		try {
 			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
@@ -155,17 +236,20 @@ public class DataAnalyze {
 			int UserId = key.nextElement();
 			LinkedList<Integer> items = userItemsTable.get(UserId);
 			for (Integer item : items) {
-				add2myCompositeResultTable(myCompositeResultTable, UserId, item);
+				add2myHashTable(myCompositeResultTable, UserId, item);
 			}
 		}
+		return userItemsTable;
 	}
 
 	/**
 	 * This method get periodbuying items
 	 */
-	public static void appendCycleBuying() throws SQLException {
+	public static Hashtable<Integer, LinkedList<Integer>> appendCycleBuying2Table()
+			throws SQLException {
 		LinkedList<Object> myUsers = getUsersSimpl("2013-04-15",
 				MYSQLCONFIG.isOnlypurchaseAction);
+		Hashtable<Integer, LinkedList<Integer>> myappendCycleBuying = new Hashtable<Integer, LinkedList<Integer>>();
 		for (Object myUser : myUsers) {
 			UserWithItemsDate myUsert = (UserWithItemsDate) myUser;
 			LinkedList<Object> myItems = myUsert.getProducts();
@@ -173,16 +257,21 @@ public class DataAnalyze {
 			// Hashtable<Integer, Integer>();
 
 			for (int i = 0; i < myItems.size(); i++) {
-				UserWithItemsDate.Product itemI = (UserWithItemsDate.Product) myItems.get(i);
+				UserWithItemsDate.Product itemI = (UserWithItemsDate.Product) myItems
+						.get(i);
 				for (int j = i + 1; j < myItems.size(); j++) {
-					UserWithItemsDate.Product itemJ = (UserWithItemsDate.Product) myItems.get(j);
+					UserWithItemsDate.Product itemJ = (UserWithItemsDate.Product) myItems
+							.get(j);
 					if (itemI.getBrandID() == itemJ.getBrandID()) {
 
 						long timeI = itemI.getVisitDaytime().getTime();
 						long timeJ = itemJ.getVisitDaytime().getTime();
 						// TODO 7 days interval is enough?
 						if (Math.abs((timeI - timeJ) / (1000 * 60 * 60 * 24)) >= 7) {
-							add2myCompositeResultTable(myCompositeResultTable,
+							add2myHashTable(myCompositeResultTable,
+									myUsert.getUserID(), itemI.getBrandID());
+
+							add2myHashTable(myappendCycleBuying,
 									myUsert.getUserID(), itemI.getBrandID());
 							break;
 						}
@@ -214,6 +303,7 @@ public class DataAnalyze {
 			// }
 
 		}
+		return myappendCycleBuying;
 
 	}
 
@@ -225,7 +315,7 @@ public class DataAnalyze {
 	 * @param brandId
 	 *            ，represent values
 	 */
-	public static void add2myCompositeResultTable(
+	public static void add2myHashTable(
 			Hashtable<Integer, LinkedList<Integer>> myTable, int userId,
 			int brandId) throws SQLException {
 		if (myTable.containsKey(userId)) {
@@ -252,13 +342,12 @@ public class DataAnalyze {
 	 * @return parameters PredictDateHolder, includes precision/recall/f1score
 	 *         scores.
 	 */
-	public static StatisticsResultDate statisticsResult(String dayTime)
+	public static StatisticsResultDate statisticsResult(
+			Hashtable<Integer, LinkedList<Integer>> predictBuyItemsTable)
 			throws SQLException {
 		StatisticsResultDate predictBuy = new StatisticsResultDate();
 
 		try {
-			Hashtable<Integer, LinkedList<Integer>> predictBuyItemsNTable = getPredictItems(
-					dayTime, MYSQLCONFIG.isAllAction);
 
 			Calendar cal = Calendar.getInstance();
 			try {
@@ -288,14 +377,14 @@ public class DataAnalyze {
 				// hitBrandsi对用户i预测的品牌列表与用户i真实购买的品牌交集的个数
 				double hitBrands = 0;
 
-				boolean isContainsKey = predictBuyItemsNTable
+				boolean isContainsKey = predictBuyItemsTable
 						.containsKey(userId);
 				if (isContainsKey) {
-					pBrands = predictBuyItemsNTable.get(userId).size();
+					pBrands = predictBuyItemsTable.get(userId).size();
 					allpBrands += pBrands;
 					for (Object product : usert.getProducts()) {
 						UserWithItemsDate.Product productt = (UserWithItemsDate.Product) product;
-						LinkedList<Integer> products = predictBuyItemsNTable
+						LinkedList<Integer> products = predictBuyItemsTable
 								.get(userId);
 						boolean isContainThisProduct = products
 								.contains(productt.getBrandID());
@@ -322,7 +411,7 @@ public class DataAnalyze {
 			predictBuy.setPrecision(allPrecision);
 			predictBuy.setRecall(allRecall);
 			predictBuy.setF1Score(allF1);
-			predictBuy.setDayTime(dayTime);
+			// predictBuy.setDayTime(dayTime);
 
 			if (ETLCONFIG.ISDEBUGMODEL) {
 				// write2File(StaticsUsers);
@@ -383,13 +472,15 @@ public class DataAnalyze {
 				userWithItems.setWeight(userItemsTable.get(myk));
 				tmpItems.add(userWithItems);
 			}
-			Collections.sort(tmpItems, new Comparator<ItemOnlyWithWeightDate>() {
-				@Override
-				public int compare(ItemOnlyWithWeightDate o1, ItemOnlyWithWeightDate o2) {
-					return Integer.valueOf(o2.getWeight()).compareTo(
-							o1.getWeight());
-				}
-			});
+			Collections.sort(tmpItems,
+					new Comparator<ItemOnlyWithWeightDate>() {
+						@Override
+						public int compare(ItemOnlyWithWeightDate o1,
+								ItemOnlyWithWeightDate o2) {
+							return Integer.valueOf(o2.getWeight()).compareTo(
+									o1.getWeight());
+						}
+					});
 
 			// TODO Auto-generated catch block
 			// int forecastItemN = usert.getWeight() / 26;
@@ -736,8 +827,6 @@ public class DataAnalyze {
 		cell.setCellValue("recall");
 		cell = row.createCell(2);
 		cell.setCellValue("f1score");
-		cell = row.createCell(3);
-		cell.setCellValue("datetime");
 		for (StatisticsResultDate data : datas) {
 			int cellnum = 0;
 			row = sheet.createRow(rownum++);
@@ -747,8 +836,6 @@ public class DataAnalyze {
 			cell.setCellValue(data.getRecall());
 			cell = row.createCell(cellnum++);
 			cell.setCellValue(data.getF1Score());
-			cell = row.createCell(cellnum++);
-			cell.setCellValue((String) data.getDayTime());
 		}
 
 		try {
@@ -797,7 +884,6 @@ public class DataAnalyze {
 		return ConnSQLStrBld.toString();
 	}
 
-	
 	public static Map<Integer, Long> readFrequency(Configuration configuration,
 			String fileName) throws Exception {
 		FileSystem fs = FileSystem.get(configuration);
@@ -828,7 +914,7 @@ public class DataAnalyze {
 		return itemById;
 	}
 
-	public static LinkedList<Object> readFrequentPatterns(
+	public static Hashtable<Integer, LinkedList<Integer>> readFrequentPatterns(
 			Configuration configuration, String fileName, int transactionCount,
 			Map<Integer, Long> frequency, Map<Integer, String> itemById,
 			double minSupport, double minConfidence) throws Exception {
@@ -838,17 +924,20 @@ public class DataAnalyze {
 				fileName), configuration);
 		Text key = new Text();
 		TopKStringPatterns value = new TopKStringPatterns();
-		LinkedList<Object> Itemsccurrence = new LinkedList<Object>();
-
+		Hashtable<Integer, LinkedList<Integer>> myreadFrequentPatternsTable = new Hashtable<Integer, LinkedList<Integer>>();
 		while (frequentPatternsReader.next(key, value)) {
 			long firstFrequencyItem = -1;
 			String firstItemId = null;
 			List<Pair<List<String>, Long>> patterns = value.getPatterns();
 			int i = 0;
+			// FPGrowthDate dateFPGrowth = new FPGrowthDate();
 			for (Pair<List<String>, Long> pair : patterns) {
+
 				List<String> itemList = pair.getFirst();
 				Long occurrence = pair.getSecond();
 				if (i == 0) {
+					// dateFPGrowth
+					// .setFromItems(Integer.parseInt(itemList.get(0)));
 					firstFrequencyItem = occurrence;
 					firstItemId = itemList.get(0);
 				} else {
@@ -857,92 +946,106 @@ public class DataAnalyze {
 							/ firstFrequencyItem;
 					if (support > minSupport && confidence > minConfidence) {
 						List<String> listWithoutFirstItem = new ArrayList<String>();
-						FPGrowthDate dateFPGrowth = new FPGrowthDate();
 
-						// for (String itemId : itemList) {
-						// if (!itemId.equals(firstItemId)) {
-						// listWithoutFirstItem.add(itemById.get(Integer
-						// .parseInt(itemId)));
-						// dateFPGrowth.setToItems(Integer
-						// .parseInt(itemId));
-						// }
-						// }
-						//
-						// String firstItem = itemById.get(Integer
-						// .parseInt(firstItemId));
-						dateFPGrowth
-								.setFromItems(Integer.parseInt(firstItemId));
-						dateFPGrowth.setConfidence(confidence);
-						dateFPGrowth.setSupport(support);
-						Itemsccurrence.add(dateFPGrowth);
-						// listWithoutFirstItem.remove(firstItemId);
-						System.out.printf("supp=%.3f, conf=%.3f", support,
-								confidence);
+						for (String itemId : itemList) {
+							if (!itemId.equals(firstItemId)) {
+								// listWithoutFirstItem.add(itemById.get(Integer
+								// .parseInt(itemId)));
+								// dateFPGrowth.setToItems(Integer
+								// .parseInt(itemId));
 
-						if (itemList.size() == 2) {
-							// we can easily compute the lift and the conviction
-							// for set of
-							// size 2, so do it
-							int otherItemId = -1;
-							for (String itemId : itemList) {
-								if (!itemId.equals(firstItemId)) {
-									otherItemId = Integer.parseInt(itemId);
-									break;
-								}
+								add2myHashTable(myreadFrequentPatternsTable,
+										Integer.parseInt(firstItemId),
+										Integer.parseInt(itemId));
 							}
-							long otherItemOccurrence = frequency
-									.get(otherItemId);
-
-							double lift = ((double) occurrence * transactionCount)
-									/ (firstFrequencyItem * otherItemOccurrence);
-							double conviction = (1.0 - (double) otherItemOccurrence
-									/ transactionCount)
-									/ (1.0 - confidence);
-							System.out.printf(", lift=%.3f, conviction=%.3f",
-									lift, conviction);
 						}
-						System.out.printf("\n");
+
+						// dateFPGrowth.setConfidence(confidence);
+						// dateFPGrowth.setSupport(support);
+						// listWithoutFirstItem.remove(firstItemId);
+//						System.out.printf("supp=%.3f, conf=%.3f", support,
+//								confidence);
+
+//						if (itemList.size() == 2) {
+//							// we can easily compute the lift and the conviction
+//							// for set of
+//							// size 2, so do it
+//							int otherItemId = -1;
+//							for (String itemId : itemList) {
+//								if (!itemId.equals(firstItemId)) {
+//									otherItemId = Integer.parseInt(itemId);
+//									break;
+//								}
+//							}
+//							long otherItemOccurrence = frequency
+//									.get(otherItemId);
+//
+//							double lift = ((double) occurrence * transactionCount)
+//									/ (firstFrequencyItem * otherItemOccurrence);
+//							double conviction = (1.0 - (double) otherItemOccurrence
+//									/ transactionCount)
+//									/ (1.0 - confidence);
+//							System.out.printf(", lift=%.3f, conviction=%.3f",
+//									lift, conviction);
+//						}
+//						System.out.printf("\n");
 					}
 				}
 				i++;
 			}
 		}
 		frequentPatternsReader.close();
-		return Itemsccurrence;
+		return myreadFrequentPatternsTable;
 	}
 
-
-	public static LinkedList<Object> getFPGrowth(int itemsN,
-			String mappingFile, String frequencyFile,
+	public static Hashtable<Integer, LinkedList<Integer>> appendFPGrowth2Table(
+			int itemsN, String mappingFile, String frequencyFile,
 			String frequentPatternsFile, double support, double confidence) {
-		int transactionCount = itemsN;
+
 		String mappingCsvFilename = mappingFile;
 		String frequencyFilename = frequencyFile;
-		String frequentPatternsFilename = frequentPatternsFile;
-		double minSupport = support;
-		double minConfidence = confidence;
-		LinkedList<Object> FPGrowthItems = null;
-
-		Map<Integer, String> itemById;
+		Hashtable<Integer, LinkedList<Integer>> myFPGrowthUsersTable = new Hashtable<Integer, LinkedList<Integer>>();
+		Hashtable<Integer, LinkedList<Integer>> myFPGrowthItemsTable = null;
+		LinkedList<Object> UserHasAlreadyBuyitems = null;
+		Map<Integer, String> itemById = null;
 		try {
+			UserHasAlreadyBuyitems = getUsersSimpl("2013-04-16",
+					MYSQLCONFIG.isOnlypurchaseAction);
+
 			if (null != mappingCsvFilename) {
 				itemById = readMapping(mappingCsvFilename);
 			} else {
 				itemById = null;
 			}
+
 			Configuration configuration = new Configuration();
 			Map<Integer, Long> frequency = readFrequency(configuration,
 					frequencyFilename);
-			FPGrowthItems = readFrequentPatterns(configuration,
-					frequentPatternsFilename, transactionCount, frequency,
-					itemById, minSupport, minConfidence);
+			myFPGrowthItemsTable = readFrequentPatterns(configuration,
+					frequentPatternsFile, itemsN, frequency, itemById, support,
+					confidence);
+
+			for (Object UserHasAlreadyBuyitem : UserHasAlreadyBuyitems) {
+				UserWithItemsDate UserHasAlreadyBuyitemt = (UserWithItemsDate) UserHasAlreadyBuyitem;
+				int userid = UserHasAlreadyBuyitemt.getUserID();
+
+				for (Object product : UserHasAlreadyBuyitemt.getProducts()) {
+					UserWithItemsDate.Product productt = (UserWithItemsDate.Product) product;
+					if (myFPGrowthItemsTable.containsKey(productt.getBrandID())) {
+						LinkedList<Integer> myItems = myFPGrowthItemsTable
+								.get(productt.getBrandID());
+						add2myHashTable(myFPGrowthUsersTable, userid,
+								productt.getBrandID());
+					}
+				}
+			}
 		} catch (Exception e) {
 			// do nothing
 		}
 
-		return FPGrowthItems;
+		return myFPGrowthUsersTable;
 	}
-	
+
 	// //
 	// public static LinkedList<Object> getItems() throws SQLException {
 	// if (items != null) {
