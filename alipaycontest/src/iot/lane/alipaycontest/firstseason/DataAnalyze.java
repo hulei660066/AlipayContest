@@ -1,10 +1,9 @@
 package iot.lane.alipaycontest.firstseason;
 
-import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,7 +11,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -51,30 +49,45 @@ public class DataAnalyze {
 
 	public static void main(String[] args) {
 		try {
+//			fPGrowthSaveDataToDatFile("2013-05-15");
 			getUserbuyingItemsNPerMonth("2013-04-15");
 			// /////////////////////write behind this Cutting
 			// line////////////////////
 
 //			 predictOptimizeResultTest();
 //			 fPGrowthOptimizeResultTest();
-			
+
+			 Hashtable<Integer, LinkedList<Integer>> result2 =
+					 leastDayNotBuyinyAdd2Table(1, myFinalResultTable);
+			 StatisticsResultData leastDayNotBuyinyAdd2Table =
+			 statisticsResult(result2);
+			 System.out.printf(leastDayNotBuyinyAdd2Table.toString()+"\n");
+			 
+			 
 			 Hashtable<Integer, LinkedList<Integer>> resultl =
-			 leastDayBuyinyAdd2Table(7, myFinalResultTable);
-			 StatisticsResultData myleast7DayBuyinyAdd2TableStatistic =
+			 leastDayBuyinyAdd2Table(8, myFinalResultTable);
+			 StatisticsResultData leastDayBuyinyAdd2Table =
 			 statisticsResult(resultl);
-			
+			System.out.printf(leastDayBuyinyAdd2Table.toString()+"\n");
+
 			 Hashtable<Integer, LinkedList<Integer>> resultc =
 			 cycleBuyinyAdd2Table("2013-04-15", myFinalResultTable);
 			 StatisticsResultData mycycleBuyinyAdd2TableStatistic =
-			 statisticsResult(myFinalResultTable);
+			 statisticsResult(resultc);
+				System.out.printf(mycycleBuyinyAdd2TableStatistic.toString()+"\n");
 			
 			Hashtable<Integer, LinkedList<Integer>> resultf = fPGrowthFilterAdd2Table(
-					751, "fList.seq", "frequentpatterns.seq", 0.001, 0.1,
+					723, "fList.seq", "frequentpatterns.seq", 0.002, 0.2,
 					myFinalResultTable);
 			StatisticsResultData myfPGrowthFilterAdd2TableStatistic = statisticsResult(resultf);
+			System.out.printf(myfPGrowthFilterAdd2TableStatistic.toString()+"\n");
 
 			StatisticsResultData myFinalStatistic = statisticsResult(myFinalResultTable);
+			System.out.printf(myFinalStatistic.toString());
+			
+			writeResultToTXT(myFinalResultTable);
 			int i = 0;
+
 		} catch (Exception e2) {
 			// do nothing
 			e2.printStackTrace();
@@ -83,6 +96,29 @@ public class DataAnalyze {
 
 	}
 
+	public static void writeResultToTXT( Hashtable<Integer, LinkedList<Integer>> myResult) throws Exception {
+        BufferedWriter out = new BufferedWriter(new FileWriter("seasonOne_lane_Mike_guanggen.txt"));
+		Enumeration<Integer> key = myResult.keys();
+		int userId = 0;
+		while (key.hasMoreElements()) {
+			userId = key.nextElement();
+			LinkedList<Integer> items = myResult.get(userId);
+			out.write(userId + " \t ");
+			boolean isFirstItem = true;
+			for (Integer item : items) {
+				if(true == isFirstItem){
+					out.write(item+"");
+					isFirstItem = false;
+				}else{
+					out.write(" , " + item);
+				}
+				}
+			out.write(" "+"\n");
+			}
+		out.close();
+		int i = 0;
+	}
+	
 	public static void predictOptimizeResultTest() throws Exception {
 		// LinkedList<Object> myStatistics = new LinkedList<Object>();
 		LinkedList<StatisticsResultData> myStatistics = new LinkedList<StatisticsResultData>();
@@ -125,7 +161,7 @@ public class DataAnalyze {
 
 		Random r = new Random();
 		LinkedList<StatisticsResultData> myFPGrowthStatistics = new LinkedList<StatisticsResultData>();
-		for (int i = 0; i <= 100; i++) {
+		for (int i = 0; i <= 1; i++) {
 			// 生成[0,0.005)区间的小数
 			double dRecallRandom = r.nextDouble() / 200;
 			// System.out.printf("dRecallRandom %.4f", dRecallRandom);
@@ -225,6 +261,43 @@ public class DataAnalyze {
 		Hashtable<Integer, LinkedList<Integer>> userItemsTable = getPredictItems(
 				MYSQLCONFIG.dateFormat.format(cal.getTime()),
 				MYSQLCONFIG.isOnlypurchaseAction);
+
+		Enumeration<Integer> key = userItemsTable.keys();
+		while (key.hasMoreElements()) {
+			int userId = key.nextElement();
+			int count = 0;
+			LinkedList<Integer> items = userItemsTable.get(userId);
+			for (Integer item : items) {
+				boolean isAlreadyInThere = addResult2HashTable(myHashtable,
+						userId, item, MYSQLCONFIG.isPredictType);
+				if (false == isAlreadyInThere) {
+					count++;
+				}
+			}
+
+		}
+		return userItemsTable;
+	}
+	
+	/**
+	 * This method get least 7daybuying items
+	 */
+	public static Hashtable<Integer, LinkedList<Integer>> leastDayNotBuyinyAdd2Table(
+			int leastDayTimeNmuber,
+			Hashtable<Integer, LinkedList<Integer>> myHashtable)
+			throws SQLException {
+		Calendar cal = Calendar.getInstance();
+		try {
+			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
+		} catch (ParseException e1) {
+			// do nothing
+		}
+		// TODO least N days purchaseed items will add to predictTable
+		cal.add(Calendar.DAY_OF_YEAR, -leastDayTimeNmuber);
+
+		Hashtable<Integer, LinkedList<Integer>> userItemsTable = getPredictItems(
+				MYSQLCONFIG.dateFormat.format(cal.getTime()),
+				MYSQLCONFIG.isOnlyClickAction);
 
 		Enumeration<Integer> key = userItemsTable.keys();
 		while (key.hasMoreElements()) {
@@ -342,18 +415,18 @@ public class DataAnalyze {
 			myTable.put(userId, items);
 			isAlreadyInThere = false;
 		}
-
-		if (false == isAlreadyInThere && resultType != -1) {
-
-			UserWithPredictCountData myUserWithPredictCountData = myUserBuyingItemsNPerMonth
-					.get(userId);
-			int[] fPGrowthFilterItemsN = myUserWithPredictCountData
-					.getUserPredictCount();
-			fPGrowthFilterItemsN[resultType]++;
-			myUserWithPredictCountData
-					.setUserPredictCount(fPGrowthFilterItemsN);
-			myUserBuyingItemsNPerMonth.put(userId, myUserWithPredictCountData);
-		}
+//
+//		if (false == isAlreadyInThere && resultType != -1) {
+//
+//			UserWithPredictCountData myUserWithPredictCountData = myUserBuyingItemsNPerMonth
+//					.get(userId);
+//			int[] fPGrowthFilterItemsN = myUserWithPredictCountData
+//					.getUserPredictCount();
+//			fPGrowthFilterItemsN[resultType]++;
+//			myUserWithPredictCountData
+//					.setUserPredictCount(fPGrowthFilterItemsN);
+//			myUserBuyingItemsNPerMonth.put(userId, myUserWithPredictCountData);
+//		}
 
 		return isAlreadyInThere;
 	}
@@ -780,9 +853,18 @@ public class DataAnalyze {
 				for (Object product : UserHasAlreadyBuyitemt.getProducts()) {
 					UserWithItemsData.Product productt = (UserWithItemsData.Product) product;
 					if (myFPGrowthItemsTable.containsKey(productt.getBrandID())) {
-						LinkedList<Integer> items = myFPGrowthItemsTable
-								.get(productt.getBrandID());
-						for (Integer item : items) {
+						
+						 addResult2HashTable(myFPGrowthUsersTable, userId,
+						 productt.getBrandID(), MYSQLCONFIG.isNilType);
+						 
+						 addResult2HashTable(myHashtable, userId,
+								 productt.getBrandID(),
+								 MYSQLCONFIG.isFPGrowthType);
+						 
+//						LinkedList<Integer> items = myFPGrowthItemsTable
+//								.get(productt.getBrandID());
+
+//						for (Integer item : items) {
 //							addResult2HashTable(myFPGrowthUsersTable, userId,
 //									item, MYSQLCONFIG.isNilType);
 //
@@ -794,19 +876,19 @@ public class DataAnalyze {
 //							if (false == isAlreadyInThere) {
 //								count++;
 //							}
-							 addResult2HashTable(myFPGrowthUsersTable, userId,
-							 productt.getBrandID(), MYSQLCONFIG.isNilType);
-							
-							 // add to myOverallResult hashtable
-							 boolean isAlreadyInThere = addResult2HashTable(
-							 myHashtable, userId,
-							 productt.getBrandID(),
-							 MYSQLCONFIG.isFPGrowthType);
-							
-							 if (false == isAlreadyInThere) {
-							 count++;
-							 }
-						}
+//							 addResult2HashTable(myFPGrowthUsersTable, userId,
+//							 productt.getBrandID(), MYSQLCONFIG.isNilType);
+//							
+//							 // add to myOverallResult hashtable
+//							 boolean isAlreadyInThere = addResult2HashTable(
+//							 myHashtable, userId,
+//							 productt.getBrandID(),
+//							 MYSQLCONFIG.isFPGrowthType);
+//							
+//							 if (false == isAlreadyInThere) {
+//							 count++;
+//							 }
+//						}
 					}
 				}
 
@@ -910,9 +992,9 @@ public class DataAnalyze {
 	 * @param null
 	 * @return parameters null
 	 */
-	public static void fPGrowthSaveDataToDatFile() throws Exception {
+	public static void fPGrowthSaveDataToDatFile(String dayTime) throws Exception {
 
-		LinkedList<Object> IndexdByUseridItems = getUsersSimpl("2013-04-15",
+		LinkedList<Object> IndexdByUseridItems = getUsersSimpl(dayTime,
 				MYSQLCONFIG.isOnlypurchaseAction);
 
 		Hashtable<Integer, LinkedList<Integer>> myTable = new Hashtable<Integer, LinkedList<Integer>>();
