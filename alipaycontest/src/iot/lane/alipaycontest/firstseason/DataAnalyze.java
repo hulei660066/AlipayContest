@@ -52,20 +52,27 @@ public class DataAnalyze {
 	public static void main(String[] args) {
 		try {
 			getUserbuyingItemsNPerMonth("2013-04-15");
-			///////////////////////write behind this Cutting line////////////////////
-			
-			predictOptimizeResultTest();
+			// /////////////////////write behind this Cutting
+			// line////////////////////
 
-			Hashtable<Integer, LinkedList<Integer>> myleast7DayBuyinyAdd2Table = leastDayBuyinyAdd2Table(7, myFinalResultTable);
-			StatisticsResultData myleast7DayBuyinyAdd2TableStatistic = statisticsResult(myleast7DayBuyinyAdd2Table);
+//			 predictOptimizeResultTest();
+//			 fPGrowthOptimizeResultTest();
 			
-			Hashtable<Integer, LinkedList<Integer>> mycycleBuyinyAdd2Table = cycleBuyinyAdd2Table("2013-04-15", myFinalResultTable);
-			StatisticsResultData mycycleBuyinyAdd2TableStatistic = statisticsResult(mycycleBuyinyAdd2Table);
+			 Hashtable<Integer, LinkedList<Integer>> resultl =
+			 leastDayBuyinyAdd2Table(7, myFinalResultTable);
+			 StatisticsResultData myleast7DayBuyinyAdd2TableStatistic =
+			 statisticsResult(resultl);
 			
-			Hashtable<Integer, LinkedList<Integer>> myfPGrowthFilterAdd2Table = fPGrowthFilterAdd2Table(
-					751, "fList.seq", "frequentpatterns.seq", 0.001, 0.1);
-			StatisticsResultData myfPGrowthFilterAdd2TableStatistic = statisticsResult(myfPGrowthFilterAdd2Table);
+			 Hashtable<Integer, LinkedList<Integer>> resultc =
+			 cycleBuyinyAdd2Table("2013-04-15", myFinalResultTable);
+			 StatisticsResultData mycycleBuyinyAdd2TableStatistic =
+			 statisticsResult(myFinalResultTable);
 			
+			Hashtable<Integer, LinkedList<Integer>> resultf = fPGrowthFilterAdd2Table(
+					751, "fList.seq", "frequentpatterns.seq", 0.001, 0.1,
+					myFinalResultTable);
+			StatisticsResultData myfPGrowthFilterAdd2TableStatistic = statisticsResult(resultf);
+
 			StatisticsResultData myFinalStatistic = statisticsResult(myFinalResultTable);
 			int i = 0;
 		} catch (Exception e2) {
@@ -80,7 +87,6 @@ public class DataAnalyze {
 		// LinkedList<Object> myStatistics = new LinkedList<Object>();
 		LinkedList<StatisticsResultData> myStatistics = new LinkedList<StatisticsResultData>();
 
-
 		Calendar cal = Calendar.getInstance();
 		try {
 			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
@@ -88,14 +94,19 @@ public class DataAnalyze {
 			// do nothing
 		}
 
-		for (int i = 1; i <= 30; i++) {
+		for (int i = 1; i <= 13; i++) {
 			try {
-				cal.add(Calendar.DAY_OF_YEAR, -3);
+				cal.add(Calendar.DAY_OF_YEAR, -7);
 				Hashtable<Integer, LinkedList<Integer>> predictBuyItemsTable = getPredictItems(
 						MYSQLCONFIG.dateFormat.format(cal.getTime()),
 						MYSQLCONFIG.isAllAction);
-				Hashtable<Integer, LinkedList<Integer>> mycycleBuyinyAdd2Table = cycleBuyinyAdd2Table("2013-04-15", predictBuyItemsTable);
-	
+				Hashtable<Integer, LinkedList<Integer>> mycycleBuyinyAdd2Table = cycleBuyinyAdd2Table(
+						"2013-04-15", predictBuyItemsTable);
+
+				Hashtable<Integer, LinkedList<Integer>> resultf = fPGrowthFilterAdd2Table(
+						751, "fList.seq", "frequentpatterns.seq", 0.001, 0.1,
+						predictBuyItemsTable);
+				
 				StatisticsResultData myStatistic = statisticsResult(predictBuyItemsTable);
 				myStatistics.add(myStatistic);
 
@@ -126,7 +137,7 @@ public class DataAnalyze {
 			// 686, null, "fList.seq", "frequentpatterns.seq", 0.005, 0.1);
 			Hashtable<Integer, LinkedList<Integer>> myAppendFPGrowth2Table = fPGrowthFilterAdd2Table(
 					686, "fList.seq", "frequentpatterns.seq", dRecallRandom,
-					dPrecisonRandom);
+					dPrecisonRandom, myFinalResultTable);
 
 			StatisticsResultData myFPGrowthStatistic = statisticsResult(myAppendFPGrowth2Table);
 
@@ -198,7 +209,9 @@ public class DataAnalyze {
 	/**
 	 * This method get least 7daybuying items
 	 */
-	public static Hashtable<Integer, LinkedList<Integer>> leastDayBuyinyAdd2Table(int leastDayTimeNmuber, Hashtable<Integer, LinkedList<Integer>> myHashtable)
+	public static Hashtable<Integer, LinkedList<Integer>> leastDayBuyinyAdd2Table(
+			int leastDayTimeNmuber,
+			Hashtable<Integer, LinkedList<Integer>> myHashtable)
 			throws SQLException {
 		Calendar cal = Calendar.getInstance();
 		try {
@@ -219,8 +232,8 @@ public class DataAnalyze {
 			int count = 0;
 			LinkedList<Integer> items = userItemsTable.get(userId);
 			for (Integer item : items) {
-				boolean isAlreadyInThere = addResult2HashTable(
-						myHashtable, userId, item, MYSQLCONFIG.isPredictType);
+				boolean isAlreadyInThere = addResult2HashTable(myHashtable,
+						userId, item, MYSQLCONFIG.isPredictType);
 				if (false == isAlreadyInThere) {
 					count++;
 				}
@@ -233,7 +246,8 @@ public class DataAnalyze {
 	/**
 	 * This method get periodbuying items
 	 */
-	public static Hashtable<Integer, LinkedList<Integer>> cycleBuyinyAdd2Table(String dayTime, Hashtable<Integer, LinkedList<Integer>> myHashtable)
+	public static Hashtable<Integer, LinkedList<Integer>> cycleBuyinyAdd2Table(
+			String dayTime, Hashtable<Integer, LinkedList<Integer>> myHashtable)
 			throws SQLException {
 		LinkedList<Object> myUsers = getUsersSimpl(dayTime,
 				MYSQLCONFIG.isOnlypurchaseAction);
@@ -257,11 +271,13 @@ public class DataAnalyze {
 						// TODO 7 days interval is enough?
 						if (Math.abs((timeI - timeJ) / (1000 * 60 * 60 * 24)) >= 7) {
 							addResult2HashTable(mycycleBuyinyTable,
-									myUsert.getUserID(), itemI.getBrandID(), MYSQLCONFIG.isNilType);
+									myUsert.getUserID(), itemI.getBrandID(),
+									MYSQLCONFIG.isNilType);
 
 							boolean isAlreadyInThere = addResult2HashTable(
 									myHashtable, myUsert.getUserID(),
-									itemI.getBrandID(), MYSQLCONFIG.isPredictType);
+									itemI.getBrandID(),
+									MYSQLCONFIG.isPredictType);
 							if (false == isAlreadyInThere) {
 								count++;
 							}
@@ -326,8 +342,8 @@ public class DataAnalyze {
 			myTable.put(userId, items);
 			isAlreadyInThere = false;
 		}
-		
-		if(false == isAlreadyInThere && resultType!=-1){
+
+		if (false == isAlreadyInThere && resultType != -1) {
 
 			UserWithPredictCountData myUserWithPredictCountData = myUserBuyingItemsNPerMonth
 					.get(userId);
@@ -336,10 +352,9 @@ public class DataAnalyze {
 			fPGrowthFilterItemsN[resultType]++;
 			myUserWithPredictCountData
 					.setUserPredictCount(fPGrowthFilterItemsN);
-			myUserBuyingItemsNPerMonth.put(userId,
-					myUserWithPredictCountData);
+			myUserBuyingItemsNPerMonth.put(userId, myUserWithPredictCountData);
 		}
-		
+
 		return isAlreadyInThere;
 	}
 
@@ -740,7 +755,8 @@ public class DataAnalyze {
 	 */
 	public static Hashtable<Integer, LinkedList<Integer>> fPGrowthFilterAdd2Table(
 			int itemsN, String frequencyFile, String frequentPatternsFile,
-			double support, double confidence) {
+			double support, double confidence,
+			Hashtable<Integer, LinkedList<Integer>> myHashtable) {
 
 		Hashtable<Integer, LinkedList<Integer>> myFPGrowthUsersTable = new Hashtable<Integer, LinkedList<Integer>>();
 		Hashtable<Integer, LinkedList<Integer>> myFPGrowthItemsTable = null;
@@ -764,16 +780,32 @@ public class DataAnalyze {
 				for (Object product : UserHasAlreadyBuyitemt.getProducts()) {
 					UserWithItemsData.Product productt = (UserWithItemsData.Product) product;
 					if (myFPGrowthItemsTable.containsKey(productt.getBrandID())) {
-						addResult2HashTable(myFPGrowthUsersTable, userId,
-								productt.getBrandID(), MYSQLCONFIG.isNilType);
-
-						// add to myOverallResult hashtable
-						boolean isAlreadyInThere = addResult2HashTable(
-								myFinalResultTable, userId,
-								productt.getBrandID(), MYSQLCONFIG.isFPGrowthType);
-
-						if (false == isAlreadyInThere) {
-							count++;
+						LinkedList<Integer> items = myFPGrowthItemsTable
+								.get(productt.getBrandID());
+						for (Integer item : items) {
+//							addResult2HashTable(myFPGrowthUsersTable, userId,
+//									item, MYSQLCONFIG.isNilType);
+//
+//							// add to myOverallResult hashtable
+//							boolean isAlreadyInThere = addResult2HashTable(
+//									myHashtable, userId, item,
+//									MYSQLCONFIG.isFPGrowthType);
+//
+//							if (false == isAlreadyInThere) {
+//								count++;
+//							}
+							 addResult2HashTable(myFPGrowthUsersTable, userId,
+							 productt.getBrandID(), MYSQLCONFIG.isNilType);
+							
+							 // add to myOverallResult hashtable
+							 boolean isAlreadyInThere = addResult2HashTable(
+							 myHashtable, userId,
+							 productt.getBrandID(),
+							 MYSQLCONFIG.isFPGrowthType);
+							
+							 if (false == isAlreadyInThere) {
+							 count++;
+							 }
 						}
 					}
 				}
@@ -830,9 +862,11 @@ public class DataAnalyze {
 						for (String itemId : itemList) {
 							if (!itemId.equals(firstItemId)) {
 
-								addResult2HashTable(myreadFrequentPatternsTable,
+								addResult2HashTable(
+										myreadFrequentPatternsTable,
 										Integer.parseInt(firstItemId),
-										Integer.parseInt(itemId), MYSQLCONFIG.isNilType);
+										Integer.parseInt(itemId),
+										MYSQLCONFIG.isNilType);
 							}
 						}
 
