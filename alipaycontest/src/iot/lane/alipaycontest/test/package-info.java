@@ -27,11 +27,7 @@ class MYSQLCONFIG {
 	public static final java.lang.String isAllAction = "";
 
 	public static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");     
-<<<<<<< .merge_file_F0bu26
 	public static final java.lang.String DateThreshold = "2013-06-15";   
-=======
-	public static final java.lang.String DateThreshold = "2013-07-15";   
->>>>>>> .merge_file_zHo9B4
 //	public static final java.lang.String DateThreshold = "2013-07-15";
 
 }
