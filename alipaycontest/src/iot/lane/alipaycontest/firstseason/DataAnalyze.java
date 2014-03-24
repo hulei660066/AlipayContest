@@ -44,49 +44,58 @@ public class DataAnalyze {
 	// private static LinkedList<Object> users = null;
 	private static Logger logger = LogManager.getLogger(DataAnalyze.class
 			.getName());
-	private static Hashtable<Integer, UserWithPredictCountData> myUserBuyingItemsNPerMonth = null;
 	private static Hashtable<Integer, LinkedList<Integer>> myFinalResultTable = new Hashtable<Integer, LinkedList<Integer>>();
 
 	public static void main(String[] args) {
 		try {
-//			fPGrowthSaveDataToDatFile("2013-05-15");
-			getUserbuyingItemsNPerMonth("2013-04-15");
-			// /////////////////////write behind this Cutting
-			// line////////////////////
+			// fPGrowthSaveDataToDatFile(MYSQLCONFIG.DateStartPoint);
+			// /////////write behind this Cutting line////////////////////
 
-//			 predictOptimizeResultTest();
-//			 fPGrowthOptimizeResultTest();
+			// predictOptimizeResultTest();
+			// fPGrowthOptimizeResultTest();
 
-			 Hashtable<Integer, LinkedList<Integer>> result2 =
-					 leastDayNotBuyinyAdd2Table(1, myFinalResultTable);
-			 StatisticsResultData leastDayNotBuyinyAdd2Table =
-			 statisticsResult(result2);
-			 System.out.printf(leastDayNotBuyinyAdd2Table.toString()+"\n");
-			 
-			 
-			 Hashtable<Integer, LinkedList<Integer>> resultl =
-			 leastDayBuyinyAdd2Table(8, myFinalResultTable);
-			 StatisticsResultData leastDayBuyinyAdd2Table =
-			 statisticsResult(resultl);
-			System.out.printf(leastDayBuyinyAdd2Table.toString()+"\n");
+			// Hashtable<Integer, LinkedList<Integer>> fPGrowthTable =
+			// fPGrowthFilterAdd2Table(
+			// 686, "04-07fList.seq", "04-07frequentpatterns.seq", 0.002, 0.2,
+			// myFinalResultTable);
+			// StatisticsResultData myfPGrowthFilterAdd2TableStatistic =
+			// statisticsResult(fPGrowthTable);
+			// System.out.printf(myfPGrowthFilterAdd2TableStatistic.toString()
+			// + "\n");
 
-			 Hashtable<Integer, LinkedList<Integer>> resultc =
-			 cycleBuyinyAdd2Table("2013-04-15", myFinalResultTable);
-			 StatisticsResultData mycycleBuyinyAdd2TableStatistic =
-			 statisticsResult(resultc);
-				System.out.printf(mycycleBuyinyAdd2TableStatistic.toString()+"\n");
-			
-			Hashtable<Integer, LinkedList<Integer>> resultf = fPGrowthFilterAdd2Table(
-					723, "fList.seq", "frequentpatterns.seq", 0.002, 0.2,
-					myFinalResultTable);
-			StatisticsResultData myfPGrowthFilterAdd2TableStatistic = statisticsResult(resultf);
-			System.out.printf(myfPGrowthFilterAdd2TableStatistic.toString()+"\n");
+			Hashtable<Integer, LinkedList<Integer>> leastDay1Table = leastDayDataAdd2Table(
+					1, MYSQLCONFIG.isOnlyClickAction, myFinalResultTable);
+			StatisticsResultData leastDayNotBuyinyAdd2Table = statisticsResult(leastDay1Table);
+			System.out.printf(leastDayNotBuyinyAdd2Table.toString() + "\n");
+			// writeResultToTXT(leastDay1Table, "leastDay1Table");
+
+			Hashtable<Integer, LinkedList<Integer>> leastDay8Table = leastDayDataAdd2Table(
+					8, MYSQLCONFIG.isOnlypurchaseAction, myFinalResultTable);
+			StatisticsResultData leastDayBuyinyAdd2Table = statisticsResult(leastDay8Table);
+			System.out.printf(leastDayBuyinyAdd2Table.toString() + "\n");
+			// writeResultToTXT(leastDay8Table, "leastDay8Table");
+
+			Hashtable<Integer, LinkedList<Integer>> cycleBuyinyTable = cycleBuyinyAdd2Table(
+					MYSQLCONFIG.DateStartPoint, myFinalResultTable);
+			StatisticsResultData mycycleBuyinyAdd2TableStatistic = statisticsResult(cycleBuyinyTable);
+			System.out
+					.printf(mycycleBuyinyAdd2TableStatistic.toString() + "\n");
+			// writeResultToTXT(cycleBuyinyTable, "cycleBuyinyTable");
+
+			// Hashtable<Integer, LinkedList<Integer>> fPGrowthTable =
+			// fPGrowthFilterAdd2Table(
+			// 723, "fList.seq", "frequentpatterns.seq", 0.002, 0.2,
+			// myFinalResultTable);
+			// StatisticsResultData myfPGrowthFilterAdd2TableStatistic =
+			// statisticsResult(fPGrowthTable);
+			// System.out.printf(myfPGrowthFilterAdd2TableStatistic.toString()
+			// + "\n");
+			// writeResultToTXT(fPGrowthTable, "fPGrowthTable");
 
 			StatisticsResultData myFinalStatistic = statisticsResult(myFinalResultTable);
 			System.out.printf(myFinalStatistic.toString());
-			
-			writeResultToTXT(myFinalResultTable);
-			int i = 0;
+
+			writeResultToTXT(myFinalResultTable, "myFinalResultTable");
 
 		} catch (Exception e2) {
 			// do nothing
@@ -96,8 +105,11 @@ public class DataAnalyze {
 
 	}
 
-	public static void writeResultToTXT( Hashtable<Integer, LinkedList<Integer>> myResult) throws Exception {
-        BufferedWriter out = new BufferedWriter(new FileWriter("seasonOne_lane_Mike_guanggen.txt"));
+	public static void writeResultToTXT(
+			Hashtable<Integer, LinkedList<Integer>> myResult, String fileName)
+			throws Exception {
+		BufferedWriter out = new BufferedWriter(new FileWriter(fileName
+				+ ".txt"));
 		Enumeration<Integer> key = myResult.keys();
 		int userId = 0;
 		while (key.hasMoreElements()) {
@@ -106,26 +118,26 @@ public class DataAnalyze {
 			out.write(userId + " \t ");
 			boolean isFirstItem = true;
 			for (Integer item : items) {
-				if(true == isFirstItem){
-					out.write(item+"");
+				if (true == isFirstItem) {
+					out.write(item + "");
 					isFirstItem = false;
-				}else{
+				} else {
 					out.write(" , " + item);
 				}
-				}
-			out.write(" "+"\n");
 			}
+			out.write(" " + "\n");
+		}
 		out.close();
-		int i = 0;
 	}
-	
-	public static void predictOptimizeResultTest() throws Exception {
+
+	public static void optimizePredictResultTest() throws Exception {
 		// LinkedList<Object> myStatistics = new LinkedList<Object>();
 		LinkedList<StatisticsResultData> myStatistics = new LinkedList<StatisticsResultData>();
 
 		Calendar cal = Calendar.getInstance();
 		try {
-			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
+			cal.setTime(MYSQLCONFIG.dateFormat
+					.parse(MYSQLCONFIG.DateAxialPoint));
 		} catch (ParseException e1) {
 			// do nothing
 		}
@@ -137,12 +149,12 @@ public class DataAnalyze {
 						MYSQLCONFIG.dateFormat.format(cal.getTime()),
 						MYSQLCONFIG.isAllAction);
 				Hashtable<Integer, LinkedList<Integer>> mycycleBuyinyAdd2Table = cycleBuyinyAdd2Table(
-						"2013-04-15", predictBuyItemsTable);
+						MYSQLCONFIG.DateStartPoint, predictBuyItemsTable);
 
 				Hashtable<Integer, LinkedList<Integer>> resultf = fPGrowthFilterAdd2Table(
 						751, "fList.seq", "frequentpatterns.seq", 0.001, 0.1,
 						predictBuyItemsTable);
-				
+
 				StatisticsResultData myStatistic = statisticsResult(predictBuyItemsTable);
 				myStatistics.add(myStatistic);
 
@@ -157,7 +169,7 @@ public class DataAnalyze {
 
 	}
 
-	public static void fPGrowthOptimizeResultTest() throws Exception {
+	public static void optimizeFPGrowthResultTest() throws Exception {
 
 		Random r = new Random();
 		LinkedList<StatisticsResultData> myFPGrowthStatistics = new LinkedList<StatisticsResultData>();
@@ -192,66 +204,16 @@ public class DataAnalyze {
 	}
 
 	/**
-	 * This method get useridA next month buying products number
-	 * 
-	 * @param datTime
-	 *            ，between datTime and MYSQLCONFIG.DateThreshold,we can
-	 *            calculate the number of products that specific userid buying.
-	 */
-	public static Hashtable<Integer, UserWithPredictCountData> getUserbuyingItemsNPerMonth(
-			String datTime) throws Exception {
-		if (null != myUserBuyingItemsNPerMonth) {
-			return myUserBuyingItemsNPerMonth;
-		}
-
-		myUserBuyingItemsNPerMonth = new Hashtable<Integer, UserWithPredictCountData>();
-		int myMonthduration = getMonthduration(datTime,
-				MYSQLCONFIG.DateThreshold);
-		LinkedList<Object> IndexdByUseridItems = getUsersSimpl(datTime,
-				MYSQLCONFIG.isOnlypurchaseAction);
-
-		for (Object IndexdByUseridItem : IndexdByUseridItems) {
-			UserWithPredictCountData myUserWithCount = new UserWithPredictCountData();
-			int[] userbuyingItemsN = { 0, 0, 0 };
-			UserWithItemsData IndexdByUseridItemt = (UserWithItemsData) IndexdByUseridItem;
-			myUserWithCount.setUserID(IndexdByUseridItemt.getUserID());
-			int[] UserActionCount = IndexdByUseridItemt.getUserActionCount();
-			userbuyingItemsN[2] = (UserActionCount[1] + UserActionCount[3])
-					/ myMonthduration + myMonthduration;
-			myUserWithCount.setUserPredictCount(userbuyingItemsN);
-
-			myUserBuyingItemsNPerMonth.put(IndexdByUseridItemt.getUserID(),
-					myUserWithCount);
-		}
-
-		return myUserBuyingItemsNPerMonth;
-	}
-
-	public static int getMonthduration(String datTime1, String datTime2)
-			throws Exception {
-		Date d1 = MYSQLCONFIG.dateFormat.parse(datTime1);
-		Date d2 = MYSQLCONFIG.dateFormat.parse(datTime2);
-		long diff = d1.getTime() - d2.getTime();
-		long months = diff / (1000 * 60 * 60 * 24 * 30);
-
-		// make sure month equal or bigger than one
-		if (months >= 2) {
-			return Math.abs((int) months - 1);
-		} else {
-			return 1;
-		}
-	}
-
-	/**
 	 * This method get least 7daybuying items
 	 */
-	public static Hashtable<Integer, LinkedList<Integer>> leastDayBuyinyAdd2Table(
-			int leastDayTimeNmuber,
+	public static Hashtable<Integer, LinkedList<Integer>> leastDayDataAdd2Table(
+			int leastDayTimeNmuber, String userActionType,
 			Hashtable<Integer, LinkedList<Integer>> myHashtable)
 			throws SQLException {
 		Calendar cal = Calendar.getInstance();
 		try {
-			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
+			cal.setTime(MYSQLCONFIG.dateFormat
+					.parse(MYSQLCONFIG.DateAxialPoint));
 		} catch (ParseException e1) {
 			// do nothing
 		}
@@ -259,8 +221,7 @@ public class DataAnalyze {
 		cal.add(Calendar.DAY_OF_YEAR, -leastDayTimeNmuber);
 
 		Hashtable<Integer, LinkedList<Integer>> userItemsTable = getPredictItems(
-				MYSQLCONFIG.dateFormat.format(cal.getTime()),
-				MYSQLCONFIG.isOnlypurchaseAction);
+				MYSQLCONFIG.dateFormat.format(cal.getTime()), userActionType);
 
 		Enumeration<Integer> key = userItemsTable.keys();
 		while (key.hasMoreElements()) {
@@ -268,45 +229,8 @@ public class DataAnalyze {
 			int count = 0;
 			LinkedList<Integer> items = userItemsTable.get(userId);
 			for (Integer item : items) {
-				boolean isAlreadyInThere = addResult2HashTable(myHashtable,
-						userId, item, MYSQLCONFIG.isPredictType);
-				if (false == isAlreadyInThere) {
-					count++;
-				}
-			}
-
-		}
-		return userItemsTable;
-	}
-	
-	/**
-	 * This method get least 7daybuying items
-	 */
-	public static Hashtable<Integer, LinkedList<Integer>> leastDayNotBuyinyAdd2Table(
-			int leastDayTimeNmuber,
-			Hashtable<Integer, LinkedList<Integer>> myHashtable)
-			throws SQLException {
-		Calendar cal = Calendar.getInstance();
-		try {
-			cal.setTime(MYSQLCONFIG.dateFormat.parse(MYSQLCONFIG.DateThreshold));
-		} catch (ParseException e1) {
-			// do nothing
-		}
-		// TODO least N days purchaseed items will add to predictTable
-		cal.add(Calendar.DAY_OF_YEAR, -leastDayTimeNmuber);
-
-		Hashtable<Integer, LinkedList<Integer>> userItemsTable = getPredictItems(
-				MYSQLCONFIG.dateFormat.format(cal.getTime()),
-				MYSQLCONFIG.isOnlyClickAction);
-
-		Enumeration<Integer> key = userItemsTable.keys();
-		while (key.hasMoreElements()) {
-			int userId = key.nextElement();
-			int count = 0;
-			LinkedList<Integer> items = userItemsTable.get(userId);
-			for (Integer item : items) {
-				boolean isAlreadyInThere = addResult2HashTable(myHashtable,
-						userId, item, MYSQLCONFIG.isPredictType);
+				boolean isAlreadyInThere = addSingleton2HashTable(myHashtable,
+						userId, item);
 				if (false == isAlreadyInThere) {
 					count++;
 				}
@@ -329,7 +253,8 @@ public class DataAnalyze {
 			UserWithItemsData myUsert = (UserWithItemsData) myUser;
 			int userId = myUsert.getUserID();
 			int count = 0;
-			LinkedList<Object> myItems = myUsert.getProducts();
+			LinkedList<UserWithItemsData.Product> myItems = myUsert
+					.getProducts();
 
 			for (int i = 0; i < myItems.size(); i++) {
 				UserWithItemsData.Product itemI = (UserWithItemsData.Product) myItems
@@ -343,14 +268,12 @@ public class DataAnalyze {
 						long timeJ = itemJ.getVisitDaytime().getTime();
 						// TODO 7 days interval is enough?
 						if (Math.abs((timeI - timeJ) / (1000 * 60 * 60 * 24)) >= 7) {
-							addResult2HashTable(mycycleBuyinyTable,
-									myUsert.getUserID(), itemI.getBrandID(),
-									MYSQLCONFIG.isNilType);
+							addSingleton2HashTable(mycycleBuyinyTable,
+									myUsert.getUserID(), itemI.getBrandID());
 
-							boolean isAlreadyInThere = addResult2HashTable(
+							boolean isAlreadyInThere = addSingleton2HashTable(
 									myHashtable, myUsert.getUserID(),
-									itemI.getBrandID(),
-									MYSQLCONFIG.isPredictType);
+									itemI.getBrandID());
 							if (false == isAlreadyInThere) {
 								count++;
 							}
@@ -360,29 +283,6 @@ public class DataAnalyze {
 				}
 
 			}
-			// for (Object myItem : myItems) {
-			// User.Product myItemt = (User.Product) myItem;
-			//
-			// boolean isAlreadyHas = periodUsersTable.containsKey(myItemt
-			// .getBrandID());
-			// if (isAlreadyHas) {
-			// int N = periodUsersTable.get(myItemt.getBrandID());
-			// periodUsersTable.put((Integer) myItemt.getBrandID(), ++N);
-			// } else {
-			// periodUsersTable.put((Integer) myItemt.getBrandID(), 1);
-			// }
-			// }
-			//
-			// // form the resultItems list and sort by weight descend.
-			// Enumeration<Integer> key = periodUsersTable.keys();
-			// while (key.hasMoreElements()) {
-			// int myItemId = key.nextElement();
-			// int myItemNumber = periodUsersTable.get(myItemId);
-			// if (myItemNumber > 1) {
-			// add2myCompositeResultTable(myUsert.getUserID(), myItemId);
-			// }
-			// // users.add(userItemsTable.get(myk));
-			// }
 
 		}
 		return mycycleBuyinyTable;
@@ -397,9 +297,9 @@ public class DataAnalyze {
 	 * @param brandId
 	 *            ，represent values
 	 */
-	public static boolean addResult2HashTable(
+	public static boolean addSingleton2HashTable(
 			Hashtable<Integer, LinkedList<Integer>> myTable, int userId,
-			int brandId, int resultType) throws SQLException {
+			int brandId) throws SQLException {
 		boolean isAlreadyInThere = true;
 		if (myTable.containsKey(userId)) {
 			LinkedList<Integer> items = myTable.get(userId);
@@ -415,18 +315,19 @@ public class DataAnalyze {
 			myTable.put(userId, items);
 			isAlreadyInThere = false;
 		}
-//
-//		if (false == isAlreadyInThere && resultType != -1) {
-//
-//			UserWithPredictCountData myUserWithPredictCountData = myUserBuyingItemsNPerMonth
-//					.get(userId);
-//			int[] fPGrowthFilterItemsN = myUserWithPredictCountData
-//					.getUserPredictCount();
-//			fPGrowthFilterItemsN[resultType]++;
-//			myUserWithPredictCountData
-//					.setUserPredictCount(fPGrowthFilterItemsN);
-//			myUserBuyingItemsNPerMonth.put(userId, myUserWithPredictCountData);
-//		}
+		//
+		// if (false == isAlreadyInThere && resultType != -1) {
+		//
+		// UserWithPredictCountData myUserWithPredictCountData =
+		// myUserBuyingItemsNPerMonth
+		// .get(userId);
+		// int[] fPGrowthFilterItemsN = myUserWithPredictCountData
+		// .getUserPredictCount();
+		// fPGrowthFilterItemsN[resultType]++;
+		// myUserWithPredictCountData
+		// .setUserPredictCount(fPGrowthFilterItemsN);
+		// myUserBuyingItemsNPerMonth.put(userId, myUserWithPredictCountData);
+		// }
 
 		return isAlreadyInThere;
 	}
@@ -444,21 +345,12 @@ public class DataAnalyze {
 	public static StatisticsResultData statisticsResult(
 			Hashtable<Integer, LinkedList<Integer>> predictBuyItemsNTable)
 			throws SQLException {
-		StatisticsResultData hitedbuyingitemsStatistics = new StatisticsResultData();
+		StatisticsResultData hiteditemsStatistics = new StatisticsResultData();
 
 		try {
 
-			Calendar cal = Calendar.getInstance();
-			try {
-				cal.setTime(MYSQLCONFIG.dateFormat
-						.parse(MYSQLCONFIG.DateThreshold));
-			} catch (ParseException e) {
-				// do nothing
-			}
-			cal.add(Calendar.MONTH, 1);
 			LinkedList<Object> actualBuyItemsN = getUsersSimpl(
-					MYSQLCONFIG.dateFormat.format(cal.getTime()),
-					MYSQLCONFIG.isOnlypurchaseAction);
+					MYSQLCONFIG.DateEndPoint, MYSQLCONFIG.isOnlypurchaseAction);
 
 			// LinkedList<Object> StaticsUsers = new LinkedList<Object>();
 			// allHitBrands对用户i预测的品牌列表与用户i真实购买的品牌交集的个数
@@ -468,34 +360,31 @@ public class DataAnalyze {
 			// allbBrands为用户i 真实购买的品牌个数
 			double allbBrands = 0;
 
+			Enumeration<Integer> key = predictBuyItemsNTable.keys();
+			while (key.hasMoreElements()) {
+				int userId = key.nextElement();
+				allpBrands += predictBuyItemsNTable.get(userId).size();
+			}
+
 			for (Object actualBuyNumItem : actualBuyItemsN) {
-				UserWithItemsData usert = (UserWithItemsData) actualBuyNumItem;
-				int userId = usert.getUserID();
-				allbBrands += usert.getProducts().size();
+				UserWithItemsData actualBuyItems = (UserWithItemsData) actualBuyNumItem;
+				int userId = actualBuyItems.getUserID();
+				allbBrands += actualBuyItems.getProducts().size();
 
 				boolean isContainsKey = predictBuyItemsNTable
 						.containsKey(userId);
 				if (isContainsKey) {
-					allpBrands += predictBuyItemsNTable.get(userId).size();
-					;
-					for (Object product : usert.getProducts()) {
-						UserWithItemsData.Product productt = (UserWithItemsData.Product) product;
-						LinkedList<Integer> products = predictBuyItemsNTable
+					for (UserWithItemsData.Product actualBuyItem : actualBuyItems
+							.getProducts()) {
+						LinkedList<Integer> predictBuyItems = predictBuyItemsNTable
 								.get(userId);
-						boolean isContainThisProduct = products
-								.contains(productt.getBrandID());
+						boolean isContainThisProduct = predictBuyItems
+								.contains(actualBuyItem.getBrandID());
 						if (isContainThisProduct) {
 							allHitBrands++;
 						}
 					}
 				}
-				// PredictBuyStatist staticsUser = new PredictBuyStatist();
-				// double precision = hitBrands / pBrands;
-				// double recall = hitBrands / bBrands;
-				// double F1 = 2 * precision * recall / (recall + precision);
-				// System.out.println("use_id:" + userId + "\tF1: " + F1
-				// + "\tprecision: " + precision + "\tallprecision: "
-				// + precision);
 
 			}
 			double allPrecision = allHitBrands / allpBrands;
@@ -503,9 +392,9 @@ public class DataAnalyze {
 			double allF1 = 2 * allPrecision * allRecall
 					/ (allRecall + allPrecision);
 
-			hitedbuyingitemsStatistics.setPrecision(allPrecision);
-			hitedbuyingitemsStatistics.setRecall(allRecall);
-			hitedbuyingitemsStatistics.setF1Score(allF1);
+			hiteditemsStatistics.setPrecision(allPrecision);
+			hiteditemsStatistics.setRecall(allRecall);
+			hiteditemsStatistics.setF1Score(allF1);
 			// predictBuy.setDayTime(dayTime);
 
 			if (ETLCONFIG.ISDEBUGMODEL) {
@@ -516,7 +405,7 @@ public class DataAnalyze {
 			e.printStackTrace();
 		}
 
-		return hitedbuyingitemsStatistics;
+		return hiteditemsStatistics;
 	}
 
 	/**
@@ -537,60 +426,78 @@ public class DataAnalyze {
 		Hashtable<Integer, LinkedList<Integer>> resultUserItems = new Hashtable<Integer, LinkedList<Integer>>();
 
 		for (Object user : users) {
-			LinkedList<ItemOnlyWithWeightData> tmpItems = new LinkedList<ItemOnlyWithWeightData>();
-			LinkedList<Integer> resultItems = new LinkedList<Integer>();
 			UserWithItemsData usert = (UserWithItemsData) user;
-			Hashtable<Integer, Integer> userItemsTable = new Hashtable<Integer, Integer>();
-
-			for (Object product : usert.getProducts()) {
-				UserWithItemsData.Product productt = (UserWithItemsData.Product) product;
-				int brandId = productt.getBrandID();
-
-				boolean isContainsKey = userItemsTable.containsKey(brandId);
-				int itemWeight;
-				if (isContainsKey) {
-					itemWeight = getItemWeight(userItemsTable.get(brandId),
-							productt.getType());
-				} else {
-					itemWeight = getItemWeight(0, productt.getType());
+			LinkedList<Integer> brandIds = new LinkedList<Integer>();
+			LinkedList<UserWithItemsData.Product> products = usert
+					.getProducts();
+			for (UserWithItemsData.Product product : products) {
+				boolean isContain = brandIds.contains(product.getBrandID());
+				if (false == isContain) {
+					brandIds.add(product.getBrandID());
 				}
-
-				userItemsTable.put(brandId, itemWeight);
 			}
-
-			// form the resultItems list and sort by weight descend.
-			Enumeration<Integer> key = userItemsTable.keys();
-			while (key.hasMoreElements()) {
-				int myk = key.nextElement();
-				ItemOnlyWithWeightData userWithItems = new ItemOnlyWithWeightData();
-				userWithItems.setProductID(myk);
-				userWithItems.setWeight(userItemsTable.get(myk));
-				tmpItems.add(userWithItems);
-			}
-			Collections.sort(tmpItems,
-					new Comparator<ItemOnlyWithWeightData>() {
-						@Override
-						public int compare(ItemOnlyWithWeightData o1,
-								ItemOnlyWithWeightData o2) {
-							return Integer.valueOf(o2.getWeight()).compareTo(
-									o1.getWeight());
-						}
-					});
-
-			// TODO
-			// int forecastItemN = usert.getWeight() / 26;
-			int tmp[] = usert.getUserActionCount();
-			int forecastItemN = tmp[1] + tmp[3];
-			for (ItemOnlyWithWeightData tmpItem : tmpItems) {
-
-				// if (forecastItemN-- <= 0)break;
-				resultItems.add(tmpItem.getProductID());
-			}
-
-			resultUserItems.put(usert.getUserID(), resultItems);
+			resultUserItems.put(usert.getUserID(), brandIds);
 		}
 
 		return resultUserItems;
+		// for (Object user : users) {
+		// LinkedList<ItemOnlyWithWeightData> tmpItems = new
+		// LinkedList<ItemOnlyWithWeightData>();
+		// LinkedList<Integer> resultItems = new LinkedList<Integer>();
+		// UserWithItemsData usert = (UserWithItemsData) user;
+		// Hashtable<Integer, Integer> userItemsTable = new Hashtable<Integer,
+		// Integer>();
+		//
+		// for (Object product : usert.getProducts()) {
+		// UserWithItemsData.Product productt = (UserWithItemsData.Product)
+		// product;
+		// int brandId = productt.getBrandID();
+		//
+		// boolean isContainsKey = userItemsTable.containsKey(brandId);
+		// int itemWeight;
+		// if (isContainsKey) {
+		// itemWeight = getItemWeight(userItemsTable.get(brandId),
+		// productt.getType());
+		// } else {
+		// itemWeight = getItemWeight(0, productt.getType());
+		// }
+		//
+		// userItemsTable.put(brandId, itemWeight);
+		// }
+		//
+		// // form the resultItems list and sort by weight descend.
+		// Enumeration<Integer> key = userItemsTable.keys();
+		// while (key.hasMoreElements()) {
+		// int myk = key.nextElement();
+		// ItemOnlyWithWeightData userWithItems = new ItemOnlyWithWeightData();
+		// userWithItems.setProductID(myk);
+		// userWithItems.setWeight(userItemsTable.get(myk));
+		// tmpItems.add(userWithItems);
+		// }
+		// Collections.sort(tmpItems,
+		// new Comparator<ItemOnlyWithWeightData>() {
+		// @Override
+		// public int compare(ItemOnlyWithWeightData o1,
+		// ItemOnlyWithWeightData o2) {
+		// return Integer.valueOf(o2.getWeight()).compareTo(
+		// o1.getWeight());
+		// }
+		// });
+		//
+		// // TODO
+		// // int forecastItemN = usert.getWeight() / 26;
+		// int tmp[] = usert.getUserActionCount();
+		// int forecastItemN = tmp[1] + tmp[3];
+		// for (ItemOnlyWithWeightData tmpItem : tmpItems) {
+		//
+		// // if (forecastItemN-- <= 0)break;
+		// resultItems.add(tmpItem.getProductID());
+		// }
+		//
+		// resultUserItems.put(usert.getUserID(), resultItems);
+		// }
+		//
+		// return resultUserItems;
 	}
 
 	/**
@@ -611,20 +518,20 @@ public class DataAnalyze {
 
 		try {
 			Date date1 = MYSQLCONFIG.dateFormat
-					.parse(MYSQLCONFIG.DateThreshold);
+					.parse(MYSQLCONFIG.DateAxialPoint);
 			Date date2 = MYSQLCONFIG.dateFormat.parse(dayTime);
 			int com = date1.compareTo(date2);
 			if (com > 0) {
 
 				sqlStat = "select * from tmail_firstseason where visit_datetime <= "
-						+ addDoubleQuote(MYSQLCONFIG.DateThreshold)
+						+ addDoubleQuote(MYSQLCONFIG.DateAxialPoint)
 						+ " and visit_datetime >= " + addDoubleQuote(dayTime);
 			} else {
 
 				sqlStat = "select * from tmail_firstseason where visit_datetime <= "
 						+ addDoubleQuote(dayTime)
 						+ " and visit_datetime >= "
-						+ addDoubleQuote(MYSQLCONFIG.DateThreshold);
+						+ addDoubleQuote(MYSQLCONFIG.DateAxialPoint);
 			}
 
 		} catch (ParseException e) {
@@ -831,11 +738,11 @@ public class DataAnalyze {
 			double support, double confidence,
 			Hashtable<Integer, LinkedList<Integer>> myHashtable) {
 
-		Hashtable<Integer, LinkedList<Integer>> myFPGrowthUsersTable = new Hashtable<Integer, LinkedList<Integer>>();
+		Hashtable<Integer, LinkedList<Integer>> resultUsersTable = new Hashtable<Integer, LinkedList<Integer>>();
 		Hashtable<Integer, LinkedList<Integer>> myFPGrowthItemsTable = null;
 		LinkedList<Object> UserHasAlreadyBuyitems = null;
 		try {
-			UserHasAlreadyBuyitems = getUsersSimpl("2013-04-15",
+			UserHasAlreadyBuyitems = getUsersSimpl(MYSQLCONFIG.DateStartPoint,
 					MYSQLCONFIG.isOnlypurchaseAction);
 
 			Configuration configuration = new Configuration();
@@ -850,45 +757,53 @@ public class DataAnalyze {
 				int userId = UserHasAlreadyBuyitemt.getUserID();
 				int count = 0;
 
-				for (Object product : UserHasAlreadyBuyitemt.getProducts()) {
-					UserWithItemsData.Product productt = (UserWithItemsData.Product) product;
-					if (myFPGrowthItemsTable.containsKey(productt.getBrandID())) {
-						
-						 addResult2HashTable(myFPGrowthUsersTable, userId,
-						 productt.getBrandID(), MYSQLCONFIG.isNilType);
-						 
-						 addResult2HashTable(myHashtable, userId,
-								 productt.getBrandID(),
-								 MYSQLCONFIG.isFPGrowthType);
-						 
-//						LinkedList<Integer> items = myFPGrowthItemsTable
-//								.get(productt.getBrandID());
+				for (UserWithItemsData.Product product : UserHasAlreadyBuyitemt
+						.getProducts()) {
+					if (myFPGrowthItemsTable.containsKey(product.getBrandID())) {
+						LinkedList<Integer> itemsValue = myFPGrowthItemsTable
+								.get(product.getBrandID());
+						for (Integer itemValue : itemsValue) {
+							addSingleton2HashTable(resultUsersTable, userId,
+									itemValue);
 
-//						for (Integer item : items) {
-//							addResult2HashTable(myFPGrowthUsersTable, userId,
-//									item, MYSQLCONFIG.isNilType);
-//
-//							// add to myOverallResult hashtable
-//							boolean isAlreadyInThere = addResult2HashTable(
-//									myHashtable, userId, item,
-//									MYSQLCONFIG.isFPGrowthType);
-//
-//							if (false == isAlreadyInThere) {
-//								count++;
-//							}
-//							 addResult2HashTable(myFPGrowthUsersTable, userId,
-//							 productt.getBrandID(), MYSQLCONFIG.isNilType);
-//							
-//							 // add to myOverallResult hashtable
-//							 boolean isAlreadyInThere = addResult2HashTable(
-//							 myHashtable, userId,
-//							 productt.getBrandID(),
-//							 MYSQLCONFIG.isFPGrowthType);
-//							
-//							 if (false == isAlreadyInThere) {
-//							 count++;
-//							 }
-//						}
+							addSingleton2HashTable(myHashtable, userId,
+									itemValue);
+
+						}
+						// addSingleton2HashTable(resultUsersTable, userId,
+						// product.getBrandID());
+						//
+						// addSingleton2HashTable(myHashtable, userId,
+						// product.getBrandID());
+
+						// LinkedList<Integer> items = myFPGrowthItemsTable
+						// .get(productt.getBrandID());
+
+						// for (Integer item : items) {
+						// addResult2HashTable(myFPGrowthUsersTable, userId,
+						// item, MYSQLCONFIG.isNilType);
+						//
+						// // add to myOverallResult hashtable
+						// boolean isAlreadyInThere = addResult2HashTable(
+						// myHashtable, userId, item,
+						// MYSQLCONFIG.isFPGrowthType);
+						//
+						// if (false == isAlreadyInThere) {
+						// count++;
+						// }
+						// addResult2HashTable(myFPGrowthUsersTable, userId,
+						// productt.getBrandID(), MYSQLCONFIG.isNilType);
+						//
+						// // add to myOverallResult hashtable
+						// boolean isAlreadyInThere = addResult2HashTable(
+						// myHashtable, userId,
+						// productt.getBrandID(),
+						// MYSQLCONFIG.isFPGrowthType);
+						//
+						// if (false == isAlreadyInThere) {
+						// count++;
+						// }
+						// }
 					}
 				}
 
@@ -897,7 +812,7 @@ public class DataAnalyze {
 			// do nothing
 		}
 
-		return myFPGrowthUsersTable;
+		return resultUsersTable;
 	}
 
 	/**
@@ -944,11 +859,10 @@ public class DataAnalyze {
 						for (String itemId : itemList) {
 							if (!itemId.equals(firstItemId)) {
 
-								addResult2HashTable(
+								addSingleton2HashTable(
 										myreadFrequentPatternsTable,
 										Integer.parseInt(firstItemId),
-										Integer.parseInt(itemId),
-										MYSQLCONFIG.isNilType);
+										Integer.parseInt(itemId));
 							}
 						}
 
@@ -992,7 +906,8 @@ public class DataAnalyze {
 	 * @param null
 	 * @return parameters null
 	 */
-	public static void fPGrowthSaveDataToDatFile(String dayTime) throws Exception {
+	public static void fPGrowthSaveDataToDatFile(String dayTime)
+			throws Exception {
 
 		LinkedList<Object> IndexdByUseridItems = getUsersSimpl(dayTime,
 				MYSQLCONFIG.isOnlypurchaseAction);
@@ -1000,11 +915,12 @@ public class DataAnalyze {
 		Hashtable<Integer, LinkedList<Integer>> myTable = new Hashtable<Integer, LinkedList<Integer>>();
 		for (Object IndexdByUseridItem : IndexdByUseridItems) {
 			UserWithItemsData IndexdByUseridItemt = (UserWithItemsData) IndexdByUseridItem;
-			LinkedList<Object> products = IndexdByUseridItemt.getProducts();
+			LinkedList<UserWithItemsData.Product> products = IndexdByUseridItemt
+					.getProducts();
 			for (Object product : products) {
 				UserWithItemsData.Product productt = (UserWithItemsData.Product) product;
-				addResult2HashTable(myTable, IndexdByUseridItemt.getUserID(),
-						productt.getBrandID(), MYSQLCONFIG.isNilType);
+				addSingleton2HashTable(myTable,
+						IndexdByUseridItemt.getUserID(), productt.getBrandID());
 			}
 		}
 
@@ -1032,6 +948,61 @@ public class DataAnalyze {
 		System.out.println("Wrote " + transactionCount + " transactions.");
 
 	}
+
+	// public static int getMonthduration(String datTime1, String datTime2)
+	// throws Exception {
+	// Date d1 = MYSQLCONFIG.dateFormat.parse(datTime1);
+	// Date d2 = MYSQLCONFIG.dateFormat.parse(datTime2);
+	// long diff = d1.getTime() - d2.getTime();
+	// long months = diff / (1000 * 60 * 60 * 24 * 30);
+	//
+	// // make sure month equal or bigger than one
+	// if (months >= 2) {
+	// return Math.abs((int) months - 1);
+	// } else {
+	// return 1;
+	// }
+	// }
+
+	/**
+	 * This method get useridA next month buying products number
+	 * 
+	 * @param datTime
+	 *            ，between datTime and MYSQLCONFIG.DateThreshold,we can
+	 *            calculate the number of products that specific userid buying.
+	 */
+	// public static Hashtable<Integer, UserWithPredictCountData>
+	// getUserbuyingItemsNPerMonth(
+	// String datTime) throws Exception {
+	// if (null != myUserBuyingItemsNPerMonth) {
+	// return myUserBuyingItemsNPerMonth;
+	// }
+	//
+	// myUserBuyingItemsNPerMonth = new Hashtable<Integer,
+	// UserWithPredictCountData>();
+	// int myMonthduration = getMonthduration(datTime,
+	// MYSQLCONFIG.DateThreshold);
+	// LinkedList<Object> IndexdByUseridItems = getUsersSimpl(datTime,
+	// MYSQLCONFIG.isOnlypurchaseAction);
+	//
+	// for (Object IndexdByUseridItem : IndexdByUseridItems) {
+	// UserWithPredictCountData myUserWithCount = new
+	// UserWithPredictCountData();
+	// int[] userbuyingItemsN = { 0, 0, 0 };
+	// UserWithItemsData IndexdByUseridItemt = (UserWithItemsData)
+	// IndexdByUseridItem;
+	// myUserWithCount.setUserID(IndexdByUseridItemt.getUserID());
+	// int[] UserActionCount = IndexdByUseridItemt.getUserActionCount();
+	// userbuyingItemsN[2] = (UserActionCount[1] + UserActionCount[3])
+	// / myMonthduration + myMonthduration;
+	// myUserWithCount.setUserPredictCount(userbuyingItemsN);
+	//
+	// myUserBuyingItemsNPerMonth.put(IndexdByUseridItemt.getUserID(),
+	// myUserWithCount);
+	// }
+	//
+	// return myUserBuyingItemsNPerMonth;
+	// }
 
 	// /**
 	// * This method get the date LinkedList<Object> structure indexed by

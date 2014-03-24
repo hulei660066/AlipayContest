@@ -9,7 +9,7 @@ public class UserWithItemsData {
 	private int userActionCount[] = { 0, 0, 0, 0 };
 	private int weight = 0;
 
-	private LinkedList<Object> products = new LinkedList<Object>();
+	private LinkedList<Product> products = new LinkedList<Product>();
 
 	/**
 	 * @return the userID
@@ -42,7 +42,7 @@ public class UserWithItemsData {
 	/**
 	 * @return the products
 	 */
-	public LinkedList<Object> getProducts() {
+	public LinkedList<Product> getProducts() {
 		return products;
 	}
 
